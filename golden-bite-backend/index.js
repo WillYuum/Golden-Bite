@@ -16,7 +16,7 @@ app.get("/read/products", function(req,res){
         if(err){throw err}
         rows.forEach((row)=>{
             data = row
-            res.send({Data: row})
+            res.send({Data: data})
         })
     })
 
