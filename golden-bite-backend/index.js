@@ -8,6 +8,7 @@ let db = new sqlite3.Database('./goldenbites')
 
 app.get("/read/products", function(req,res){
 
+
     let sql = "Select * from products";
     
 
@@ -15,7 +16,7 @@ app.get("/read/products", function(req,res){
         if(err){throw err}
         rows.forEach((row)=>{
             data = row
-            res.send({Data: checkQuery(NAME,row)})
+            res.send({Data: row})
         })
     })
 
