@@ -10,18 +10,19 @@ app.get("/read/products", function(req,res){
 
 
     let sql = "Select * from products";
-    
+
 
     db.all(sql,[], (err,rows)=>{
+        data = []
         if(err){throw err}
-        rows.forEach((row)=>{
-            data = row
-            res.send({Data: data})
+        rows.forEach(async (row)=>{
+            await data.push(row)
+            res.send({DATA:data})
         })
     })
-
-   
 })
+
+
 
 
 
