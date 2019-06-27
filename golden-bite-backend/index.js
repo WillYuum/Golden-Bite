@@ -40,6 +40,7 @@ app.get("/products/delete/:id?" ,function(req,res){
         const ID = req.params.id
 
         const PRODUCTS_ID = req.query.products_name
+        res.set('Content-Type', 'text/plain');
         
         db.run(`UPDATE products SET products_name = ?
 
