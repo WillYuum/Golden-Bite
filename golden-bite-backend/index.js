@@ -4,12 +4,12 @@ const app = express()
 
 
 const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database('./goldenbites')
+let db = new sqlite3.Database('./')
 
 
 app.get("/products/read", function(req,res){
 
-    let sql = "Select * from products";
+    let sql = "Select * from Products";
 
     db.all(sql,[], (err,rows)=>{
         data = []
@@ -39,21 +39,30 @@ app.get("/products/delete/:id?" ,function(req,res){
 
         const ID = req.params.id
 
-        const PRODUCTS_ID = req.query.products_name
-        res.set('Content-Type', 'text/plain');
+        const PRODUCTS_ID = req.query.name 
+        const PRODUCTS_PRICE = req.query.price
         
-        db.run(`UPDATE products SET products_name = ?
-
-                WHERE products_id= ? `,[PRODUCTS_ID,ID] ,function(err){
+        db.run(`UPDATE products SET prodcuts_name = ?,
+                products_price = ?
+                WHERE products_id= ? `,
+                
+                [checkQuery(PRODUCTS_ID), checkQuery(PRODUCTS_PRICE), ID] ,function(err){
             if(err){
                 console.log(err)
             }else{
-                console.log(`edited product ${ID} with ${PRODUCTS_ID}`)
+                console.log(`edited product ${ID}`)
             }
         })
 
     })
 
+    function checkQuery(query){
+        if(query === !undefined){
+            console.log("query isn't mawjoode")
+        }else{
+            return query
+        }
+    }
  
 
-app.listen(3001);
+app.listen(3000);
