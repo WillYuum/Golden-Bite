@@ -1,8 +1,13 @@
 const express = require("express");
 const app = express();
 
+const cors = require('cors');
+
+
 const sqlite3 = require("sqlite3").verbose();
 let db = new sqlite3.Database("./goldenBites-db");
+
+app.use(cors())
 
 //--------------------------------------PRODUCTS-------------------------------------------------------------------------
 app.get("/products/read", function(req, res) {
@@ -269,4 +274,4 @@ app.get("/testimonials/delete/:id?", function(req, res) {
   });
 });
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-app.listen(3000);
+app.listen(3001);
