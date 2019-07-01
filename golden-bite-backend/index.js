@@ -274,4 +274,56 @@ app.get("/testimonials/delete/:id?", function(req, res) {
   });
 });
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------ORDERS--------------------------------------------------------------------------------------------
+
+app.get("/orders/read", function(req, res) {
+  let sql = "Select * from Orders";
+
+  db.all(sql, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ DATA: data });
+    });
+  });
+});
+
+app.get("/orders/edit/:id?", function(req, res) {
+  const ID = req.params.id;
+
+ const ORDERS_NAME = req.query.name;
+ const ORDERS_ADDRESS = req.query.address;
+ const ORDERS_PHONE_NUMBER = req.query.phone_number;
+ const ORDERS_EMAIL= req.query.email;
+
+  db.run(
+    `UPDATE Orders 
+                  SET name = coalesce(?,name),
+                  address = coalesce(?, address),
+                  phone_numbe = coalesce(?,phone_numbe),
+                  email = coalesce(?,email)
+  
+                  WHERE orders_id= ${ID}`,
+
+    [
+      ORDERS_NAME,
+      ORDERS_ADDRESS,
+      ORDERS_PHONE_NUMBER,
+      ORDERS_EMAIL
+    ],
+    function(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("DATA EDITED");
+      }
+    }
+  );
+});
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 app.listen(3001);
