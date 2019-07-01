@@ -325,5 +325,60 @@ app.get("/orders/edit/:id?", function(req, res) {
   );
 });
 
+app.get("/orders/create?", function(req, res) {
+
+  const ORDERS_NAME = req.query.name;
+ const ORDERS_ADDRESS = req.query.address;
+ const ORDERS_PHONE_NUMBER = req.query.phone_number;
+ const ORDERS_EMAIL= req.query.email;
+
+  db.all(
+    `INSERT INTO Orders
+         (name,address,phone_numbe,email)
+          VALUES (?,?,?,?)`,
+    [
+      ORDERS_NAME,
+      ORDERS_ADDRESS,
+      ORDERS_PHONE_NUMBER,
+      ORDERS_EMAIL
+    ],
+    function(err) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("DATA IS ADDED");
+      }
+    }
+  );
+});
+
+app.get("/orders/delete/:id?", function(req, res) {
+  const ID = req.params.id;
+
+  db.run(`DELETE FROM Orders WHERE orders_id=${ID}`, function(err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(`Product ${ID} got deleted!`);
+    }
+  });
+});
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//------------------------------------------------------------ORDERS_PRODUCTS------------------------------------------------------------
+app.get("/orders_products/read", function(req, res) {
+  let sql = "Select * from orders_products";
+
+  db.all(sql, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ DATA: data });
+    });
+  });
+});
+
 app.listen(3001);
