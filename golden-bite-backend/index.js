@@ -1,21 +1,30 @@
 const express = require("express");
 const app = express();
 
-const cors = require('cors');
+const cors = require("cors");
 
+const bodyParser = require("body-parser");
 
 const sqlite3 = require("sqlite3").verbose();
 let db = new sqlite3.Database("./goldenBites-db");
 
-app.use(cors())
+app.use(cors());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, contentType,Content-Type, Accept, Authorization"
+  );
+  next();
+});
 
 //--------------------------------------PRODUCTS-------------------------------------------------------------------------
 app.get("/products/read", function(req, res) {
-  let sql =
-    "Select * from Products JOIN Categories ON Products.category_id = Categories.categories_id";
+  let sql = `Select * from Products JOIN Categories ON Products.category_id = Categories.categories_id`;
 
   db.all(sql, [], (err, rows) => {
-    data = []; 
+    data = [];
     if (err) {
       throw err;
     }
@@ -175,29 +184,25 @@ app.delete("/category/delete/:id?", function(req, res) {
   }
 });
 
-app.patch("/category/edit/:id?", function(req,res){
+app.patch("/category/edit/:id?", function(req, res) {
+  var id = parseInt(req.params.id);
+  var cname = req.query.cname;
 
-  var id=parseInt(req.params.id)
-      var cname=req.query.cname
-        
-          db.run(`UPDATE Categories 
+  db.run(
+    `UPDATE Categories 
           SET categories_name = coalesce(?,categories_name)
           WHERE categories_id= ? `,
-          
-          [cname,id] ,function(err){
-              if(`${cname}`==undefined || `${cname}`=="" || `'${cname}'`==null )
-              {
-                  res.send({message:'error'})
-              }
-              
-      else{
-          res.send(" category edited")
+
+    [cname, id],
+    function(err) {
+      if (`${cname}` == undefined || `${cname}` == "" || `'${cname}'` == null) {
+        res.send({ message: "error" });
+      } else {
+        res.send(" category edited");
       }
-  })
-      
-      }
-      
-      )  
+    }
+  );
+});
 
 //-------------------------------------------------------------------------------------------------------------------------
 
@@ -319,10 +324,10 @@ app.get("/orders/read", function(req, res) {
 app.patch("/orders/edit/:id?", function(req, res) {
   const ID = req.params.id;
 
- const ORDERS_NAME = req.query.name;
- const ORDERS_ADDRESS = req.query.address;
- const ORDERS_PHONE_NUMBER = req.query.phone_number;
- const ORDERS_EMAIL= req.query.email;
+  const ORDERS_NAME = req.query.name;
+  const ORDERS_ADDRESS = req.query.address;
+  const ORDERS_PHONE_NUMBER = req.query.phone_number;
+  const ORDERS_EMAIL = req.query.email;
 
   db.run(
     `UPDATE Orders 
@@ -333,12 +338,7 @@ app.patch("/orders/edit/:id?", function(req, res) {
   
                   WHERE orders_id= ${ID}`,
 
-    [
-      ORDERS_NAME,
-      ORDERS_ADDRESS,
-      ORDERS_PHONE_NUMBER,
-      ORDERS_EMAIL
-    ],
+    [ORDERS_NAME, ORDERS_ADDRESS, ORDERS_PHONE_NUMBER, ORDERS_EMAIL],
     function(err, data) {
       if (err) {
         console.log(err);
@@ -350,22 +350,16 @@ app.patch("/orders/edit/:id?", function(req, res) {
 });
 
 app.post("/orders/create?", function(req, res) {
-
   const ORDERS_NAME = req.query.name;
- const ORDERS_ADDRESS = req.query.address;
- const ORDERS_PHONE_NUMBER = req.query.phone_number;
- const ORDERS_EMAIL= req.query.email;
+  const ORDERS_ADDRESS = req.query.address;
+  const ORDERS_PHONE_NUMBER = req.query.phone_number;
+  const ORDERS_EMAIL = req.query.email;
 
   db.all(
     `INSERT INTO Orders
          (name,address,phone_numbe,email)
           VALUES (?,?,?,?)`,
-    [
-      ORDERS_NAME,
-      ORDERS_ADDRESS,
-      ORDERS_PHONE_NUMBER,
-      ORDERS_EMAIL
-    ],
+    [ORDERS_NAME, ORDERS_ADDRESS, ORDERS_PHONE_NUMBER, ORDERS_EMAIL],
     function(err) {
       if (err) {
         console.log(err);
@@ -391,7 +385,9 @@ app.delete("/orders/delete/:id?", function(req, res) {
 
 //------------------------------------------------------------ORDERS_PRODUCTS------------------------------------------------------------
 app.get("/orders_products/read", function(req, res) {
-  let sql = "Select * from orders_products";
+  let sql = `Select * FROM ((Orders_products INNER JOIN Orders ON Orders_products.orders_id = Orders.orders_id)
+                                          INNER JOIN Products ON Orders_products.orders_products_id = Products.products_id);`;
+
 
   db.all(sql, [], (err, rows) => {
     data = [];
@@ -405,6 +401,62 @@ app.get("/orders_products/read", function(req, res) {
   });
 });
 
-app.get
+app.post("/orders_products/create?", function(req, res) {
+  const ORDERS_ID = req.query.order_id;
+  const PRODUCTS_ID = req.query.products_id;
+  const quantity = req.query.quantity;
+
+  db.all(
+    `INSERT INTO Orders_products
+         (orders_id, orders_products_id, quantity)
+          VALUES (?,?,?)`,
+    [ORDERS_ID, PRODUCTS_ID, quantity],
+    function(err) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("DATA IS ADDED");
+      }
+    }
+  );
+});
+
+app.patch("/orders_products/edit/:id?", function(req, res) {
+  const ID = req.params.id;
+
+  const ORDERS_ID = req.query.order_id;
+  const PRODUCTS_ID = req.query.PRODUCTS_ID;
+  const quantity = req.query.products;
+
+  db.run(
+    `UPDATE Orders_products 
+                  SET orders_id = coalesce(?,orders_id),
+                  orders_products_if = coalesce(?, orders_products_if),
+                  quantity = coalesce(?,quantity)
+  
+                  WHERE orders_id= ${ID}`,
+
+    [ORDERS_ID, PRODUCTS_ID, quantity],
+    function(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("DATA EDITED");
+      }
+    }
+  );
+});
+
+app.delete("/orders_products/delete/:id?", function(req, res) {
+  const ID = req.params.id;
+
+  db.run(`DELETE FROM Orders_products WHERE orders_id=${ID}`, function(err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(`Product ${ID} got deleted!`);
+    }
+  });
+});
 
 app.listen(3001);
