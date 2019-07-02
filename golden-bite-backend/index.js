@@ -402,7 +402,7 @@ app.get("/orders_products/read", function(req, res) {
 });
 
 app.post("/orders_products/create?", function(req, res) {
-  const ORDERS_ID = req.query.order_id;
+  const ORDER_ID = req.query.orders_id;
   const PRODUCTS_ID = req.query.products_id;
   const quantity = req.query.quantity;
 
@@ -424,14 +424,14 @@ app.post("/orders_products/create?", function(req, res) {
 app.patch("/orders_products/edit/:id?", function(req, res) {
   const ID = req.params.id;
 
-  const ORDERS_ID = req.query.order_id;
-  const PRODUCTS_ID = req.query.PRODUCTS_ID;
+  const ORDERS_ID = req.query.orders_id;
+  const PRODUCTS_ID = req.query.products_id;
   const quantity = req.query.products;
 
   db.run(
     `UPDATE Orders_products 
                   SET orders_id = coalesce(?,orders_id),
-                  orders_products_if = coalesce(?, orders_products_if),
+                  orders_products_id = coalesce(?, orders_products_id),
                   quantity = coalesce(?,quantity)
   
                   WHERE orders_id= ${ID}`,
