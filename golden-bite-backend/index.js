@@ -15,7 +15,7 @@ app.get("/products/read", function(req, res) {
     "Select * from Products JOIN Categories ON Products.category_id = Categories.categories_id";
 
   db.all(sql, [], (err, rows) => {
-    data = [];
+    data = []; 
     if (err) {
       throw err;
     }
@@ -26,7 +26,7 @@ app.get("/products/read", function(req, res) {
   });
 });
 
-app.get("/products/edit/:id?", function(req, res) {
+app.patch("/products/edit/:id?", function(req, res) {
   const ID = req.params.id;
 
   const PRODUCTS_NAME = req.query.name;
@@ -68,7 +68,7 @@ app.get("/products/edit/:id?", function(req, res) {
   );
 });
 
-app.get("/products/create?", function(req, res) {
+app.post("/products/create?", function(req, res) {
   const PRODUCTS_NAME = req.query.name;
   const PRODUCTS_PRICE = req.query.price;
   const PRODUCTS_STOCK = req.query.stock;
@@ -100,7 +100,7 @@ app.get("/products/create?", function(req, res) {
   );
 });
 
-app.get("/products/delete/:id?", function(req, res) {
+app.delete("/products/delete/:id?", function(req, res) {
   ID = req.params.id;
   console.log(ID);
 
@@ -132,7 +132,7 @@ app.get("/category/read", function(req, res) {
   });
 });
 
-app.get("/category/create?", function(req, res) {
+app.post("/category/create?", function(req, res) {
   var name = req.query.name;
   let sqladd = `INSERT INTO Categories(categories_name) VALUES('${name}')`;
   if (
@@ -156,7 +156,7 @@ app.get("/category/create?", function(req, res) {
   }
 });
 
-app.get("/category/delete/:id?", function(req, res) {
+app.delete("/category/delete/:id?", function(req, res) {
   var id = req.params.id;
   let sqldelete = `DELETE FROM Categories where categories_id=${id}`;
   if (`${id}` == undefined || `${id}` == "" || `${id}` == null) {
@@ -174,6 +174,30 @@ app.get("/category/delete/:id?", function(req, res) {
     });
   }
 });
+
+app.patch("/category/edit/:id?", function(req,res){
+
+  var id=parseInt(req.params.id)
+      var cname=req.query.cname
+        
+          db.run(`UPDATE Categories 
+          SET categories_name = coalesce(?,categories_name)
+          WHERE categories_id= ? `,
+          
+          [cname,id] ,function(err){
+              if(`${cname}`==undefined || `${cname}`=="" || `'${cname}'`==null )
+              {
+                  res.send({message:'error'})
+              }
+              
+      else{
+          res.send(" category edited")
+      }
+  })
+      
+      }
+      
+      )  
 
 //-------------------------------------------------------------------------------------------------------------------------
 
@@ -194,7 +218,7 @@ app.get("/testimonials/read", function(req, res) {
   });
 });
 
-app.get("/testimonials/edit/:id?", function(req, res) {
+app.patch("/testimonials/edit/:id?", function(req, res) {
   const ID = req.params.id;
 
   const TESTIMONIALS_NAME = req.query.name;
@@ -232,7 +256,7 @@ app.get("/testimonials/edit/:id?", function(req, res) {
   );
 });
 
-app.get("/testimonials/create?", function(req, res) {
+app.post("/testimonials/create?", function(req, res) {
   const TESTIMONIALS_NAME = req.query.name;
   const TESTIMONIALS_CONTENT = req.query.content;
   const TESTIMONIALS_DATE = req.query.date;
@@ -262,7 +286,7 @@ app.get("/testimonials/create?", function(req, res) {
   );
 });
 
-app.get("/testimonials/delete/:id?", function(req, res) {
+app.delete("/testimonials/delete/:id?", function(req, res) {
   const ID = req.params.id;
 
   db.run(`DELETE FROM Testimonials WHERE testimonials_id=${ID}`, function(err) {
@@ -292,7 +316,7 @@ app.get("/orders/read", function(req, res) {
   });
 });
 
-app.get("/orders/edit/:id?", function(req, res) {
+app.patch("/orders/edit/:id?", function(req, res) {
   const ID = req.params.id;
 
  const ORDERS_NAME = req.query.name;
@@ -325,7 +349,7 @@ app.get("/orders/edit/:id?", function(req, res) {
   );
 });
 
-app.get("/orders/create?", function(req, res) {
+app.post("/orders/create?", function(req, res) {
 
   const ORDERS_NAME = req.query.name;
  const ORDERS_ADDRESS = req.query.address;
@@ -352,7 +376,7 @@ app.get("/orders/create?", function(req, res) {
   );
 });
 
-app.get("/orders/delete/:id?", function(req, res) {
+app.delete("/orders/delete/:id?", function(req, res) {
   const ID = req.params.id;
 
   db.run(`DELETE FROM Orders WHERE orders_id=${ID}`, function(err) {
@@ -380,5 +404,7 @@ app.get("/orders_products/read", function(req, res) {
     });
   });
 });
+
+app.get
 
 app.listen(3001);
