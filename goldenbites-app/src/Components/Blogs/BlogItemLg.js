@@ -2,10 +2,11 @@ import React,{Component,Link} from "react";
 
 class BlogItemLg extends Component {
   render() {
-    return (
-      <div className="blogitemlg">
+     return (
+         
+     <div className="blogitemlg">
         <div className="blogitemlgimage">
-          {/* image */}
+          
 
           <img src="./cake.jpg" />
 
@@ -31,14 +32,14 @@ class BlogItemLg extends Component {
               </p>
             </div>
             <div class="batouna">
-              <Link to="/Mainblogclick">
-                <button type="submit">Read More</button>{" "}
-              </Link>
+             
+                <button type="submit">Read More</button>
+              
             </div>
           </div>
         </div>
       </div>
-    );
+    ); 
   }
 }
 
