@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-import '../App.css';
+import './Blogs.css';
 // import BlogItemLg from "./BlogItemLg.1";
 import BlogItemListing from './BlogItemListing';
 import MainBlogClick from './MainBlogClick';
