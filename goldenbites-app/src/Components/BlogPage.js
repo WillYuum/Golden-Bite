@@ -1,9 +1,10 @@
 import React,{Component} from 'react';
 
 import '../App.css';
-import BlogItemLg from './BlogItemLg';
+// import BlogItemLg from "./BlogItemLg.1";
 import BlogItemListing from './BlogItemListing';
 import MainBlogClick from './MainBlogClick';
+import BlogItemLg from './BlogItemLg';
 
 class BlogPage extends Component {
 

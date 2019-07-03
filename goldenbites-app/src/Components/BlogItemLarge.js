@@ -1,6 +1,6 @@
 import React,{Component,Link} from "react";
 
-class BlogItemLg extends Component {
+class BlogItemLarge extends Component {
   render() {
     return (
       <div className="blogitemlg">
@@ -42,6 +42,4 @@ class BlogItemLg extends Component {
   }
 }
 
-export default BlogItemLg
-
-
+export default BlogItemLarge
