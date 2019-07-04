@@ -1,14 +1,39 @@
-import React,{Component,Link} from "react";
+import React,{Component} from "react";
+import {Link} from 'react-router-dom'
 
 class BlogItemLg extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+      
+    }
+  }
+  async componentDidMount() {
+    try{
+      const response  = await fetch("http://localhost:3001/images_blogs/read");
+      const blogs = await response.json()
+      await this.setState({data:blogs})
+      await console.log("DATA +>" ,this.state.data)
+    }catch(err){
+      console.log(err)
+    }
+  }
+   
+  
+
+  
+
+
   render() {
      return (
          
      <div className="blogitemlg">
         <div className="blogitemlgimage">
-          
+          {/* <div className="caka">hi</div> */}
 
-          <img src="./cake.jpg" />
+          <img className="caka" src="./cake.jpg" />
 
           <div className="rightimagetext">
             <h1>We are your #1 Choice</h1>
@@ -31,10 +56,11 @@ class BlogItemLg extends Component {
                 ortu sic iacent, tamquam omnino sine animo sint...
               </p>
             </div>
-            <div class="batouna">
+            <div className="batouna">
+            
              
-                <button type="submit">Read More</button>
-              
+                <button type="submit"><Link to ="/MainBlogClick">Read More</Link></button>
+                
             </div>
           </div>
         </div>
