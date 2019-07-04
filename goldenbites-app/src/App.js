@@ -4,27 +4,21 @@ import "./App.css";
 import BlogPage from "./Components/Blogs/BlogPage";
 import MainBlogClick from "./Components/Blogs/MainBlogClick";
 
+
+import ProductsPage from "./Components/Products/ProductPage";
+
 class App extends Component {
 
   render() {
- 
-
-  
     return (
       <div className="App">
-
-   
-  
- 
-
-
-
-
         <Router>
           <Route path="/MainBlogClick" component={MainBlogClick} />
           <Route path="/" exact component={BlogPage} />
-        </Router>
 
+          <Route path="/Products" component={ProductsPage}/>
+        </Router>
+      
         
       </div>
     );
