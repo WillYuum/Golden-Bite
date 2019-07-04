@@ -13,10 +13,7 @@ render(){
 return(
 
 <div className="blogpage">
-<switch>
 
-{/* <Route path ="/Mainblogclick" component={MainBlogClick}/> */}
-</switch>
 
 
 

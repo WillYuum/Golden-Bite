@@ -1,17 +1,29 @@
-import React from 'react';
+import React,{Component} from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.css";
+import BlogPage from "./Components/Blogs/BlogPage";
+import MainBlogClick from "./Components/Blogs/MainBlogClick";
 
-import './App.css';
-import BlogPage from './Components/Blogs/BlogPage';
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-     <BlogPage/>
+  render() {
+ 
+
+  
+    return (
+      <div className="App">
 
 
 
-    </div>
-  );
+
+
+        <Router>
+          <Route path="/MainBlogClick" component={MainBlogClick} />
+          <Route path="/" exact component={BlogPage} />
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
