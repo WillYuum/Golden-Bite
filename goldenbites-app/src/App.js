@@ -14,8 +14,6 @@ class App extends Component {
         <Router>
           <Route path="/MainBlogClick" component={MainBlogClick} />
           <Route path="/" exact component={BlogPage} />
-
-
           <Route path="/Products" component={ProductsPage}/>
         </Router>
 

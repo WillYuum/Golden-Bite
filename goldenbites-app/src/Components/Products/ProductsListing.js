@@ -14,7 +14,7 @@ export default class ProductsListing extends React.Component{
           const products = await response.json()
           console.log(products.DATA)
           await this.setState({data_Products:products.DATA})
-          await console.log("DATA =>" ,this.state.data.DATA)
+          await console.log("DATA =>" ,this.state.data_Products.DATA)
         }catch(err){
           console.log(err)
         }
