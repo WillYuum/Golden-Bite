@@ -1,0 +1,23 @@
+.CategoryListing-container{
+    width:90vw;
+    margin: 30px auto;
+}
+.CategoryListing-lists{
+    display:flex;
+    justify-content: space-around;
+}
+
+
+
+/*-------------------------CATEGORY ITEM----------------------*/
+.CategoryItem-mainList{
+    list-style: none;
+    font-size:20px;
+    text-align: center;
+    width:150%;
+}
+
+.CategoryItem-mainList:hover{
+    cursor: pointer;
+    background-color:rgba(0,0,0,0.3);
+}

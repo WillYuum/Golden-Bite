@@ -3,18 +3,24 @@ import React from 'react';
 import './App.css';
 import BlogPage from './Components/Blogs/BlogPage';
 
-class App extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
 
-    }
-  }
+//----Products Components------
+ import ProductPage from "./Components/Products/ProductPage"
+//--------- --------------------
+class App extends React.Component{
+
+   
+  
+ 
 
   render(){
     return(
       <div className = "App-container">
-        <BlogPage/>
+        {/* <BlogPage /> */}
+
+        <ProductPage />
+        
+        
       </div>
     );
   }
