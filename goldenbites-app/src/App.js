@@ -4,10 +4,6 @@ import "./App.css";
 import BlogPage from "./Components/Blogs/BlogPage";
 import MainBlogClick from "./Components/Blogs/MainBlogClick";
 
-
-//----Products Components------
-import ProductPage from "./Components/Products/ProductPage"
-//--------- --------------------
 class App extends Component {
 
   render() {
@@ -28,7 +24,8 @@ class App extends Component {
           <Route path="/MainBlogClick" component={MainBlogClick} />
           <Route path="/" exact component={BlogPage} />
         </Router>
-        <ProductPage />
+
+        
       </div>
     );
   }
