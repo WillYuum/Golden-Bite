@@ -9,14 +9,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-   
-  
- 
-
-
-
-
         <Router>
           <Route path="/MainBlogClick" component={MainBlogClick} />
           <Route path="/" exact component={BlogPage} />
