@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import BlogPage from "./Components/Blogs/BlogPage";
 import MainBlogClick from "./Components/Blogs/MainBlogClick";
- 
+
+
+
+import ProductsPage from "./Components/Products/ProductPage";
 
 class App extends Component {
   render() {
