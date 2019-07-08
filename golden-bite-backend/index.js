@@ -30,7 +30,7 @@ app.get("/products/read", function(req, res) {
     }
     rows.forEach(async row => {
       await data.push(row);
-      res.send({ DATA: data });
+      res.send({DATA: data} );
     });
   });
 });
