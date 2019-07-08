@@ -5,7 +5,7 @@
     pointer-events: none;
   }
   
-  .App-header {
+  /* .App-header {
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
@@ -14,7 +14,7 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-  }
+  } */
   
   .App-link {
     color: #61dafb;
@@ -44,8 +44,9 @@
   
   .caka{
   
-    height: 55vh;
+   height: 55vh;
     width: 40%;
+    
   }
   .rightimagetext{
   
@@ -90,10 +91,17 @@
       height: 7vh;
       
     }
-    /* .underflextext{
+    .underflextext p{
       
-    } */
-  
+      /* background-color: red; */
+      text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    } 
+    .underflextext {
+      
+   height: 25vh;
+    } 
     .batouna
     {
       text-align: center;
@@ -129,7 +137,7 @@
                 color: #fff;
                  text-decoration: none;   }
 
-    .blogitemlisting
+    .hereitis
     {display: flex;
       flex-wrap: wrap;
       margin:1% auto;
@@ -138,6 +146,15 @@
     background-color: #4CAF50;
     
     }
+/* .blogitemlisting{
+  display: flex;
+      flex-wrap: wrap;
+      margin:1% auto;
+    width: 80%;
+    height: 130vh;
+    background-color: #4CAF50;
+} */
+
     .blogitemsm{
   margin: 3% auto;
       width: 30%;
@@ -159,11 +176,21 @@
   cursor: pointer;
   transition: all 0.3s ease-out;
     }
+
+    .imaga{
+      margin-left:15%;
+  width: 70%;
+  height: 30vh;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+    }
   
     .textunderimage{
       margin-left: 15%;
-  margin-top: 2%;
+  margin-top:2%;
   line-height: 240%;
+  color: black;
+  text-decoration: none;
     }
 
 
@@ -200,10 +227,10 @@ font-weight: bold;
 }
 
 
-.mainblogclick
+/* .mainblogclick
 {
     
-}
+} */
 
 .maintextblog{
     margin-top: 5%;
@@ -215,9 +242,9 @@ font-weight: bold;
 .maintextblog p{
     margin-top: 1%;
 }
-.mainblogclick{
+/* .mainblogclick{
     /* background-color: #87CEFA; */
-}
+/* } */ 
 
 hr.style-seven { overflow: visible; 
   /* For IE */ 
