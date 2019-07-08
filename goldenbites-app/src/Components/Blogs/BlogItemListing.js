@@ -10,11 +10,11 @@ return(
 <div className="blogitemlisting">
 
 <Blogitemsm/>
+{/* <Blogitemsm/>
 <Blogitemsm/>
 <Blogitemsm/>
 <Blogitemsm/>
-<Blogitemsm/>
-<Blogitemsm/>
+<Blogitemsm/> */}
 
 </div>
 

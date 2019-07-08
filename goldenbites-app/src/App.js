@@ -6,26 +6,17 @@ import MainBlogClick from "./Components/Blogs/MainBlogClick";
 
 class App extends Component {
 
-<<<<<<< HEAD
   render() {
  
 
   
     return (
       <div className="App">
-=======
-
-//----Products Components------
- import ProductPage from "./Components/Products/ProductPage"
-//--------- --------------------
-class App extends React.Component{
->>>>>>> 4648882d2c5e2fb70166691c214708731ba92552
 
    
   
  
 
-<<<<<<< HEAD
 
 
 
@@ -33,16 +24,6 @@ class App extends React.Component{
           <Route path="/MainBlogClick" component={MainBlogClick} />
           <Route path="/" exact component={BlogPage} />
         </Router>
-=======
-  render(){
-    return(
-      <div className = "App-container">
-        {/* <BlogPage /> */}
-
-        <ProductPage />
-        
-        
->>>>>>> 4648882d2c5e2fb70166691c214708731ba92552
       </div>
     );
   }
