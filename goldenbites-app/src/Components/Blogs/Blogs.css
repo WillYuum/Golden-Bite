@@ -105,9 +105,10 @@
     .batouna
     {
       text-align: center;
-      margin-top: 5%;
+   
     }
     .batouna button{
+      margin-top: 0;
       display: inline-block;
       padding: 15px 25px;
       font-size: 85%;
@@ -140,10 +141,10 @@
     .hereitis
     {display: flex;
       flex-wrap: wrap;
-      margin:1% auto;
-    width: 80%;
-    height: 130vh;
-    background-color: #4CAF50;
+      /* margin:1% auto; */
+    /* width: 80%; */
+    /* height: 130vh; */
+    margin-top: 5%;
     
     }
 /* .blogitemlisting{
@@ -156,14 +157,14 @@
 } */
 
     .blogitemsm{
-  margin: 3% auto;
+  /* margin: 3% auto; */
       width: 30%;
       height: 50vh;
       /* background-color: red; */
       border: skyblue;
       border-style: groove;
       border-radius: 5%;
-
+     background-color:red;
 
 
      
@@ -191,6 +192,11 @@
   line-height: 240%;
   color: black;
   text-decoration: none;
+  border: 1px ;
+  border-width: 10%;
+  text-align: center;
+  border-radius: 5%;
+  background: #DEDEC6;
     }
 
 
@@ -355,5 +361,54 @@ hr.style-seven { overflow: visible;
           height: 100%;
         }
 
-       
-        
+       .item{
+         width:30%;
+         position: relative;
+         display: block;
+       }
+        .holahola{
+margin: 0;
+          text-align: center;
+        }
+        .holahola h1{
+background-color: #6495ED;
+height: 8vh;
+/* padding-top: 0.5%; */
+        }
+        .holahola h2{
+          background-color: #7FFF00;
+          height: 8vh;
+          padding-top: 0.7%;
+        }
+        .holahola h3{
+          background-color: #FF69B4;
+          height: 8vh;
+          padding-top: 0.8%;
+        }
+        .holahola h4{
+          background-color: #3CB371;
+          height: 8vh;
+          padding-top: 0.8%;
+        }
+        .holahola h5{
+          background-color: #FF4500;
+          height: 8vh;
+          padding-top: 0.9%;
+        }
+        .spana
+        {
+
+          text-align: center;
+        }
+
+        .bordera{
+
+
+        }
+
+        hr.type_1 {
+          border: 0;
+          height: 55px;
+          background-image: url(/Assets/type_1.png);
+          background-repeat: no-repeat;
+          }

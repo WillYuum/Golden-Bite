@@ -23,13 +23,13 @@ class BlogItemLg extends Component {
       const response  = await fetch("http://localhost:3001/images_blogs/read");
       const iblogs = await response.json()
       await this.setState({data:iblogs.DATA})
-      await console.log("DATA:",this.state.data)
+      await console.log("Image table is:",this.state.data)
 
  // FETCH FROM BLOGS TABLE author
  const response_blogs  = await fetch("http://localhost:3001/blogs/read");
  const blogs = await response_blogs.json()
  await this.setState({data:blogs.DATA})
- await console.log("DATA:",this.state.data)
+ await console.log("blog table is:",this.state.data)
 
   // FETCH FROM BLOGS TABLE date
   const response_date  = await fetch("http://localhost:3001/blogs/read");

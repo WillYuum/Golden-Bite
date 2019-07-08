@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-
+import {Link} from 'react-router-dom'
 
 class BlogItemSm extends Component{
   constructor(props) {
@@ -7,6 +7,11 @@ class BlogItemSm extends Component{
 
     this.state = {
       data: [],
+      
+    }
+
+     this.state = {
+      datab: [],
       
     }
 	}
@@ -17,8 +22,13 @@ class BlogItemSm extends Component{
       const response_images= await fetch("http://localhost:3001/images_blogs/read");
       const iiblogs = await response_images.json()
       await this.setState({data:iiblogs.DATA})
-      await console.log("DATA:",this.state.data.blogs_id)
+      await console.log("my data is:",this.state.data)
 
+        // FETCH FROM BLOGS TABLE
+        const response_blogza= await fetch("http://localhost:3001/blogs/read");
+        const zzblogs = await response_blogza.json()
+        await this.setState({datab:zzblogs.DATA})
+        await console.log("blogza is:",this.state.datab)
 			
 
     }catch(err){
@@ -32,25 +42,33 @@ render(){
     
 return(
 
- <div className="blogitemsm" >
+ 
 
  <div className="hereitis">
-<a href="#popup1">
+
  {/* <img src="frez.jpg"/>   */}
 
 
- { this.state.data.map(data=>
-	<div>
-	<img src={data.images_link} />
+ { this.state.datab.map(item=>
+	<div className="item">
+  <a href={`#${this.state.datab.blogs_title}`}>
+	<img src={item.images_link} />
+
   <div className="textunderimage">
-	<p>Title: {data.blogs_id} </p>
-<p>Author:{data.blogs_author} </p>
-<p>Date: {data.blogs_date}</p>
+<Link to ="/BlogItemSmdetails">
+	<p>Title: {item.blogs_title} </p>
+<p>Author:{item.blogs_author} </p>
+<p>Date: {item.blogs_date}</p>
+</Link>
 </div>
+</a>
 	</div>
 ) }
 
-{/* <div className="textunderimage">
+
+</div>
+
+/* <div className="textunderimage">
 
 {this.state.data.map(data=>
 <div>
@@ -60,37 +78,35 @@ return(
 </div>
 )}
 
-</div> */}
+</div> */
 
 
- {/* <img   src={this.state.data.length>0? this.state.data[1].images_link: null}/> */}
-</a>
+ /* <img   src={this.state.data.length>0? this.state.data[1].images_link: null}/> */
 
-</div>
-<div id="popup1" className="overlay">
+/* <div id={`${this.state.datab.blogs_title}`} className="overlay">
 	<div className="popup">
     <img src="frez.jpg"/>
 		<a className="close" href="#">&times;</a>
 		<div className="content">
         <div className="textunderimage">
 
-<p>Title:</p>
-<p>Author:</p>
-<p>Date:</p>
+<p>Title: {this.state.datab.blogs_title}</p>
+<p>Author: {this.state.datab.blogs_author}</p>
+<p>Date: {this.state.datab.blogs_date}</p>
 
 </div>
 		</div>
 	</div>
-</div>
-{/* <div>
+</div> */
+/* <div>
 {this.state.data.map(data=>
 	<div>
 	
 	<h1>Title is :{data.blogs_date}</h1>
 	</div>
 )}
-</div>  */}
-</div> 
+</div>  */
+
 
 )//return
 
