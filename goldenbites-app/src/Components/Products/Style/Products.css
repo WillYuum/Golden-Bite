@@ -19,6 +19,7 @@
 .ProductsItem-container{
     width:22%;
     height: 400px;
+    margin-bottom: 35px;
     box-shadow: 5px 5px 10px  darkgoldenrod;
 }
 

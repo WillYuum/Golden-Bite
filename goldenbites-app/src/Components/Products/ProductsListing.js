@@ -11,9 +11,8 @@ export default class ProductsListing extends React.Component {
     try {
       const response = await fetch("http://localhost:3001/products/read");
       const products = await response.json();
-      console.log(products.DATA);
       await this.setState({ data_Products: products.DATA });
-      await console.log("DATA =>", this.state.data_Products.DATA);
+      await console.log("DATA =>", this.state.data_Products);
     } catch (err) {
       console.log(err);
     }

@@ -3,11 +3,13 @@
     left:6.5%;
     top:5%;
     width:87vw;
+    height:  80vh;
     margin: 30px auto;
     border-radius: 10px;
     background: lightgray;
     box-shadow: 4px 6px 1px darkgoldenrod;
     transition: opacity 500ms;
+    overflow: auto;
     visibility: hidden;
     opacity: 0;
 
@@ -48,11 +50,17 @@
   }
 
   .ProductsItem-MainDetails{
-      width:70%;
+      width:100%;
   }
 
 
+  .ProductsItem-popupImage{
+
+      float: right;
+  }
+
   .ProductsItem-productname{
+      word-break: keep-all;
       font-size:35px;
       word-spacing: 10%;
   }
@@ -61,10 +69,14 @@
       font-size:25px;
   }
 
+  .ProductsItem-productdescription{
+      width:100%;
+  }
+
   .ProductsItem-productprice,
   .Productsitem-productCategory,
   .ProductsItem-productdescription{
-      margin-top:30px;
+      margin-top:70px;
   }
 
   .ProductsItem-form{
@@ -81,12 +93,12 @@
       color:darkgoldenrod;
       display: flex;
       flex-direction: column;
-      width:85%;
+      width:95%;
       height: 40px;
-      margin-top:20px;
-      margin-bottom: 20px;
-      margin-left: 10%;
+      margin: 20px auto;
       font-size:20px;
       background-color:rgb(56, 10, 56);
       border:none;
   }
+
+ 

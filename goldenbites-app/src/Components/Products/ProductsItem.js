@@ -1,6 +1,7 @@
 import React from "react";
 import "./Style/PopUpModel.css";
 
+
 export default class ProductsItem extends React.Component {
   render() {
     return (
@@ -8,9 +9,7 @@ export default class ProductsItem extends React.Component {
         <div
           className="ProductsItem-image"
           style={{
-            backgroundImage: `url(\"/Golden_Bites_Images/${
-              this.props.img
-            }.jpg\")`,
+            backgroundImage: `url(\"http://localhost:3001/Golden_Bites_Images/${this.props.img}.jpg\")`,
             backgroundSize: "100% 100%"
           }}
         />
@@ -29,13 +28,19 @@ export default class ProductsItem extends React.Component {
             </div>
           </div>
         </div>
-
+        {/*-----------------------------------------POPUP-----------------------------------------------------*/}
         <div id={`${this.props.name}`} className="ProductsItem-overlay">
           <div className="ProductsItem-content">
             <a href="#" className="ProductsItem-close">
               &times;
             </a>
             <div className="ProductsItem-MainDetails">
+
+
+            <div className = "ProductsItem-popupImage">
+              <img src={`http://localhost:3001/Golden_Bites_Images/${this.props.img}.jpg`} alt=""/>
+            </div>
+              
               <p className="ProductsItem-productname">{this.props.name}</p>
               <p className="ProductsItem-productprice">${this.props.price}</p>
               <p className="Productsitem-productCategory">
@@ -44,14 +49,14 @@ export default class ProductsItem extends React.Component {
               <p className="ProductsItem-productdescription">
                 {this.props.discription}
               </p>
+              
             </div>
             <div className="ProductsItem-form">
               <form action="">
-                
-                <input className = "ProductsItem-Name" type="text" required/>
-                <input className = "ProductsItem-email" type="text" required/>
-                <input className = "ProductsItem-phone" type="text" required/>
-                <input className = "ProductsItem-address" type="text" required/>
+                <input className="ProductsItem-Name" type="text" placeholder = "Name"  required />
+                <input className="ProductsItem-email" type="text" placeholder = "Email" required />
+                <input className="ProductsItem-phone" type="text" placeholder = "Phone-Number" required />
+                <input className="ProductsItem-address" type="text" placeholder = "Address" required />
               </form>
             </div>
           </div>
