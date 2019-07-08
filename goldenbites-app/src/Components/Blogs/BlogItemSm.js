@@ -17,7 +17,7 @@ class BlogItemSm extends Component{
       const response_images= await fetch("http://localhost:3001/images_blogs/read");
       const iiblogs = await response_images.json()
       await this.setState({data:iiblogs.DATA})
-      await console.log("DATA:",this.state.data)
+      await console.log("DATA:",this.state.data.blogs_id)
 
 			
 
@@ -43,7 +43,7 @@ return(
 	<div>
 	<img src={data.images_link} />
   <div className="textunderimage">
-	<p>Title: {data.blogs_title} </p>
+	<p>Title: {data.blogs_id} </p>
 <p>Author:{data.blogs_author} </p>
 <p>Date: {data.blogs_date}</p>
 </div>
