@@ -30,7 +30,7 @@ export default class CategoryListing extends React.Component {
         <div className = "CategoryListing-lists">
         {
             this.state.data_Categories.map(category =>{
-                return <CategoryItem a = {category.categories_name}/>
+                return <CategoryItem a = {category.categories_name} b={this.props.a}/>
             })
         }
         </div>

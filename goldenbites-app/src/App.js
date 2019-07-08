@@ -6,12 +6,14 @@ import MainBlogClick from "./Components/Blogs/MainBlogClick";
 
 
 import ProductsPage from "./Components/Products/ProductPage";
+import BlogItemSmdetails from "./Components/BlogItemSmdetails";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Router>
+        <Route path="/BlogItemSmdetails" component={BlogItemSmdetails} />
           <Route path="/MainBlogClick" component={MainBlogClick} />
           <Route path="/" exact component={BlogPage} />
           <Route path="/Products" component={ProductsPage}/>

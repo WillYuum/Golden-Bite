@@ -1,7 +1,6 @@
 import React from "react";
 import "./Style/PopUpModel.css";
 
-
 export default class ProductsItem extends React.Component {
   render() {
     return (
@@ -9,7 +8,9 @@ export default class ProductsItem extends React.Component {
         <div
           className="ProductsItem-image"
           style={{
-            backgroundImage: `url(\"http://localhost:3001/Golden_Bites_Images/${this.props.img}.jpg\")`,
+            backgroundImage: `url(\"http://localhost:3001/Golden_Bites_Images/${
+              this.props.img
+            }.jpg\")`,
             backgroundSize: "100% 100%"
           }}
         />
@@ -23,7 +24,7 @@ export default class ProductsItem extends React.Component {
             </p>
             <div className="ProductsItem-info addToCart">
               <a href={`#${this.props.name}`}>
-                <p className="ProductsItem-text">ADD TO CART</p>
+                <p className="ProductsItem-text">BUY NOW</p>
               </a>
             </div>
           </div>
@@ -35,29 +36,58 @@ export default class ProductsItem extends React.Component {
               &times;
             </a>
             <div className="ProductsItem-MainDetails">
+              <div className="ProductsItem-popupImage">
+                <img
+                  width="300px"
+                  height="250px"
+                  src={`http://localhost:3001/Golden_Bites_Images/${
+                    this.props.img
+                  }.jpg`}
+                  alt=""
+                />
+              </div>
 
-
-            <div className = "ProductsItem-popupImage">
-              <img src={`http://localhost:3001/Golden_Bites_Images/${this.props.img}.jpg`} alt=""/>
-            </div>
-              
               <p className="ProductsItem-productname">{this.props.name}</p>
-              <p className="ProductsItem-productprice">${this.props.price}</p>
+              <p className="ProductsItem-productprice">
+                <b>${this.props.price}</b>
+              </p>
               <p className="Productsitem-productCategory">
-                Categories:{this.props.category}
+                Categories: {this.props.category}
               </p>
               <p className="ProductsItem-productdescription">
                 {this.props.discription}
               </p>
-              
             </div>
             <div className="ProductsItem-form">
               <form action="">
-                <input className="ProductsItem-Name" type="text" placeholder = "Name"  required />
-                <input className="ProductsItem-email" type="text" placeholder = "Email" required />
-                <input className="ProductsItem-phone" type="text" placeholder = "Phone-Number" required />
-                <input className="ProductsItem-address" type="text" placeholder = "Address" required />
+                <input
+                  className="ProductsItem-Name"
+                  type="text"
+                  placeholder="Name"
+                  required
+                />
+                <input
+                  className="ProductsItem-email"
+                  type="text"
+                  placeholder="Email"
+                  required
+                />
+                <input
+                  className="ProductsItem-phone"
+                  type="text"
+                  placeholder="Phone-Number"
+                  required
+                />
+                <input
+                  className="ProductsItem-address"
+                  type="text"
+                  placeholder="Address"
+                  required
+                />
               </form>
+            </div>
+            <div className = "ProductsItem-btn-bg">
+              <input className="Productsitem-btn" type="submit"  />
             </div>
           </div>
         </div>
