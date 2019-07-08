@@ -412,3 +412,7 @@ height: 8vh;
           background-image: url(/Assets/type_1.png);
           background-repeat: no-repeat;
           }
+
+          .item img{
+            text-align: center;
+          }

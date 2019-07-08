@@ -313,7 +313,7 @@ app.delete("/testimonials/delete/:id?", function(req, res) {
     app.get("/blogs/read", function(req,res){
 
 
-      let sqlreadblog = "Select * from blogs";
+      let sqlreadblog = "select Blogs.blogs_author, Blogs.blogs_content, Blogs.blogs_date, Blogs.blogs_id, Blogs.blogs_title, Images_blogs.images_link from Blogs join Images_blogs on Blogs.images_link_id = Images_blogs.images_link_id";
   
   
       db.all(sqlreadblog,[], (err,rows)=>{

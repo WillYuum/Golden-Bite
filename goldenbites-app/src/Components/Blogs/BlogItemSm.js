@@ -1,74 +1,57 @@
-import React,{Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-class BlogItemSm extends Component{
-  constructor(props) {
-    super(props);
+class BlogItemSm extends Component {
+	constructor(props) {
+		super(props);
 
-    this.state = {
-      data: [],
-      
-    }
-
-     this.state = {
-      datab: [],
-      
-    }
+		this.state = {
+			data: [],
+			datab: [],
+		};
 	}
+
+	async componentDidMount() {
+		try {
+			// FETCH FROM IMAGES_BLOGS TABLE
+			const response_images = await fetch('http://localhost:3001/images_blogs/read');
+			const iiblogs = await response_images.json();
+			await this.setState({ data: iiblogs.DATA });
+			await console.log('my data is:', this.state.data);
+
+			// FETCH FROM BLOGS TABLE
+			const response_blogza = await fetch('http://localhost:3001/blogs/read');
+			const zzblogs = await response_blogza.json();
+			await this.setState({ datab: zzblogs.DATA });
+			await console.log('my blogs are:', this.state.datab);
+		} catch (err) {
+			console.log(err);
+		}
+	}
+
+	render() {
+		return (
+			<div className="hereitis">
+				{this.state.datab.map(item => (
+					<div className="item">
+						<img
+							src={`http://localhost:3001/Golden_Bites_Images/${item.images_link}.jpg`}
+							alt="no image"
+						/>
 	
-  async componentDidMount() {
-    try{
-      // FETCH FROM IMAGES_BLOGS TABLE
-      const response_images= await fetch("http://localhost:3001/images_blogs/read");
-      const iiblogs = await response_images.json()
-      await this.setState({data:iiblogs.DATA})
-      await console.log("my data is:",this.state.data)
+						<div className="textunderimage">
+							<Link to="/BlogItemSmdetails">
+								<p>Title: {item.blogs_title} </p>
+								<p>Author:{item.blogs_author} </p>
+								<p>Date: {item.blogs_date}</p>
+							</Link>
+							
+						</div>
+					</div>
+				))}
+			</div>
 
-        // FETCH FROM BLOGS TABLE
-        const response_blogza= await fetch("http://localhost:3001/blogs/read");
-        const zzblogs = await response_blogza.json()
-        await this.setState({datab:zzblogs.DATA})
-        await console.log("blogza is:",this.state.datab)
-			
-
-    }catch(err){
-      console.log(err)
-    }
-  }
-  
-
-render(){
-  
-    
-return(
-
- 
-
- <div className="hereitis">
-
- {/* <img src="frez.jpg"/>   */}
-
-
- { this.state.datab.map(item=>
-	<div className="item">
-  <a href={`#${this.state.datab.blogs_title}`}>
-	<img src={item.images_link} />
-
-  <div className="textunderimage">
-<Link to ="/BlogItemSmdetails">
-	<p>Title: {item.blogs_title} </p>
-<p>Author:{item.blogs_author} </p>
-<p>Date: {item.blogs_date}</p>
-</Link>
-</div>
-</a>
-	</div>
-) }
-
-
-</div>
-
-/* <div className="textunderimage">
+			/* <div className="textunderimage">
 
 {this.state.data.map(data=>
 <div>
@@ -80,10 +63,9 @@ return(
 
 </div> */
 
+			/* <img   src={this.state.data.length>0? this.state.data[1].images_link: null}/> */
 
- /* <img   src={this.state.data.length>0? this.state.data[1].images_link: null}/> */
-
-/* <div id={`${this.state.datab.blogs_title}`} className="overlay">
+			/* <div id={`${this.state.datab.blogs_title}`} className="overlay">
 	<div className="popup">
     <img src="frez.jpg"/>
 		<a className="close" href="#">&times;</a>
@@ -98,7 +80,7 @@ return(
 		</div>
 	</div>
 </div> */
-/* <div>
+			/* <div>
 {this.state.data.map(data=>
 	<div>
 	
@@ -106,19 +88,8 @@ return(
 	</div>
 )}
 </div>  */
-
-
-)//return
-
-
-
-
-} //render
-
-
-
-
-
+		); //return
+	} //render
 } //component
 
-export default BlogItemSm
+export default BlogItemSm;
