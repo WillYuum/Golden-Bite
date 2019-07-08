@@ -29,7 +29,7 @@ export default class ProductsItem extends React.Component {
             </div>
           </div>
         </div>
-
+        {/*-----------------------------------------POPUP-----------------------------------------------------*/}
         <div id={`${this.props.name}`} className="ProductsItem-overlay">
           <div className="ProductsItem-content">
             <a href="#" className="ProductsItem-close">
@@ -47,11 +47,10 @@ export default class ProductsItem extends React.Component {
             </div>
             <div className="ProductsItem-form">
               <form action="">
-                
-                <input className = "ProductsItem-Name" type="text" required/>
-                <input className = "ProductsItem-email" type="text" required/>
-                <input className = "ProductsItem-phone" type="text" required/>
-                <input className = "ProductsItem-address" type="text" required/>
+                <input className="ProductsItem-Name" type="text" required />
+                <input className="ProductsItem-email" type="text" required />
+                <input className="ProductsItem-phone" type="text" required />
+                <input className="ProductsItem-address" type="text" required />
               </form>
             </div>
           </div>
