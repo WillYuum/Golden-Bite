@@ -11,6 +11,7 @@
 
 /*-------------------------CATEGORY ITEM----------------------*/
 .CategoryItem-mainList{
+    color: darkgoldenrod;
     list-style: none;
     font-size:20px;
     text-align: center;
@@ -19,5 +20,5 @@
 
 .CategoryItem-mainList:hover{
     cursor: pointer;
-    background-color:rgba(0,0,0,0.3);
+    text-shadow:2px 2px 10px black;
 }
