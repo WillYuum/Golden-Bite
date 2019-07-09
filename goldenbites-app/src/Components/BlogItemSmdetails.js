@@ -34,10 +34,34 @@ class BlogItemSmdetails extends Component {
     }
   }
 
+
+
   render() {
-<<<<<<< HEAD
     return (
       <div className='blogitemsmdetails'>
+
+<div className='blogano'>
+          {this.state.databo.map(item => (
+            <div className='bordera'>
+              <h1>{item.blogs_title}</h1>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+              <hr className='style-eight' />
+            </div>
+          ))}
+        </div>
+
+        
         {/* <div className='holahola'>
           <h1>
             Every <Badge variant='secondary' />
@@ -55,64 +79,6 @@ class BlogItemSmdetails extends Component {
             Story <Badge variant='secondary' />
           </h5>
         </div> */}
-=======
-    
-
-     return (
-         
-     <div className="blogitemsmdetails">
-       <div className="holahola">
-  <h1>
-    Every <Badge variant="secondary"></Badge>
-  </h1>
-  <h2>
-   Blog<Badge variant="secondary"></Badge>
-  </h2>
-  <h3>
-    Is <Badge variant="secondary"></Badge>
-  </h3>
-  <h4>
-    A <Badge variant="secondary"></Badge>
-  </h4>
-  <h5>
-    Story <Badge variant="secondary"></Badge>
-  </h5>
-  
-</div>
-
-<div className="spana">
-  <Spinner animation="border" variant="primary" />
-  <Spinner animation="border" variant="secondary" />
-  <Spinner animation="border" variant="success" />
-  <Spinner animation="border" variant="danger" />
-  <Spinner animation="border" variant="warning" />
-  <Spinner animation="border" variant="info" />
-  <Spinner animation="border" variant="light" />
-  <Spinner animation="border" variant="dark" />
-  <Spinner animation="grow" variant="primary" />
-  <Spinner animation="grow" variant="secondary" />
-  <Spinner animation="grow" variant="success" />
-  <Spinner animation="grow" variant="danger" />
-  <Spinner animation="grow" variant="warning" />
-  <Spinner animation="grow" variant="info" />
-  <Spinner animation="grow" variant="light" />
-  <Spinner animation="grow" variant="dark" />
-</div>
-<div className="blogano">
-
-{this.state.databo.map(item=>
-
-
-<div className="bordera">
-
-<h1>{item.blogs_title}</h1>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-<hr className="style-eight" />
-</div>
-)}
-</div>
-
->>>>>>> 1079f19b5000a0161c3ef3a621db9934166f9fe1
 
         {/* <div className='spana'>
           <Spinner animation='border' variant='primary' />
@@ -132,15 +98,7 @@ class BlogItemSmdetails extends Component {
           <Spinner animation='grow' variant='light' />
           <Spinner animation='grow' variant='dark' />
         </div> */}
-        <div className='blogano'>
-          {this.state.databo.map(item => (
-            <div className='bordera'>
-              <h1>{item.blogs_title}</h1>
-              <p>{item.blogs_content}</p>
-              <hr className='style-eight' />
-            </div>
-          ))}
-        </div>
+        
       </div>
     );
   }
