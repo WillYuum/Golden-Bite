@@ -21,7 +21,9 @@ import Slider from 'react-slick';
 // ];
 
 class BestSellersSlider extends Component {
+ 
   render() {
+    console.log("it's working")
     var settings = {
       dots: true,
       infinite: true,

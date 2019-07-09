@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './nav.css';
 
 class Nav extends Component {
@@ -22,21 +23,22 @@ class Nav extends Component {
           <ul className='navigation__list'>
             <li className='navigation__item'>
               {' '}
-              <a href='#' className='navigation__link'>
-                <span>01</span>Home
-              </a>
+              <Link className='navigation__link'  to="/">01 Home</Link>
+              {/* <a href='#' className='navigation__link'>
+                <span>01</span>
+              </a> */}
             </li>
             <li className='navigation__item'>
               {' '}
-              <a href='#' className='navigation__link'>
-                <span>02</span>Products
-              </a>
+              <Link to="/Products" className='navigation__link'>
+                <span>02</span> Products
+              </Link>
             </li>
             <li className='navigation__item'>
               {' '}
-              <a href='#' className='navigation__link'>
-                <span>03</span>Blogs
-              </a>
+              <Link to="/Blogs" className='navigation__link'>
+                <span>03</span> Blogs
+              </Link>
             </li>
             <li className='navigation__item'>
               {' '}
