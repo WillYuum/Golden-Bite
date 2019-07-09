@@ -108,7 +108,7 @@
    
     }
     .batouna button{
-      margin-top: 0;
+      margin-top: 5%;
       display: inline-block;
       padding: 15px 25px;
       font-size: 85%;
@@ -402,7 +402,7 @@ height: 8vh;
         }
 
         .bordera{
-
+margin-top: 5%;
 
         }
 
@@ -414,5 +414,13 @@ height: 8vh;
           }
 
           .item img{
-            text-align: center;
+            margin-left: 30%;
+            width:50%;
+            margin-top: 10%;
+
+
+      
+          }
+          a{
+            text-decoration: none;
           }

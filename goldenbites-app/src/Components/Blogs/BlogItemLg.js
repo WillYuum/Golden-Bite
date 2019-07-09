@@ -63,8 +63,11 @@ console.log("this is " + this.state.data)
 
 </div> */}
 
-     <img className="caka" src={this.state.data.length>0? this.state.data[0].images_link: null} />  
-
+     {/* <img className="caka" src={this.state.data.length>0? this.state.data[0].images_link: null} />   */}
+     <img
+							src={`http://localhost:3001/Golden_Bites_Images/${this.state.data.images_link}.jpg`}
+							alt="no image"
+						/>
           <div className="rightimagetext">
             <h1>We are your #1 Choice</h1>
             <hr className="style-eight" />
