@@ -28,9 +28,10 @@ export default class CategoryListing extends React.Component {
     return (
       <div className="CategoryListing-container">
         <div className = "CategoryListing-lists">
+          <CategoryItem a = "All" all_button={this.props.all}/>
         {
             this.state.data_Categories.map(category =>{
-                return <CategoryItem a = {category.categories_name}/>
+                return <CategoryItem a = {category.categories_name} b={this.props.a}/>
             })
         }
         </div>
