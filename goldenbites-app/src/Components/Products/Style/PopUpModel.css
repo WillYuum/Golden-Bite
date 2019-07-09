@@ -1,0 +1,129 @@
+.ProductsItem-overlay {
+    position: fixed;
+    left:6.5%;
+    top:5%;
+    width:87vw;
+    height:  80vh;
+    margin: 30px auto;
+    border-radius: 10px;
+    background: lightgray;
+    box-shadow: 4px 6px 1px darkgoldenrod;
+    transition: opacity 500ms;
+    overflow: auto;
+    visibility: hidden;
+    opacity: 0;
+
+  }
+
+
+  .ProductsItem-overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+.ProductsItem-popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+
+
+   .ProductsItem-close {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .ProductsItem-content{
+      width:75%;
+      margin: 40px auto;
+  }
+
+  .ProductsItem-MainDetails{
+      width:100%;
+  }
+
+
+  .ProductsItem-popupImage{
+
+      float: right;
+  }
+
+  .ProductsItem-productname{
+      word-break: keep-all;
+      font-size:35px;
+      word-spacing: 10%;
+  }
+
+  .ProductsItem-productprice{
+      font-size:25px;
+  }
+
+  .ProductsItem-productdescription{
+      width:100%;
+  }
+
+  .ProductsItem-productprice,
+  .Productsitem-productCategory,
+  .ProductsItem-productdescription{
+      margin-top:65px;
+      font-size:20px;
+  }
+
+  .ProductsItem-form{
+      background-color:rgba(128, 0, 128, 0.486);
+      margin-top:40px;
+      padding:10px 0;
+      width:100%;
+  }
+
+  .ProductsItem-email,
+  .ProductsItem-Name,
+  .ProductsItem-phone,
+  .ProductsItem-address{
+      color:darkgoldenrod;
+      display: flex;
+      flex-direction: column;
+      width:95%;
+      height: 40px;
+      margin: 20px auto;
+      font-size:20px;
+      background-color:rgb(56, 10, 56);
+      border:none;
+  }
+
+ ::placeholder{
+     margin-left: 20px;
+ }
+
+  .ProductsItem-btn-bg{
+    text-align: center;
+    margin-top:50px;
+  }
+
+ .Productsitem-btn{
+     width: 35%;
+     height: 60px;
+    background-color: darkgoldenrod;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-style:bold;
+ }
+
+ .Productsitem-btn:hover{
+      background-color: rgb(117, 87, 10);
+}

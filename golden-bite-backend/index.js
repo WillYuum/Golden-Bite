@@ -413,6 +413,7 @@ app.listen(3001);
 const express = require("express");
 const app = express();
 
+
 const cors = require("cors");
 
 const bodyParser = require("body-parser");
@@ -421,6 +422,8 @@ const sqlite3 = require("sqlite3").verbose();
 let db = new sqlite3.Database("./goldenBites-db");
 
 app.use(cors());
+app.use(express.static('public'))
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
@@ -442,7 +445,7 @@ app.get("/products/read", function(req, res) {
     }
     rows.forEach(async row => {
       await data.push(row);
-      res.send({ DATA: data });
+      res.send({DATA: data} );
     });
   });
 });
@@ -714,6 +717,200 @@ app.delete("/testimonials/delete/:id?", function(req, res) {
     }
   });
 });
+
+
+//----------------------------------------------Blogs---------------------------------------------------
+
+    //read blogs table
+    app.get("/blogs/read", function(req,res){
+
+
+      let sqlreadblog = "select Blogs.blogs_author, Blogs.blogs_content, Blogs.blogs_date, Blogs.blogs_id, Blogs.blogs_title, Images_blogs.images_link from Blogs join Images_blogs on Blogs.images_link_id = Images_blogs.images_link_id";
+  
+  
+      db.all(sqlreadblog,[], (err,rows)=>{
+          data = []
+          if(err){throw err}
+          rows.forEach(async (row)=>{
+              await data.push(row)
+              res.send({DATA:data})
+          })
+      })
+  })
+      
+  
+  //delete from blogs table
+  app.get("/blogs/delete/:id?", function(req,res){
+  
+  
+      var id=req.params.id
+          let sqldelete = `DELETE FROM Blogs where blogs_id=${id}`
+     
+  
+          db.all(sqldelete,[], (err,rows)=>{
+              data = []
+              if(`${id}`==undefined || `${id}`=="" || `${id}`==null){throw err}
+              rows.forEach(async (row)=>{
+                  await data.push(row)
+                  res.send({Message:"Blog deleted"})   //question
+              })
+          })
+      
+      
+      
+      })
+  
+  
+  
+  
+      //edit blogs table
+  
+  app.get("/blogs/edit/:id?", function(req,res){
+  
+      var id=parseInt(req.params.id)
+          var bcontent=req.query.bcontent
+            
+              db.run(`UPDATE Blogs 
+              SET blogs_content = coalesce(?,blogs_content)
+              WHERE blogs_id= ? `,
+              
+              [bcontent,id] ,function(err){
+                  if(`${bcontent}`==undefined || `${bcontent}`=="" || `'${bcontent}'`==null )
+                  {
+                      res.send({message:'error'})
+                  }
+                  
+          else{
+              res.send(" blog edited")
+          }
+      })
+          
+          }
+          
+          )
+  
+  
+  
+  //update (add) for blogs table
+  
+  app.get("/blogs/add?", function(req,res){
+  
+      var btitle=req.query.btitle
+      var bdate=req.query.bdate
+      var bcontent=req.query.bcontent
+      // console.log(input)
+      let sqladd=`INSERT into Blogs(blogs_title,blogs_date,blogs_content) Values('${btitle}','${bdate}','${bcontent}')`
+      
+         
+      
+          db.all(sqladd,[], (err,rows)=>{
+              data = []
+              if(err){throw err}
+              rows.forEach(async (row)=>{
+                  await data.push(row)
+                  res.send({Message:'blog added'})
+              })
+          })
+      
+      
+      })
+  
+  //-------------------------------------------images blogs----------------------------------------------
+  
+  //read from images_blogs table
+          app.get("/images_blogs/read", function(req,res){
+  
+  
+              let sqlreadiblog = "Select * from Images_blogs";
+          
+          
+              db.all(sqlreadiblog,[], (err,rows)=>{
+                  data = []
+                  if(err){throw err}
+                  rows.forEach(async (row)=>{
+                      await data.push(row)
+                      res.send({DATA:data})
+                  })
+              })
+          })
+              
+  
+  
+  //delete from images_blogs table
+  app.get("/images_blogs/delete/:id?", function(req,res){
+  
+  
+      var id=req.params.id
+          let sqldelete = `DELETE FROM Images_blogs where images_id=${id}`
+     
+  
+          db.all(sqldelete,[], (err,rows)=>{
+              data = []
+              if(`${id}`==undefined || `${id}`=="" || `${id}`==null){throw err}
+              rows.forEach(async (row)=>{
+                  await data.push(row)
+                  res.send({Message:"Blog deleted"})   //question
+              })
+          })
+      
+      
+      
+      })
+  
+  
+  
+  //update (add) for images_blogs table
+  
+  app.get("/images_blogs/add?", function(req,res){
+  
+      var ilink=req.query.ilink
+      var bid=req.query.bid
+      // console.log(input)
+      let sqladd=`INSERT into Images_blogs(blogs_id,images_link) Values('${bid}','${ilink}')`
+      
+         
+      
+          db.all(sqladd,[], (err,rows)=>{
+              data = []
+              if(err){throw err}
+              rows.forEach(async (row)=>{
+                  await data.push(row)
+                  res.send({Message:'image added'})
+              })
+          })
+      
+      
+      })
+  
+  
+  
+     //edit images_blogs table
+  
+     app.get("/images_blogs/edit/:id?", function(req,res){
+  
+      var id=parseInt(req.params.id)
+          var ilink=req.query.ilink
+            
+              db.run(`UPDATE Iamges_blogs 
+              SET images_link = coalesce(?,images_link)
+              WHERE blogs_id= ? `,
+              
+              [ilink,id] ,function(err){
+                  if(`${ilink}`==undefined || `${ilink}`=="" || `'${ilink}'`==null )
+                  {
+                      res.send({message:'error'})
+                  }
+                  
+          else{
+              res.send(" image blog edited")
+          }
+      })
+          
+          }
+          
+          )
+
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------ORDERS--------------------------------------------------------------------------------------------
