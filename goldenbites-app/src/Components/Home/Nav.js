@@ -23,26 +23,27 @@ class Nav extends Component {
           <ul className='navigation__list'>
             <li className='navigation__item'>
               {' '}
-              <a href='#' className='navigation__link'>
-                <span>01</span><Link to="/home">Home</Link>
-              </a>
+              <Link className='navigation__link'  to="/">01 Home</Link>
+              {/* <a href='#' className='navigation__link'>
+                <span>01</span>
+              </a> */}
+            </li>
+            <li className='navigation__item'>
+              {' '}
+              <Link to="/Products" className='navigation__link'>
+                <span>02</span> Products
+              </Link>
+            </li>
+            <li className='navigation__item'>
+              {' '}
+              <Link to="/Blogs" className='navigation__link'>
+                <span>03</span> Blogs
+              </Link>
             </li>
             <li className='navigation__item'>
               {' '}
               <a href='#' className='navigation__link'>
-                <span>02</span><Link to="/products"> Products</Link>
-              </a>
-            </li>
-            <li className='navigation__item'>
-              {' '}
-              <a href='#' className='navigation__link'>
-                <span>03</span> <Link to="/blogs">Blogs</Link>
-              </a>
-            </li>
-            <li className='navigation__item'>
-              {' '}
-              <a href='#' className='navigation__link'>
-                <span>04</span> <Link to="/about">About Me</Link>
+                <span>04</span>About Me
               </a>
             </li>
           </ul>

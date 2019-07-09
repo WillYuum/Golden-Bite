@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400|Lato&display=swap');
 
 .blog__container {
-  position: absolute;
-  top: 240%;
+  /* position: absolute;
+  top: 240%; */
   height: 400px;
   margin-top: 80px;
   display: flex;

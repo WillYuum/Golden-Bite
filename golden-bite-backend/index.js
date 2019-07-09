@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-const express = require("express");
-=======
 const express = require('express');
->>>>>>> c26684b582a9282ddc147f418f3de302b2bce83f
 const app = express();
 
 const cors = require('cors');
