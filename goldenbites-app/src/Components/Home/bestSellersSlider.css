@@ -2,17 +2,18 @@
 
 .bestSellers__list {
   width: 88%;
-  height: 550px;
-  margin: 0 6% 0 6%;
-  position: absolute;
-  top: 100%;
-  padding-top: 200px;
+  height: auto;
+  margin: 20px 6% 80px 6%;
+  /* position: absolute;
+  top: 100%; */
+  /* padding-top: 200px; */
+  /* background-color: red; */
 }
 
 .bestSellers__container {
   height: 350px;
   width: auto;
-  margin-left: -20px;
+  /* margin-left: -20px; */
   outline: none;
 }
 

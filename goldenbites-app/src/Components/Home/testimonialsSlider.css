@@ -3,10 +3,10 @@
 .testimonials__list {
   width: 88%;
   height: 350px;
-  margin: 0 6% 0 6%;
-  position: absolute;
-  top: 360%;
-  margin-top: 100px;
+  margin: 20px 6% 80px 6%;
+  /* position: absolute;
+  top: 360%; */
+  /* margin-top: 100px; */
   background-color: red;
 }
 

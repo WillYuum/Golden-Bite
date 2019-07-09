@@ -21,9 +21,8 @@ import Slider from 'react-slick';
 // ];
 
 class BestSellersSlider extends Component {
- 
   render() {
-    console.log("it's working")
+    console.log("it's working");
     var settings = {
       dots: true,
       infinite: true,
@@ -93,6 +92,7 @@ class BestSellersSlider extends Component {
             </div>
           </div>
         </div>
+
         <div className='bestSellers__container'>
           <div className='bestSellers__card'>
             <div className='card__side card__side--front'>

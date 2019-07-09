@@ -15,17 +15,15 @@ class Hero extends Component {
         </div>
 
         <div className='heroBox'>
-          <div className='heroBox_left'>
-            <div className='logoBox'>
-              <img src={logo} alt='Golden Bites Logo' />
-            </div>
-            <div className='sloganBox'>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil
-              nemo ipsa, itaque qui molestias laborum dignissimos.
-            </div>
-            <div className='heroButton'>
-              <a href='#'>VIEW OUR PRODUCTS</a>
-            </div>
+          <div className='logoBox'>
+            <img src={logo} alt='Golden Bites Logo' />
+          </div>
+          <div className='sloganBox'>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil nemo
+            ipsa, itaque qui molestias laborum dignissimos.
+          </div>
+          <div className='heroButton'>
+            <a href='#'>VIEW OUR PRODUCTS</a>
           </div>
         </div>
       </div>

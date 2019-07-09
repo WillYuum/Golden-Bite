@@ -3,10 +3,16 @@
 .blog__container {
   /* position: absolute;
   top: 240%; */
-  height: 400px;
-  margin-top: 80px;
+  height: auto;
+  /* margin-top: 80px; */
   display: flex;
   align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(253, 251, 251, 1) 35%,
+    rgba(235, 237, 238, 1) 100%
+  );
+  padding: 40px 0 120px 0;
 }
 
 .blog__container--left {
