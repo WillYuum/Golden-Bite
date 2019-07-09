@@ -49,7 +49,12 @@ return(
 <div className="mainblogclick">
 
 <div className="mainimage">
-<img src={this.state.data.length>0? this.state.data[0].images_link: null}/>
+<img
+                  width="300px"
+                  height="250px"
+                  src={"http://localhost:3000/static/media/blogItemLg.8f802f73.jpg"}
+                  alt=""
+                />
 {/* <img  src="./cake.jpg"/> */}
 <div className="overlayy">
     <div className="text">Yummy!</div>
@@ -67,7 +72,7 @@ return(
 <div className="maintextblog">
 <h1>How it all started!</h1>
 
-{/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium lectus quam id leo. Orci phasellus egestas tellus rutrum tellus pellentesque. Mi eget mauris pharetra et ultrices neque ornare aenean. Massa enim nec dui nunc mattis enim. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra. Suspendisse potenti nullam ac tortor vitae. Scelerisque mauris pellentesque pulvinar pellentesque. Pharetra et ultrices neque ornare aenean euismod elementum. A iaculis at erat pellentesque adipiscing. Pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna. Dis parturient montes nascetur ridiculus. Sit amet facilisis magna etiam tempor orci eu.
+ <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium lectus quam id leo. Orci phasellus egestas tellus rutrum tellus pellentesque. Mi eget mauris pharetra et ultrices neque ornare aenean. Massa enim nec dui nunc mattis enim. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra. Suspendisse potenti nullam ac tortor vitae. Scelerisque mauris pellentesque pulvinar pellentesque. Pharetra et ultrices neque ornare aenean euismod elementum. A iaculis at erat pellentesque adipiscing. Pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna. Dis parturient montes nascetur ridiculus. Sit amet facilisis magna etiam tempor orci eu.
 
 Neque vitae tempus quam pellentesque nec. Ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae. Hendrerit gravida rutrum quisque non tellus orci ac. Eu feugiat pretium nibh ipsum consequat nisl. Sem fringilla ut morbi tincidunt augue interdum velit. Sit amet tellus cras adipiscing enim eu turpis egestas. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Dolor morbi non arcu risus quis. Non consectetur a erat nam at lectus urna. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Feugiat scelerisque varius morbi enim nunc faucibus a. Sem integer vitae justo eget magna fermentum iaculis eu non. Risus commodo viverra maecenas accumsan lacus vel facilisis. Ullamcorper morbi tincidunt ornare massa. Pellentesque habitant morbi tristique senectus et netus. Aliquam ultrices sagittis orci a scelerisque purus. Consequat ac felis donec et odio pellentesque diam. Non blandit massa enim nec dui nunc. Arcu non sodales neque sodales. Sed cras ornare arcu dui vivamus.
 
@@ -77,8 +82,8 @@ Vulputate sapien nec sagittis aliquam malesuada bibendum. Ultricies lacus sed tu
 
 Elementum curabitur vitae nunc sed. Nunc sed id semper risus. Cras adipiscing enim eu turpis. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non. Leo in vitae turpis massa sed. Amet est placerat in egestas erat imperdiet. Urna cursus eget nunc scelerisque viverra mauris in. Aliquet bibendum enim facilisis gravida. Felis bibendum ut tristique et egestas quis. Scelerisque fermentum dui faucibus in. Quis varius quam quisque id diam. Eget nunc scelerisque viverra mauris in aliquam sem. Nibh venenatis cras sed felis eget velit aliquet.
 
-Duis at consectetur lorem donec massa sapien faucibus. Quis hendrerit dolor magna eget. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Velit euismod in pellentesque massa placerat duis. Turpis massa tincidunt dui ut ornare lectus sit amet. Imperdiet nulla malesuada pellentesque elit eget gravida cum. Tincidunt lobortis feugiat vivamus at. Commodo quis imperdiet massa tincidunt nunc pulvinar. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Nulla pellentesque dignissim enim sit.</p> */}
-<p>{this.state.data.length>0? this.state.data[0].blogs_content: null}</p>
+Duis at consectetur lorem donec massa sapien faucibus. Quis hendrerit dolor magna eget. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Velit euismod in pellentesque massa placerat duis. Turpis massa tincidunt dui ut ornare lectus sit amet. Imperdiet nulla malesuada pellentesque elit eget gravida cum. Tincidunt lobortis feugiat vivamus at. Commodo quis imperdiet massa tincidunt nunc pulvinar. Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Nulla pellentesque dignissim enim sit.</p>
+
 </div>
 
 
