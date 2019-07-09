@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+{
+  "name": "golden-bite-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "sqlite3": "^4.0.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
+=======
 {
   "name": "golden-bite-backend",
   "version": "1.0.0",
@@ -19,3 +41,4 @@
     "nodemon": "^1.19.1"
   }
 }
+>>>>>>> d63ffc6bf3d70ec243089ed28e4f0bdd3d11d677

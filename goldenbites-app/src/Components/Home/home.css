@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400|Lato&display=swap');
+
+@font-face {
+  font-family: 'Selima';
+  src: url('../../css/CustomFont/Selima.otf') format('opentype'),
+    url('../../css/CustomFont/Selima.ttf') format('truetype');
+}
+
+/*** BEST SELLERS SECTION STARTS HERE ***********************************************/
+#bestSellers {
+  height: 120vh;
+  background-color: #fff;
+}
+
+.bestSellers__title {
+  padding: 40px 0;
+  font-size: 100px;
+  font-family: 'Selima', Arial, Helvetica, sans-serif;
+  color: #c9a74d;
+  text-align: center;
+  position: relative;
+  /* text-transform: uppercase; */
+}
+/*** BEST SELLERS SECTION ENDS HERE *************************************************/
+
+/*** BLOGS SECTION STARTS HERE ******************************************************/
+#blogs {
+  height: 120vh;
+  background: linear-gradient(
+    90deg,
+    rgba(253, 251, 251, 1) 35%,
+    rgba(235, 237, 238, 1) 100%
+  );
+}
+
+.blogs__title {
+  padding: 40px 0 40px 0;
+  font-size: 100px;
+  font-family: 'Selima', Arial, Helvetica, sans-serif;
+  color: #c9a74d;
+  text-align: center;
+  /* text-transform: uppercase; */
+}
+/*** BLOGS SECTION ENDS HERE ********************************************************/
+
+/*** TESTIMONIALS SECTION STARTS HERE ***********************************************/
+#testimonials {
+  height: 120vh;
+  /* background-image: linear-gradient(#fff, #8e4671); */
+  /* background-image: url(../../Assets/img/bestSellers-bg.jpg); */
+  /* background-image: linear-gradient(
+      to bottom,
+      rgba(204, 172, 192, 0.6),
+      rgba(163, 113, 143, 0.6)
+    ),
+    url(../../Assets/img/bestSellers-bg.jpg); */
+  background-color: #fff;
+  /* background-size: cover; */
+  /* opacity: 0.6; */
+}
+
+.testimonials__title {
+  padding: 40px 0;
+  font-size: 100px;
+  font-family: 'Selima', Arial, Helvetica, sans-serif;
+  color: #c9a74d;
+  text-align: center;
+  z-index: 9000;
+  /* text-transform: uppercase; */
+}
+/*** TESTIMONIALS SECTION ENDS HERE *************************************************/
