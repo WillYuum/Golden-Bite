@@ -31,7 +31,7 @@ class App extends Component {
           <Route path="/blogs" render={() => <BlogPage />} />
 
           {/* <Route path='/about' component={Aboutme} /> */}
-          {/* <Route path='/BlogItemSmdetails' component={BlogItemSmdetails} />
+          <Route path='/BlogItemSmdetails' component={BlogItemSmdetails} />
           <Route path='/MainBlogClick' component={MainBlogClick} /> */}
         </Switch>
 
