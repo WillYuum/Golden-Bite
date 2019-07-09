@@ -39,7 +39,6 @@ class BlogItemSmdetails extends Component {
   render() {
     return (
       <div className='blogitemsmdetails'>
-<<<<<<< HEAD
 
 <div className='blogano'>
           {this.state.databo.map(item => (
@@ -64,9 +63,6 @@ class BlogItemSmdetails extends Component {
 
         
         {/* <div className='holahola'>
-=======
-        <div className='holahola'>
->>>>>>> a21cd2c459c1bb1623a2a3bd1ffcca3ecec85fcb
           <h1>
             Every <Badge variant='secondary' />
           </h1>
@@ -82,51 +78,7 @@ class BlogItemSmdetails extends Component {
           <h5>
             Story <Badge variant='secondary' />
           </h5>
-<<<<<<< HEAD
         </div> */}
-=======
-        </div>
-
-        <div className='spana'>
-          <Spinner animation='border' variant='primary' />
-          <Spinner animation='border' variant='secondary' />
-          <Spinner animation='border' variant='success' />
-          <Spinner animation='border' variant='danger' />
-          <Spinner animation='border' variant='warning' />
-          <Spinner animation='border' variant='info' />
-          <Spinner animation='border' variant='light' />
-          <Spinner animation='border' variant='dark' />
-          <Spinner animation='grow' variant='primary' />
-          <Spinner animation='grow' variant='secondary' />
-          <Spinner animation='grow' variant='success' />
-          <Spinner animation='grow' variant='danger' />
-          <Spinner animation='grow' variant='warning' />
-          <Spinner animation='grow' variant='info' />
-          <Spinner animation='grow' variant='light' />
-          <Spinner animation='grow' variant='dark' />
-        </div>
-        <div className='blogano'>
-          {this.state.databo.map(item => (
-            <div className='bordera'>
-              <h1>{item.blogs_title}</h1>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
-              </p>
-              <hr className='style-eight' />
-            </div>
-          ))}
-        </div>
->>>>>>> a21cd2c459c1bb1623a2a3bd1ffcca3ecec85fcb
-
         {/* <div className='spana'>
           <Spinner animation='border' variant='primary' />
           <Spinner animation='border' variant='secondary' />
