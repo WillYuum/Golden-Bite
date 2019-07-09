@@ -1,29 +1,32 @@
+<<<<<<< HEAD
 const express = require("express");
+=======
+const express = require('express');
+>>>>>>> c26684b582a9282ddc147f418f3de302b2bce83f
 const app = express();
 
+const cors = require('cors');
 
-const cors = require("cors");
+const bodyParser = require('body-parser');
 
-const bodyParser = require("body-parser");
-
-const sqlite3 = require("sqlite3").verbose();
-let db = new sqlite3.Database("./goldenBites-db");
+const sqlite3 = require('sqlite3').verbose();
+let db = new sqlite3.Database('./goldenBites-db');
 
 app.use(cors());
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT');
   res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, contentType,Content-Type, Accept, Authorization"
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, contentType,Content-Type, Accept, Authorization'
   );
   next();
 });
 
 //--------------------------------------PRODUCTS-------------------------------------------------------------------------
-app.get("/products/read", function(req, res) {
+app.get('/products/read', function(req, res) {
   let sql = `Select * from Products JOIN Categories ON Products.category_id = Categories.categories_id`;
 
   db.all(sql, [], (err, rows) => {
@@ -33,12 +36,12 @@ app.get("/products/read", function(req, res) {
     }
     rows.forEach(async row => {
       await data.push(row);
-      res.send({DATA: data} );
+      res.send({ DATA: data });
     });
   });
 });
 
-app.patch("/products/edit/:id?", function(req, res) {
+app.patch('/products/edit/:id?', function(req, res) {
   const ID = req.params.id;
 
   const PRODUCTS_NAME = req.query.name;
@@ -80,7 +83,7 @@ app.patch("/products/edit/:id?", function(req, res) {
   );
 });
 
-app.post("/products/create?", function(req, res) {
+app.post('/products/create?', function(req, res) {
   const PRODUCTS_NAME = req.query.name;
   const PRODUCTS_PRICE = req.query.price;
   const PRODUCTS_STOCK = req.query.stock;
@@ -106,13 +109,13 @@ app.post("/products/create?", function(req, res) {
       if (err) {
         console.log(err);
       } else {
-        console.log("data added");
+        console.log('data added');
       }
     }
   );
 });
 
-app.delete("/products/delete/:id?", function(req, res) {
+app.delete('/products/delete/:id?', function(req, res) {
   ID = req.params.id;
   console.log(ID);
 
@@ -129,8 +132,8 @@ app.delete("/products/delete/:id?", function(req, res) {
 
 //-----------------------------------------------------CATEGORIES-----------------------------------------------------------------------------------
 
-app.get("/category/read", function(req, res) {
-  let sqlread = "Select * from Categories";
+app.get('/category/read', function(req, res) {
+  let sqlread = 'Select * from Categories';
 
   db.all(sqlread, [], (err, rows) => {
     data = [];
@@ -144,14 +147,14 @@ app.get("/category/read", function(req, res) {
   });
 });
 
-app.post("/category/create?", function(req, res) {
+app.post('/category/create?', function(req, res) {
   var name = req.query.name;
   let sqladd = `INSERT INTO Categories(categories_name) VALUES('${name}')`;
   if (
     `${name}` == undefined ||
-    `${name}` == "" ||
+    `${name}` == '' ||
     `${name}` == null ||
-    typeof `'${name}'` !== "string"
+    typeof `'${name}'` !== 'string'
   ) {
     res.send({ message: typeof `${name}` });
   } else {
@@ -162,17 +165,17 @@ app.post("/category/create?", function(req, res) {
       }
       rows.forEach(async row => {
         await data.push(row);
-        res.send({ Message: "Category Added!" }); //question
+        res.send({ Message: 'Category Added!' }); //question
       });
     });
   }
 });
 
-app.delete("/category/delete/:id?", function(req, res) {
+app.delete('/category/delete/:id?', function(req, res) {
   var id = req.params.id;
   let sqldelete = `DELETE FROM Categories where categories_id=${id}`;
-  if (`${id}` == undefined || `${id}` == "" || `${id}` == null) {
-    res.send({ message: "error" });
+  if (`${id}` == undefined || `${id}` == '' || `${id}` == null) {
+    res.send({ message: 'error' });
   } else {
     db.all(sqldelete, [], (err, rows) => {
       data = [];
@@ -181,13 +184,13 @@ app.delete("/category/delete/:id?", function(req, res) {
       }
       rows.forEach(async row => {
         await data.push(row);
-        res.send({ Message: "Category deleted" }); //question
+        res.send({ Message: 'Category deleted' }); //question
       });
     });
   }
 });
 
-app.patch("/category/edit/:id?", function(req, res) {
+app.patch('/category/edit/:id?', function(req, res) {
   var id = parseInt(req.params.id);
   var cname = req.query.cname;
 
@@ -198,10 +201,10 @@ app.patch("/category/edit/:id?", function(req, res) {
 
     [cname, id],
     function(err) {
-      if (`${cname}` == undefined || `${cname}` == "" || `'${cname}'` == null) {
-        res.send({ message: "error" });
+      if (`${cname}` == undefined || `${cname}` == '' || `'${cname}'` == null) {
+        res.send({ message: 'error' });
       } else {
-        res.send(" category edited");
+        res.send(' category edited');
       }
     }
   );
@@ -211,8 +214,8 @@ app.patch("/category/edit/:id?", function(req, res) {
 
 //-------------------------------------------------TESTIMONIALS------------------------------------------------------------
 
-app.get("/testimonials/read", function(req, res) {
-  let sql = "Select * from Testimonials";
+app.get('/testimonials/read', function(req, res) {
+  let sql = 'Select * from Testimonials';
 
   db.all(sql, [], (err, rows) => {
     data = [];
@@ -226,7 +229,7 @@ app.get("/testimonials/read", function(req, res) {
   });
 });
 
-app.patch("/testimonials/edit/:id?", function(req, res) {
+app.patch('/testimonials/edit/:id?', function(req, res) {
   const ID = req.params.id;
 
   const TESTIMONIALS_NAME = req.query.name;
@@ -258,13 +261,13 @@ app.patch("/testimonials/edit/:id?", function(req, res) {
       if (err) {
         console.log(err);
       } else {
-        res.send("DATA EDITED");
+        res.send('DATA EDITED');
       }
     }
   );
 });
 
-app.post("/testimonials/create?", function(req, res) {
+app.post('/testimonials/create?', function(req, res) {
   const TESTIMONIALS_NAME = req.query.name;
   const TESTIMONIALS_CONTENT = req.query.content;
   const TESTIMONIALS_DATE = req.query.date;
@@ -288,13 +291,13 @@ app.post("/testimonials/create?", function(req, res) {
       if (err) {
         console.log(err);
       } else {
-        res.send("DATA IS ADDED");
+        res.send('DATA IS ADDED');
       }
     }
   );
 });
 
-app.delete("/testimonials/delete/:id?", function(req, res) {
+app.delete('/testimonials/delete/:id?', function(req, res) {
   const ID = req.params.id;
 
   db.run(`DELETE FROM Testimonials WHERE testimonials_id=${ID}`, function(err) {
@@ -306,205 +309,172 @@ app.delete("/testimonials/delete/:id?", function(req, res) {
   });
 });
 
-
 //----------------------------------------------Blogs---------------------------------------------------
 
-    //read blogs table
-    app.get("/blogs/read", function(req,res){
+//read blogs table
+app.get('/blogs/read', function(req, res) {
+  let sqlreadblog =
+    'select Blogs.blogs_author, Blogs.blogs_content, Blogs.blogs_date, Blogs.blogs_id, Blogs.blogs_title, Images_blogs.images_link from Blogs join Images_blogs on Blogs.images_link_id = Images_blogs.images_link_id';
 
+  db.all(sqlreadblog, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ DATA: data });
+    });
+  });
+});
 
-      let sqlreadblog = "select Blogs.blogs_author, Blogs.blogs_content, Blogs.blogs_date, Blogs.blogs_id, Blogs.blogs_title, Images_blogs.images_link from Blogs join Images_blogs on Blogs.images_link_id = Images_blogs.images_link_id";
-  
-  
-      db.all(sqlreadblog,[], (err,rows)=>{
-          data = []
-          if(err){throw err}
-          rows.forEach(async (row)=>{
-              await data.push(row)
-              res.send({DATA:data})
-          })
-      })
-  })
-      
-  
-  //delete from blogs table
-  app.get("/blogs/delete/:id?", function(req,res){
-  
-  
-      var id=req.params.id
-          let sqldelete = `DELETE FROM Blogs where blogs_id=${id}`
-     
-  
-          db.all(sqldelete,[], (err,rows)=>{
-              data = []
-              if(`${id}`==undefined || `${id}`=="" || `${id}`==null){throw err}
-              rows.forEach(async (row)=>{
-                  await data.push(row)
-                  res.send({Message:"Blog deleted"})   //question
-              })
-          })
-      
-      
-      
-      })
-  
-  
-  
-  
-      //edit blogs table
-  
-  app.get("/blogs/edit/:id?", function(req,res){
-  
-      var id=parseInt(req.params.id)
-          var bcontent=req.query.bcontent
-            
-              db.run(`UPDATE Blogs 
+//delete from blogs table
+app.get('/blogs/delete/:id?', function(req, res) {
+  var id = req.params.id;
+  let sqldelete = `DELETE FROM Blogs where blogs_id=${id}`;
+
+  db.all(sqldelete, [], (err, rows) => {
+    data = [];
+    if (`${id}` == undefined || `${id}` == '' || `${id}` == null) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ Message: 'Blog deleted' }); //question
+    });
+  });
+});
+
+//edit blogs table
+
+app.get('/blogs/edit/:id?', function(req, res) {
+  var id = parseInt(req.params.id);
+  var bcontent = req.query.bcontent;
+
+  db.run(
+    `UPDATE Blogs 
               SET blogs_content = coalesce(?,blogs_content)
               WHERE blogs_id= ? `,
-              
-              [bcontent,id] ,function(err){
-                  if(`${bcontent}`==undefined || `${bcontent}`=="" || `'${bcontent}'`==null )
-                  {
-                      res.send({message:'error'})
-                  }
-                  
-          else{
-              res.send(" blog edited")
-          }
-      })
-          
-          }
-          
-          )
-  
-  
-  
-  //update (add) for blogs table
-  
-  app.get("/blogs/add?", function(req,res){
-  
-      var btitle=req.query.btitle
-      var bdate=req.query.bdate
-      var bcontent=req.query.bcontent
-      // console.log(input)
-      let sqladd=`INSERT into Blogs(blogs_title,blogs_date,blogs_content) Values('${btitle}','${bdate}','${bcontent}')`
-      
-         
-      
-          db.all(sqladd,[], (err,rows)=>{
-              data = []
-              if(err){throw err}
-              rows.forEach(async (row)=>{
-                  await data.push(row)
-                  res.send({Message:'blog added'})
-              })
-          })
-      
-      
-      })
-  
-  //-------------------------------------------images blogs----------------------------------------------
-  
-  //read from images_blogs table
-          app.get("/images_blogs/read", function(req,res){
-  
-  
-              let sqlreadiblog = "Select * from Images_blogs";
-          
-          
-              db.all(sqlreadiblog,[], (err,rows)=>{
-                  data = []
-                  if(err){throw err}
-                  rows.forEach(async (row)=>{
-                      await data.push(row)
-                      res.send({DATA:data})
-                  })
-              })
-          })
-              
-  
-  
-  //delete from images_blogs table
-  app.get("/images_blogs/delete/:id?", function(req,res){
-  
-  
-      var id=req.params.id
-          let sqldelete = `DELETE FROM Images_blogs where images_id=${id}`
-     
-  
-          db.all(sqldelete,[], (err,rows)=>{
-              data = []
-              if(`${id}`==undefined || `${id}`=="" || `${id}`==null){throw err}
-              rows.forEach(async (row)=>{
-                  await data.push(row)
-                  res.send({Message:"Blog deleted"})   //question
-              })
-          })
-      
-      
-      
-      })
-  
-  
-  
-  //update (add) for images_blogs table
-  
-  app.get("/images_blogs/add?", function(req,res){
-  
-      var ilink=req.query.ilink
-      var bid=req.query.bid
-      // console.log(input)
-      let sqladd=`INSERT into Images_blogs(blogs_id,images_link) Values('${bid}','${ilink}')`
-      
-         
-      
-          db.all(sqladd,[], (err,rows)=>{
-              data = []
-              if(err){throw err}
-              rows.forEach(async (row)=>{
-                  await data.push(row)
-                  res.send({Message:'image added'})
-              })
-          })
-      
-      
-      })
-  
-  
-  
-     //edit images_blogs table
-  
-     app.get("/images_blogs/edit/:id?", function(req,res){
-  
-      var id=parseInt(req.params.id)
-          var ilink=req.query.ilink
-            
-              db.run(`UPDATE Iamges_blogs 
+
+    [bcontent, id],
+    function(err) {
+      if (
+        `${bcontent}` == undefined ||
+        `${bcontent}` == '' ||
+        `'${bcontent}'` == null
+      ) {
+        res.send({ message: 'error' });
+      } else {
+        res.send(' blog edited');
+      }
+    }
+  );
+});
+
+//update (add) for blogs table
+
+app.get('/blogs/add?', function(req, res) {
+  var btitle = req.query.btitle;
+  var bdate = req.query.bdate;
+  var bcontent = req.query.bcontent;
+  // console.log(input)
+  let sqladd = `INSERT into Blogs(blogs_title,blogs_date,blogs_content) Values('${btitle}','${bdate}','${bcontent}')`;
+
+  db.all(sqladd, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ Message: 'blog added' });
+    });
+  });
+});
+
+//-------------------------------------------images blogs----------------------------------------------
+
+//read from images_blogs table
+app.get('/images_blogs/read', function(req, res) {
+  let sqlreadiblog = 'Select * from Images_blogs';
+
+  db.all(sqlreadiblog, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ DATA: data });
+    });
+  });
+});
+
+//delete from images_blogs table
+app.get('/images_blogs/delete/:id?', function(req, res) {
+  var id = req.params.id;
+  let sqldelete = `DELETE FROM Images_blogs where images_id=${id}`;
+
+  db.all(sqldelete, [], (err, rows) => {
+    data = [];
+    if (`${id}` == undefined || `${id}` == '' || `${id}` == null) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ Message: 'Blog deleted' }); //question
+    });
+  });
+});
+
+//update (add) for images_blogs table
+
+app.get('/images_blogs/add?', function(req, res) {
+  var ilink = req.query.ilink;
+  var bid = req.query.bid;
+  // console.log(input)
+  let sqladd = `INSERT into Images_blogs(blogs_id,images_link) Values('${bid}','${ilink}')`;
+
+  db.all(sqladd, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ Message: 'image added' });
+    });
+  });
+});
+
+//edit images_blogs table
+
+app.get('/images_blogs/edit/:id?', function(req, res) {
+  var id = parseInt(req.params.id);
+  var ilink = req.query.ilink;
+
+  db.run(
+    `UPDATE Iamges_blogs 
               SET images_link = coalesce(?,images_link)
               WHERE blogs_id= ? `,
-              
-              [ilink,id] ,function(err){
-                  if(`${ilink}`==undefined || `${ilink}`=="" || `'${ilink}'`==null )
-                  {
-                      res.send({message:'error'})
-                  }
-                  
-          else{
-              res.send(" image blog edited")
-          }
-      })
-          
-          }
-          
-          )
 
+    [ilink, id],
+    function(err) {
+      if (`${ilink}` == undefined || `${ilink}` == '' || `'${ilink}'` == null) {
+        res.send({ message: 'error' });
+      } else {
+        res.send(' image blog edited');
+      }
+    }
+  );
+});
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------ORDERS--------------------------------------------------------------------------------------------
 
-app.get("/orders/read", function(req, res) {
-  let sql = "Select * from Orders";
+app.get('/orders/read', function(req, res) {
+  let sql = 'Select * from Orders';
 
   db.all(sql, [], (err, rows) => {
     data = [];
@@ -518,7 +488,7 @@ app.get("/orders/read", function(req, res) {
   });
 });
 
-app.patch("/orders/edit/:id?", function(req, res) {
+app.patch('/orders/edit/:id?', function(req, res) {
   const ID = req.params.id;
 
   const ORDERS_NAME = req.query.name;
@@ -540,13 +510,13 @@ app.patch("/orders/edit/:id?", function(req, res) {
       if (err) {
         console.log(err);
       } else {
-        res.send("DATA EDITED");
+        res.send('DATA EDITED');
       }
     }
   );
 });
 
-app.post("/orders/create?", function(req, res) {
+app.post('/orders/create?', function(req, res) {
   const ORDERS_NAME = req.query.name;
   const ORDERS_ADDRESS = req.query.address;
   const ORDERS_PHONE_NUMBER = req.query.phone_number;
@@ -561,13 +531,13 @@ app.post("/orders/create?", function(req, res) {
       if (err) {
         console.log(err);
       } else {
-        res.send("DATA IS ADDED");
+        res.send('DATA IS ADDED');
       }
     }
   );
 });
 
-app.delete("/orders/delete/:id?", function(req, res) {
+app.delete('/orders/delete/:id?', function(req, res) {
   const ID = req.params.id;
 
   db.run(`DELETE FROM Orders WHERE orders_id=${ID}`, function(err) {
@@ -581,10 +551,9 @@ app.delete("/orders/delete/:id?", function(req, res) {
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------ORDERS_PRODUCTS------------------------------------------------------------
-app.get("/orders_products/read", function(req, res) {
+app.get('/orders_products/read', function(req, res) {
   let sql = `Select * FROM ((Orders_products INNER JOIN Orders ON Orders_products.orders_id = Orders.orders_id)
                                           INNER JOIN Products ON Orders_products.orders_products_id = Products.products_id);`;
-
 
   db.all(sql, [], (err, rows) => {
     data = [];
@@ -598,7 +567,7 @@ app.get("/orders_products/read", function(req, res) {
   });
 });
 
-app.post("/orders_products/create?", function(req, res) {
+app.post('/orders_products/create?', function(req, res) {
   const ORDER_ID = req.query.orders_id;
   const PRODUCTS_ID = req.query.products_id;
   const quantity = req.query.quantity;
@@ -612,13 +581,13 @@ app.post("/orders_products/create?", function(req, res) {
       if (err) {
         console.log(err);
       } else {
-        res.send("DATA IS ADDED");
+        res.send('DATA IS ADDED');
       }
     }
   );
 });
 
-app.patch("/orders_products/edit/:id?", function(req, res) {
+app.patch('/orders_products/edit/:id?', function(req, res) {
   const ID = req.params.id;
 
   const ORDERS_ID = req.query.orders_id;
@@ -638,13 +607,13 @@ app.patch("/orders_products/edit/:id?", function(req, res) {
       if (err) {
         console.log(err);
       } else {
-        res.send("DATA EDITED");
+        res.send('DATA EDITED');
       }
     }
   );
 });
 
-app.delete("/orders_products/delete/:id?", function(req, res) {
+app.delete('/orders_products/delete/:id?', function(req, res) {
   const ID = req.params.id;
 
   db.run(`DELETE FROM Orders_products WHERE orders_id=${ID}`, function(err) {
