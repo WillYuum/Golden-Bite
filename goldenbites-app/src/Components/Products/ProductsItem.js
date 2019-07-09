@@ -19,18 +19,25 @@ export default class ProductsItem extends React.Component {
   };
 
 
-   submitHandler = ()=>{
+   submitHandler = async()=>{
     console.log(this.state);
-    const order =  fetch("http://localhost:3001/orders/create",{
+        let a = new FormData();
+   await a.append('name',this.state.name)
+    a.append('address',this.state.address)
+    a.append('phone_number',this.state.phone)
+    a.append('email',this.state.email)
+    
+
+    try{
+    const order = await fetch("http://localhost:3001/orders/create",{
       method:"POST",
-      body:JSON.stringify(this.state),
-      headers:{
-        "Accept":"application/json",
-        'Content-Type': 'application/json'
+      body:a,
+      headers:{"Content-Type":"application/json"}
+      
+    })
+      }catch(err){
+        console.log(err)
       }
-    }).then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response)))
-    .catch(error => console.error('Error:', error));
    }  
 
 

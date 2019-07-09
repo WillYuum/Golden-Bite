@@ -512,11 +512,32 @@ app.patch('/orders/edit/:id?', function(req, res) {
   );
 });
 
-app.post('/orders/create?', function(req, res) {
-  const ORDERS_NAME = req.query.name;
-  const ORDERS_ADDRESS = req.query.address;
-  const ORDERS_PHONE_NUMBER = req.query.phone_number;
-  const ORDERS_EMAIL = req.query.email;
+// app.post('/orders/create?', function(req, res) {
+//   const ORDERS_NAME = req.query.name;
+//   const ORDERS_ADDRESS = req.query.address;
+//   const ORDERS_PHONE_NUMBER = req.query.phone_number;
+//   const ORDERS_EMAIL = req.query.email;
+
+//   db.all(
+//     `INSERT INTO Orders
+//          (name,address,phone_numbe,email)
+//           VALUES (?,?,?,?)`,
+//     [ORDERS_NAME, ORDERS_ADDRESS, ORDERS_PHONE_NUMBER, ORDERS_EMAIL],
+//     function(err) {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         res.send('DATA IS ADDED');
+//       }
+//     }
+//   );
+// });
+app.post('/orders/create', function(req, res) {
+  console.log("data=>",req.body)
+  const ORDERS_NAME = req.body.name;
+  const ORDERS_ADDRESS = req.body.address;
+  const ORDERS_PHONE_NUMBER = req.body.phone_number;
+  const ORDERS_EMAIL = req.body.email;
 
   db.all(
     `INSERT INTO Orders
