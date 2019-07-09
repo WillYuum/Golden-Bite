@@ -1,8 +1,42 @@
 import React from "react";
 import "./Style/PopUpModel.css";
 
+
+
 export default class ProductsItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+    };
+  }
+
+  changeHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+
+   submitHandler = ()=>{
+    console.log(this.state);
+    const order =  fetch("http://localhost:3001/orders/create",{
+      method:"POST",
+      body:JSON.stringify(this.state),
+      headers:{
+        "Accept":"application/json",
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+    .then(response => console.log('Success:', JSON.stringify(response)))
+    .catch(error => console.error('Error:', error));
+   }  
+
+
+
   render() {
+    const { name, email, phone_number, address } = this.state;
     return (
       <div className="ProductsItem-container">
         <div
@@ -59,35 +93,49 @@ export default class ProductsItem extends React.Component {
               </p>
             </div>
             <div className="ProductsItem-form">
-              <form action="">
+              <form onSubmit={this.submitHandler}>
                 <input
                   className="ProductsItem-Name"
                   type="text"
                   placeholder="Name"
+                  name="name"
+                  value={name}
+                  onChange={this.changeHandler}
                   required
                 />
                 <input
                   className="ProductsItem-email"
                   type="text"
                   placeholder="Email"
+                  name="email"
+                  value={email}
+                  onChange={this.changeHandler}
                   required
                 />
                 <input
                   className="ProductsItem-phone"
                   type="text"
                   placeholder="Phone-Number"
+                  name="phone"
+                  value={phone_number}
+                  onChange={this.changeHandler}
                   required
                 />
                 <input
                   className="ProductsItem-address"
                   type="text"
                   placeholder="Address"
+                  name="address"
+                  value={address}
+                  onChange={this.changeHandler}
                   required
                 />
               </form>
             </div>
-            <div className = "ProductsItem-btn-bg">
-              <input className="Productsitem-btn" type="submit"  />
+            <div className="ProductsItem-btn-bg">
+              <button className="Productsitem-btn" onClick={this.submitHandler}>
+                BUY
+              </button>
             </div>
           </div>
         </div>

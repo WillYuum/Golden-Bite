@@ -6,16 +6,20 @@ export default class ProductsPage extends React.Component{
     state = {
         category:''
     }
+
     updateCat = (category) =>
     {
         this.setState({category});
-        console.log(this.state.cat)
+    }
+
+    emptyCat = (category)=>{
+        this.setState({category:""})
     }
     render(){
         return(
             <div>
-                <CategoryListing a={this.updateCat} />
-                <ProductsListing category={this.s} />
+                <CategoryListing all={this.emptyCat} a={this.updateCat} />
+                <ProductsListing category={this.state.category} />
             </div>
         );
     }

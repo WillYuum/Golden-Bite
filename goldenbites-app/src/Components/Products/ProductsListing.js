@@ -19,10 +19,13 @@ export default class ProductsListing extends React.Component {
   }
 
   render() {
+    console.log(this.props.category)
     return (
       <div className="ProductsListing-container">
+
         {this.state.data_Products.map(product => {
-          return (
+          if(product.categories_name === this.props.category)
+         return(
             <ProductsItem
               name={product.products_name}
               price={product.products_price}
@@ -30,7 +33,18 @@ export default class ProductsListing extends React.Component {
               discription={product.products_description}
               category={product.categories_name}
             />
-          );
+         );
+         if(this.props.category === "")
+         return(
+          <ProductsItem
+            name={product.products_name}
+            price={product.products_price}
+            img={product.products_image}
+            discription={product.products_description}
+            category={product.categories_name}
+          />
+       );
+        
         })}
       </div>
     );
