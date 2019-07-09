@@ -37,42 +37,6 @@ class BlogItemSmdetails extends Component {
   render() {
     return (
       <div className='blogitemsmdetails'>
-        {/* <div className='holahola'>
-          <h1>
-            Every <Badge variant='secondary' />
-          </h1>
-          <h2>
-            Blog<Badge variant='secondary' />
-          </h2>
-          <h3>
-            Is <Badge variant='secondary' />
-          </h3>
-          <h4>
-            A <Badge variant='secondary' />
-          </h4>
-          <h5>
-            Story <Badge variant='secondary' />
-          </h5>
-        </div> */}
-
-        {/* <div className='spana'>
-          <Spinner animation='border' variant='primary' />
-          <Spinner animation='border' variant='secondary' />
-          <Spinner animation='border' variant='success' />
-          <Spinner animation='border' variant='danger' />
-          <Spinner animation='border' variant='warning' />
-          <Spinner animation='border' variant='info' />
-          <Spinner animation='border' variant='light' />
-          <Spinner animation='border' variant='dark' />
-          <Spinner animation='grow' variant='primary' />
-          <Spinner animation='grow' variant='secondary' />
-          <Spinner animation='grow' variant='success' />
-          <Spinner animation='grow' variant='danger' />
-          <Spinner animation='grow' variant='warning' />
-          <Spinner animation='grow' variant='info' />
-          <Spinner animation='grow' variant='light' />
-          <Spinner animation='grow' variant='dark' />
-        </div> */}
         <div className='blogano'>
           {this.state.databo.map(item => (
             <div className='bordera'>
@@ -94,6 +58,23 @@ class BlogItemSmdetails extends Component {
           ))}
         </div>
 
+        {/* <div className='holahola'>
+          <h1>
+            Every <Badge variant='secondary' />
+          </h1>
+          <h2>
+            Blog<Badge variant='secondary' />
+          </h2>
+          <h3>
+            Is <Badge variant='secondary' />
+          </h3>
+          <h4>
+            A <Badge variant='secondary' />
+          </h4>
+          <h5>
+            Story <Badge variant='secondary' />
+          </h5>
+        </div> */}
         {/* <div className='spana'>
           <Spinner animation='border' variant='primary' />
           <Spinner animation='border' variant='secondary' />
@@ -112,15 +93,6 @@ class BlogItemSmdetails extends Component {
           <Spinner animation='grow' variant='light' />
           <Spinner animation='grow' variant='dark' />
         </div> */}
-        <div className='blogano'>
-          {this.state.databo.map(item => (
-            <div className='bordera'>
-              <h1>{item.blogs_title}</h1>
-              <p>{item.blogs_content}</p>
-              <hr className='style-eight' />
-            </div>
-          ))}
-        </div>
       </div>
     );
   }
