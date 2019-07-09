@@ -14,7 +14,7 @@ class FooterSection extends Component {
           <div className='footer__line' />
           <div className='footer__details'>
             <div>Beirut, Lebanon</div>
-            <div>+961 3 223344</div>
+            <div>+961 3 770421</div>
             <div>info@goldenbites.com</div>
           </div>
         </div>
