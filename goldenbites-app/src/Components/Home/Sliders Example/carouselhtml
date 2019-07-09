@@ -1,0 +1,172 @@
+<!-- <div class="product-carousel-header">PRODUCT CAROUSEL HEADER</div> -->
+<div class="product-carousel">
+  <div class="product">
+    <div class="product-top">
+      <img class="product-image" src="https://www.placehold.it/300x300" />
+      <!--div class="product-name">
+        <p>Product Name</p>
+      </div-->
+    </div>
+    <div class="product-bottom">
+      <p class="product-prices">
+        <span class="price-was">£22.00</span>
+        <span class="price-save">£10.00</span>
+        <span class="price-now">£12.00</span>
+      </p>
+      <button class="shop-now">Shop Now 1</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-top">
+      <img class="product-image" src="https://www.placehold.it/300x300" />
+      <!--div class="product-name">
+    		<p>Product Name</p>
+      </div-->
+    </div>
+    <div class="product-bottom">
+      <p class="product-prices">
+        <span class="price">£12.00</span>
+      </p>
+      <button class="shop-now">Shop Now 2</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-top">
+      <img class="product-image" src="https://www.placehold.it/300x300" />
+      <img
+        class="review-stars"
+        src="http://www.yehdekh.com/wp-content/uploads/2016/04/stars.png"
+      />
+      <!--iv class="product-name">
+        <p>Product Name That Could Be Really Long</p>
+      </div-->
+    </div>
+    <div class="product-bottom">
+      <p class="product-prices">
+        <span class="price-was">£22.00</span>
+        <span class="price-save">£10.00</span>
+        <span class="price-now">£12.00</span>
+      </p>
+      <button class="shop-now">Shop Now 3</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-top">
+      <img class="product-image" src="https://www.placehold.it/300x300" />
+      <!--div class="product-name">
+        <p>Product Name That Could Be Even Longer Than The Previous One</p>
+      </div-->
+    </div>
+    <div class="product-bottom">
+      <p class="product-prices">
+        <span class="price-was">£22.00</span>
+        <span class="price-save">£10.00</span>
+        <span class="price-now">£12.00</span>
+      </p>
+      <button class="shop-now">Shop Now 4</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-top">
+      <img class="product-image" src="https://www.placehold.it/300x300" />
+      <!--div class="product-name">
+    		<p>Product Name</p>
+      </div-->
+    </div>
+    <div class="product-bottom">
+      <p class="product-prices">
+        <span class="price">£12.00</span>
+      </p>
+      <button class="shop-now">Shop Now 5</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-top">
+      <img class="product-image" src="https://www.placehold.it/300x300" />
+      <!--div class="product-name">
+        <p>Product Name</p>
+      </div-->
+    </div>
+    <div class="product-bottom">
+      <p class="product-prices">
+        <span class="price-was">£22.00</span>
+        <span class="price-save">£10.00</span>
+        <span class="price-now">£12.00</span>
+      </p>
+      <button class="shop-now">Shop Now 6</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-top">
+      <img class="product-image" src="https://www.placehold.it/300x300" />
+      <!--div class="product-name">
+    		<p>Product Name</p>
+      </div-->
+    </div>
+    <div class="product-bottom">
+      <p class="product-prices">
+        <span class="price">£12.00</span>
+      </p>
+      <button class="shop-now">Shop Now 7</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-top">
+      <img class="product-image" src="https://www.placehold.it/300x300" />
+      <img
+        class="review-stars"
+        src="http://www.yehdekh.com/wp-content/uploads/2016/04/stars.png"
+      />
+      <!--iv class="product-name">
+        <p>Product Name That Could Be Really Long</p>
+      </div-->
+    </div>
+    <div class="product-bottom">
+      <p class="product-prices">
+        <span class="price-was">£22.00</span>
+        <span class="price-save">£10.00</span>
+        <span class="price-now">£12.00</span>
+      </p>
+      <button class="shop-now">Shop Now 8</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-top">
+      <img class="product-image" src="https://www.placehold.it/300x300" />
+      <!--div class="product-name">
+        <p>Product Name That Could Be Even Longer Than The Previous One</p>
+      </div-->
+    </div>
+    <div class="product-bottom">
+      <p class="product-prices">
+        <span class="price-was">£22.00</span>
+        <span class="price-save">£10.00</span>
+        <span class="price-now">£12.00</span>
+      </p>
+      <button class="shop-now">Shop Now 9</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-top">
+      <img class="product-image" src="https://www.placehold.it/300x300" />
+      <!--div class="product-name">
+    		<p>Product Name</p>
+      </div-->
+    </div>
+    <div class="product-bottom">
+      <p class="product-prices">
+        <span class="price">£12.00</span>
+      </p>
+      <button class="shop-now">Shop Now 10</button>
+    </div>
+  </div>
+</div>
