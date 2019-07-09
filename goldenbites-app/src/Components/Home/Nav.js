@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './nav.css';
 
 class Nav extends Component {
@@ -23,25 +24,25 @@ class Nav extends Component {
             <li className='navigation__item'>
               {' '}
               <a href='#' className='navigation__link'>
-                <span>01</span>Home
+                <span>01</span><Link to="/home">Home</Link>
               </a>
             </li>
             <li className='navigation__item'>
               {' '}
               <a href='#' className='navigation__link'>
-                <span>02</span>Products
+                <span>02</span><Link to="/products"> Products</Link>
               </a>
             </li>
             <li className='navigation__item'>
               {' '}
               <a href='#' className='navigation__link'>
-                <span>03</span>Blogs
+                <span>03</span> <Link to="/blogs">Blogs</Link>
               </a>
             </li>
             <li className='navigation__item'>
               {' '}
               <a href='#' className='navigation__link'>
-                <span>04</span>About Me
+                <span>04</span> <Link to="/about">About Me</Link>
               </a>
             </li>
           </ul>

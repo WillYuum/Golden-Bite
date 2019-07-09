@@ -22,10 +22,15 @@ class App extends Component {
     return (
       <div className='App'>
         <Router>
-          <Route path='/BlogItemSmdetails' component={BlogItemSmdetails} />
-          <Route path='/MainBlogClick' component={MainBlogClick} />
-          <Route path='/' exact component={BlogPage} />
-          <Route path='/Products' component={ProductsPage} />
+        <Route path='/' exact component={Hero} />
+        <Route path='/Products' component={ProductsPage} /> 
+        <Route path='/blogs' component={BlogPage} />
+
+        <Route path='/about' component={Aboutme} />
+          {/* <Route path='/BlogItemSmdetails' component={BlogItemSmdetails} />
+          <Route path='/MainBlogClick' component={MainBlogClick} /> */}
+          
+          
         </Router>
 
         <Nav />
