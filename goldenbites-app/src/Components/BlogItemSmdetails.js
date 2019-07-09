@@ -37,7 +37,7 @@ class BlogItemSmdetails extends Component {
   render() {
     return (
       <div className='blogitemsmdetails'>
-        <div className='holahola'>
+        {/* <div className='holahola'>
           <h1>
             Every <Badge variant='secondary' />
           </h1>
@@ -53,9 +53,9 @@ class BlogItemSmdetails extends Component {
           <h5>
             Story <Badge variant='secondary' />
           </h5>
-        </div>
+        </div> */}
 
-        <div className='spana'>
+        {/* <div className='spana'>
           <Spinner animation='border' variant='primary' />
           <Spinner animation='border' variant='secondary' />
           <Spinner animation='border' variant='success' />
@@ -72,7 +72,7 @@ class BlogItemSmdetails extends Component {
           <Spinner animation='grow' variant='info' />
           <Spinner animation='grow' variant='light' />
           <Spinner animation='grow' variant='dark' />
-        </div>
+        </div> */}
         <div className='blogano'>
           {this.state.databo.map(item => (
             <div className='bordera'>

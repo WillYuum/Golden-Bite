@@ -8,24 +8,24 @@
 
 /*** BEST SELLERS SECTION STARTS HERE ***********************************************/
 #bestSellers {
-  height: 120vh;
+  /* height: 100vh; */
   background-color: #fff;
 }
 
 .bestSellers__title {
-  padding: 40px 0;
+  padding: 60px 0;
   font-size: 100px;
   font-family: 'Selima', Arial, Helvetica, sans-serif;
   color: #c9a74d;
   text-align: center;
-  position: relative;
+  /* position: relative; */
   /* text-transform: uppercase; */
 }
 /*** BEST SELLERS SECTION ENDS HERE *************************************************/
 
 /*** BLOGS SECTION STARTS HERE ******************************************************/
 #blogs {
-  height: 120vh;
+  /* height: 120vh; */
   background: linear-gradient(
     90deg,
     rgba(253, 251, 251, 1) 35%,
@@ -34,7 +34,7 @@
 }
 
 .blogs__title {
-  padding: 40px 0 40px 0;
+  padding: 60px 0;
   font-size: 100px;
   font-family: 'Selima', Arial, Helvetica, sans-serif;
   color: #c9a74d;
@@ -45,7 +45,7 @@
 
 /*** TESTIMONIALS SECTION STARTS HERE ***********************************************/
 #testimonials {
-  height: 120vh;
+  /* height: 120vh; */
   /* background-image: linear-gradient(#fff, #8e4671); */
   /* background-image: url(../../Assets/img/bestSellers-bg.jpg); */
   /* background-image: linear-gradient(
@@ -60,7 +60,7 @@
 }
 
 .testimonials__title {
-  padding: 40px 0;
+  padding: 60px 0;
   font-size: 100px;
   font-family: 'Selima', Arial, Helvetica, sans-serif;
   color: #c9a74d;

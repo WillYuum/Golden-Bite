@@ -1,127 +1,7 @@
-/*** HERO BOX STARTS HERE **********************************************************/
-.heroBox {
-  position: absolute;
-  top: 60px;
-  left: 5%;
-  width: 400px;
-  padding: 30px 0;
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 5px;
-}
-
-.heroBox_left {
-  width: 300px;
-  /* background-color: yellow; */
-  margin: 0 auto;
-}
-
-.logoBox {
-  width: 80%;
-  margin: 0 auto 30px auto;
-}
-
-.logoBox img {
-  width: 100%;
-  height: 100%;
-}
-
-.sloganBox {
-  margin: 0 auto 40px auto;
-  font-size: 22px;
-  font-weight: 300;
-  text-align: center;
-  line-height: 1.6;
-}
-
-.heroButton {
-  height: 45px;
-  /* background-color: blue; */
-  text-align: center;
-}
-
-.heroButton a {
-  padding: 10px 20px;
-  text-decoration: none;
-  background-color: #751d52;
-  color: #c9a74d;
-  font-weight: 400;
-}
-
-.heroButton a:hover {
-  border: 2px solid #751d52;
-  background-color: transparent;
-  color: #751d52;
-}
-
-/*** PRODUCT BOX STARTS HERE *******************************************************/
-.productContainer {
-  width: 300px;
-  border-left: 1px solid rgb(228, 228, 228);
-  /* background-color: blue; */
-}
-
-.productImage {
-  width: 80%;
-  margin: 0 auto 0 auto;
-  /* background-color: aqua; */
-}
-
-.productImage a img {
-  width: 100%;
-  height: 100%;
-}
-
-.productImage:hover {
-  background-color: rgba(117, 29, 82, 0.6);
-}
-
-.productName {
-  font-size: 22px;
-  text-align: center;
-  color: #c9a74d;
-  /* background-color: blue; */
-}
-
-.productCategory {
-  text-align: center;
-}
-
-.productDescription {
-  padding: 12px 0;
-  text-align: center;
-}
-
-.productPrice {
-  text-align: center;
-  font-size: 22px;
-}
-
-.productButton {
-  text-align: center;
-  margin-top: 23px;
-  /* background-color: blue; */
-}
-
-.productButton a {
-  padding: 10px 20px;
-  text-decoration: none;
-  /* background-color: #c9a74d; */
-  border: 1px solid #c9a74d;
-  color: #751d52;
-  font-weight: 400;
-}
-
-.productButton a:hover {
-  background-color: #c9a74d;
-  color: #751d52;
-}
-/*** PRODUCT BOX ENDS HERE *********************************************************/
-/*** HERO BOX ENDS HERE ************************************************************/
-
 /*** HERO SLIDER STARTS HERE *******************************************************/
 #home {
-  width: 100vw - 1px;
   height: 100vh;
+  /* display: block; */
 }
 
 .heroSlider {
@@ -144,13 +24,6 @@ figure {
   -o-animation: slideShow 24s linear infinite 0s;
   -moz-animation: slideShow 24s linear infinite 0s;
   -webkit-animation: slideShow 24s linear infinite 0s;
-}
-
-figurecaption {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  color: #fff;
 }
 
 .slide1 {
@@ -307,16 +180,117 @@ figurecaption {
 }
 /*** HERO SLIDER ENDS HERE *********************************************************/
 
-/*** BEST SELLERS SECTION STARTS HERE **********************************************/
-#bestSellers {
-  height: 100vh;
-  background-color: aqua;
+/*** HERO BOX STARTS HERE **********************************************************/
+.heroBox {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 380px;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  transform: translateY(-50%);
 }
 
-.sectionTitle {
-  font-size: 56px;
+.logoBox {
+  width: 80%;
+  margin: 0 auto 30px auto;
+}
+
+.logoBox img {
+  width: 100%;
+  height: 100%;
+}
+
+.sloganBox {
+  margin: 0 auto 40px auto;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.heroButton {
+  height: 45px;
+  text-align: center;
+}
+
+.heroButton a {
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #751d52;
+  color: #c9a74d;
+  font-weight: 400;
+}
+
+.heroButton a:hover {
+  border: 1px solid #751d52;
+  background-color: transparent;
+  color: #751d52;
+  font-weight: bold;
+}
+
+/*** PRODUCT BOX STARTS HERE *******************************************************/
+.productContainer {
+  width: 300px;
+  border-left: 1px solid rgb(228, 228, 228);
+  /* background-color: blue; */
+}
+
+.productImage {
+  width: 80%;
+  margin: 0 auto 0 auto;
+  /* background-color: aqua; */
+}
+
+.productImage a img {
+  width: 100%;
+  height: 100%;
+}
+
+.productImage:hover {
+  background-color: rgba(117, 29, 82, 0.6);
+}
+
+.productName {
+  font-size: 22px;
   text-align: center;
   color: #c9a74d;
-  margin-top: -20px;
+  /* background-color: blue; */
 }
-/*** BEST SELLERS SECTION ENDS HERE ************************************************/
+
+.productCategory {
+  text-align: center;
+}
+
+.productDescription {
+  padding: 12px 0;
+  text-align: center;
+}
+
+.productPrice {
+  text-align: center;
+  font-size: 22px;
+}
+
+.productButton {
+  text-align: center;
+  margin-top: 23px;
+  /* background-color: blue; */
+}
+
+.productButton a {
+  padding: 10px 20px;
+  text-decoration: none;
+  /* background-color: #c9a74d; */
+  border: 1px solid #c9a74d;
+  color: #751d52;
+  font-weight: 400;
+}
+
+.productButton a:hover {
+  background-color: #c9a74d;
+  color: #751d52;
+}
+/*** PRODUCT BOX ENDS HERE *********************************************************/
+/*** HERO BOX ENDS HERE ************************************************************/
