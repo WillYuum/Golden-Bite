@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Style/Category.css';
+import './Style/Products.css';
 
 import CategoryItem from './CategoryItem';
 
@@ -24,13 +24,18 @@ export default class CategoryListing extends React.Component {
     return (
       <div className='CategoryListing-container'>
         <div className='CategoryListing-lists'>
-
-          <CategoryItem all_button={this.props.all} b={this.props.a} categoryType={'All'} />
-
+          <CategoryItem
+            all_button={this.props.all}
+            b={this.props.a}
+            categoryType={'All'}
+          />
 
           {this.state.data_Categories.map(category => {
             return (
-              <CategoryItem categoryType={category.categories_name} b={this.props.a} />
+              <CategoryItem
+                categoryType={category.categories_name}
+                b={this.props.a}
+              />
             );
           })}
         </div>

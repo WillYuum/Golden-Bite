@@ -33,28 +33,28 @@ class OrderPopup extends Component {
             <input
               className='input--box'
               type='text'
-              placeholder='Name'
+              placeholder='Enter your Name'
               autoFocus
               required
             />
             <input
               className='input--box'
               type='email'
-              placeholder='Email'
+              placeholder='Enter your Email'
               autoFocus
               required
             />
             <input
               className='input--box'
               type='text'
-              placeholder='Phone'
+              placeholder='Enter your Phone'
               autoFocus
               required
             />
             <input
               className='input--box'
               type='text'
-              placeholder='Address'
+              placeholder='Enter your Address'
               autoFocus
               required
             />
