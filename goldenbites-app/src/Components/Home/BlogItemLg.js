@@ -23,9 +23,6 @@ class BlogItemLg extends Component {
           <div className='blog__button'>
             <Link to='/MainBlogClick'>Read Article</Link>
           </div>
-          {/* <div className='blogs__button'>
-            <a href='#'>View All Articles</a>
-          </div> */}
         </div>
       </div>
     );
