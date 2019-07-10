@@ -1,6 +1,7 @@
 import React from 'react';
 import './Style/PopUpModel.css';
 
+import  OrderPopUp from "../Home/OrderPopup"
 export default class ProductsItem extends React.Component {
   constructor(props) {
     super(props);
@@ -26,9 +27,11 @@ export default class ProductsItem extends React.Component {
       headers:{"Content-Type":"application/json"}
       
     })
+    this.submitHandler()
       }catch(err){
         console.log(err)
       }
+      this.submitHandler()
    }  
 
   changeHandler = e => {
@@ -44,6 +47,8 @@ export default class ProductsItem extends React.Component {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       }
+      
+      
     })
       .then(res => res.json())
       .then(response => console.log('Success:', JSON.stringify(response)))
@@ -81,7 +86,20 @@ export default class ProductsItem extends React.Component {
           </div>
         </div>
         {/*-----------------------------------------POPUP-----------------------------------------------------*/}
-        <div id={`${this.props.name}`} className='ProductsItem-overlay'>
+          <OrderPopUp ali ={this.props.name}
+           productName = {this.props.name}
+           productPrice={this.props.price}
+           productCat ={this.props.category}
+           productDiscription ={this.props.discription}
+           UserName ={name}
+           UserEmail = {email}
+           UserPhone = {phone_number}
+           UserAddress = {address}
+           handleChange = {this.changeHandler}
+           handlingSubmit = {this.submitHandler}
+              />
+
+        {/* <div id={`${this.props.name}`} className='ProductsItem-overlay'>
           <div className='ProductsItem-content'>
             <a href='#' className='ProductsItem-close'>
               &times;
@@ -155,7 +173,7 @@ export default class ProductsItem extends React.Component {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }
