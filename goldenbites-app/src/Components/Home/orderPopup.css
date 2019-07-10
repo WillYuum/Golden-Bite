@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400|Lato&display=swap');
+
+.popUp {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2500;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.popUp:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popUp__close {
+}
+
+.popUp__close:link,
+.popUp__close:visited {
+  position: absolute;
+  top: -12px;
+  right: 15px;
+  color: #751d52;
+  font-size: 60px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.popUp__close:hover {
+  color: #c9a74d;
+}
+
+.popUp__content {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  font-family: 'Alegreya Sans', Arial, Helvetica, sans-serif;
+}
+
+.popUp__content--product {
+  width: 100%;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.popUp__content--product-details {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.popUp__content--product-details-name {
+  width: 100%;
+  font-size: 34px;
+  letter-spacing: 1px;
+}
+
+.popUp__content--product-details-price {
+  width: 100%;
+  font-size: 28px;
+}
+
+.popUp__content--product-details-category {
+  width: 100%;
+  font-size: 18px;
+  color: #8b8b8b;
+}
+
+.popUp__content--product-image {
+  height: 120px;
+  width: 120px;
+  margin-right: 20px;
+  background-size: cover;
+  background-image: url(../../Assets/img/products/p01.png);
+}
+
+.popUp__content--product-details-description {
+  padding: 20px 40px;
+  font-size: 17px;
+  color: #8b8b8b;
+  text-align: justify;
+  line-height: 1.4;
+}
+
+.popUp__content--client {
+  width: 100%;
+  background-color: #751d52;
+  padding: 20px 40px;
+}
+
+.input--box {
+  height: 30px;
+  width: 100%;
+  border-radius: 0px;
+  border-top: 0px solid #c9a74d;
+  border-right: 0px solid #c9a74d;
+  border-bottom: 0px solid #c9a74d;
+  border-left: 0px solid #c9a74d;
+  border-radius: 0px;
+  margin: 5px 0;
+  background-color: #751d52;
+  outline: none;
+}
+
+/*** Place Holder Color Change Starts Here **********************************************/
+/* Chrome & Firefox */
+.input--box::placeholder {
+  font-size: 17px;
+  color: #c9a74d;
+  opacity: 1;
+}
+
+.input--text::placeholder {
+  font-size: 17px;
+  color: #751d52;
+  opacity: 1;
+}
+/* Internet Explorer 10-11 */
+.input--box:-ms-input-placeholder {
+  font-size: 17px;
+  color: #c9a74d;
+  opacity: 1;
+}
+
+.input--text:-ms-input-placeholder {
+  font-size: 17px;
+  color: #751d52;
+  opacity: 1;
+}
+/* Microsoft Edge */
+.input--box::-ms-input-placeholder {
+  font-size: 17px;
+  color: #c9a74d;
+  opacity: 1;
+}
+
+.input--text::-ms-input-placeholder {
+  font-size: 17px;
+  color: #751d52;
+  opacity: 1;
+}
+/*** Place Holder Color Change Ends Here ************************************************/
+
+.popUp__content--order {
+  height: 100%;
+  width: 100%;
+  padding: 10px 40px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.input--text {
+  width: 50px;
+  height: 40px;
+  border-radius: 0px;
+  border: 1px solid #751d52;
+  font-size: 20px;
+  color: #751d52;
+  text-align: center;
+}
+
+.order--button {
+  height: 40px;
+  width: 160px;
+  text-align: center;
+  background-color: #c9a74d;
+  color: #751d52;
+  font-size: 17px;
+  border: 2px solid #c9a74d;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.order--button:hover {
+  border: 1px solid #751d52;
+  background-color: transparent;
+  color: #751d52;
+  font-weight: bold;
+}

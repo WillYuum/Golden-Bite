@@ -10,6 +10,7 @@ import BlogItemLg from './BlogItemLg';
 import BlogAllArticlesButton from './BlogAllArticlesButton';
 import TestimonialsSection from './Testimonials-Section';
 import TestimonialsSlider from './TestimonialsSlider';
+import OrderPopup from './OrderPopup';
 // import FooterSection from "./Components/Home/Footer-Section";
 
 class HomePage extends Component {
@@ -27,6 +28,8 @@ class HomePage extends Component {
 
         <TestimonialsSection />
         <TestimonialsSlider />
+
+        <OrderPopup />
       </div>
     );
   }
