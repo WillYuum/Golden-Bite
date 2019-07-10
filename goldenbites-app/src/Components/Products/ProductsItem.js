@@ -5,18 +5,10 @@ export default class ProductsItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
-      name: "",
-      email: "",
-      phone: "",
-      address: "",
-      
-=======
       name: '',
       email: '',
       phone: '',
       address: ''
->>>>>>> 33bcad0b0788e4e66840f22c342a13391376554a
     };
   }
   createOrder = async()=>{

@@ -22,16 +22,6 @@ export default class CategoryListing extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <div className="CategoryListing-container">
-        <div className = "CategoryListing-lists">
-          <CategoryItem a = "All" b={this.props.a} all_button={this.props.all}/>
-        {
-            this.state.data_Categories.map(category =>{
-                return <CategoryItem a = {category.categories_name} b={this.props.a}/>
-            })
-        }
-=======
       <div className='CategoryListing-container'>
         <div className='CategoryListing-lists'>
           <CategoryItem a='All' all_button={this.props.all} />
@@ -40,7 +30,6 @@ export default class CategoryListing extends React.Component {
               <CategoryItem a={category.categories_name} b={this.props.a} />
             );
           })}
->>>>>>> 33bcad0b0788e4e66840f22c342a13391376554a
         </div>
       </div>
     );

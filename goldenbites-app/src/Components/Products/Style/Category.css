@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-.CategoryListing-container{
-    width:90vw;
-    margin: 40px auto;
-=======
 .CategoryListing-container {
   width: 50vw;
   margin: 30px auto;
->>>>>>> 33bcad0b0788e4e66840f22c342a13391376554a
 }
 .CategoryListing-lists {
   display: flex;
