@@ -11,6 +11,25 @@ export default class ProductsItem extends React.Component {
       address: ''
     };
   }
+  createOrder = async()=>{
+    let order ={
+     orders_id:this.props.key,
+     products_id:this.props.name,
+     quantity:5
+    }
+    console.log(order)
+ 
+    try{
+    const Order = await fetch("http://localhost:3001/orders_products/create",{
+      method:"POST",
+      body:JSON.stringify(order),
+      headers:{"Content-Type":"application/json"}
+      
+    })
+      }catch(err){
+        console.log(err)
+      }
+   }  
 
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });

@@ -12,7 +12,7 @@ export default class ProductsPage extends React.Component{
         this.setState({category});
     }
 
-    emptyCat = (category)=>{
+    emptyCat = ()=>{
         this.setState({category:""})
     }
     render(){

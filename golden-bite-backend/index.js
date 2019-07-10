@@ -10,6 +10,8 @@ let db = new sqlite3.Database('./goldenBites-db');
 
 app.use(cors());
 app.use(express.static('public'));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -512,11 +514,32 @@ app.patch('/orders/edit/:id?', function(req, res) {
   );
 });
 
-app.post('/orders/create?', function(req, res) {
-  const ORDERS_NAME = req.query.name;
-  const ORDERS_ADDRESS = req.query.address;
-  const ORDERS_PHONE_NUMBER = req.query.phone_number;
-  const ORDERS_EMAIL = req.query.email;
+// app.post('/orders/create?', function(req, res) {
+//   const ORDERS_NAME = req.query.name;
+//   const ORDERS_ADDRESS = req.query.address;
+//   const ORDERS_PHONE_NUMBER = req.query.phone_number;
+//   const ORDERS_EMAIL = req.query.email;
+
+//   db.all(
+//     `INSERT INTO Orders
+//          (name,address,phone_numbe,email)
+//           VALUES (?,?,?,?)`,
+//     [ORDERS_NAME, ORDERS_ADDRESS, ORDERS_PHONE_NUMBER, ORDERS_EMAIL],
+//     function(err) {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         res.send('DATA IS ADDED');
+//       }
+//     }
+//   );
+// });
+app.post('/orders/create', function(req, res) {
+  console.log("data=>",)
+  const ORDERS_NAME = req.body.name;
+  const ORDERS_ADDRESS = req.body.address;
+  const ORDERS_PHONE_NUMBER = req.body.phone;
+  const ORDERS_EMAIL = req.body.email;
 
   db.all(
     `INSERT INTO Orders
@@ -564,9 +587,10 @@ app.get('/orders_products/read', function(req, res) {
 });
 
 app.post('/orders_products/create?', function(req, res) {
-  const ORDER_ID = req.query.orders_id;
-  const PRODUCTS_ID = req.query.products_id;
-  const quantity = req.query.quantity;
+  const ORDERS_ID = req.body.orders_id;
+  const PRODUCTS_ID = req.body.products_id;
+  const quantity = req.body.quantity;
+  console.log("ORDER ===>",req.body)
 
   db.all(
     `INSERT INTO Orders_products

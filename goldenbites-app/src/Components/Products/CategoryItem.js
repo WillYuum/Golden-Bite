@@ -9,7 +9,7 @@ export default class CategoryItem extends React.Component {
   render() {
     return (
       <div className="CategoryItem-container">
-        <a onClick = {this.props.all_button}><li className = "CategoryItem-mainList" onClick={()=>this.props.b(this.props.a)}>{this.props.a}</li></a>
+        <a onClick = {this.props.all_button}><li className = "CategoryItem-mainList" onClick={()=>this.props.b(this.props.categoryType)}>{this.props.categoryType}</li></a>
       </div>
     );
   }
