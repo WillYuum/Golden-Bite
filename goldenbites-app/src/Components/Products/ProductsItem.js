@@ -11,27 +11,21 @@ export default class ProductsItem extends React.Component {
       email: "",
       phone: "",
       address: "",
+      
     };
   }
-
-  changeHandler = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-
-   submitHandler = async()=>{
-    console.log(this.state);
-        let a = new FormData();
-   await a.append('name',this.state.name)
-    a.append('address',this.state.address)
-    a.append('phone_number',this.state.phone)
-    a.append('email',this.state.email)
-    
-
+  createOrder = async()=>{
+    let order ={
+     orders_id:this.props.key,
+     products_id:this.props.name,
+     quantity:5
+    }
+    console.log(order)
+ 
     try{
-    const order = await fetch("http://localhost:3001/orders/create",{
+    const Order = await fetch("http://localhost:3001/orders_products/create",{
       method:"POST",
-      body:a,
+      body:JSON.stringify(order),
       headers:{"Content-Type":"application/json"}
       
     })
@@ -40,6 +34,30 @@ export default class ProductsItem extends React.Component {
       }
    }  
 
+  changeHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+
+   submitHandler = async(e)=>{
+     e.preventDefault()
+    let {name,address,phone,email}=this.state
+    console.log({name,address,phone,email})
+
+    try{
+    const UserDetail = await fetch("http://localhost:3001/orders/create",{
+      method:"POST",
+      body:JSON.stringify(this.state),
+      headers:{"Content-Type":"application/json"}
+      
+    })
+      }catch(err){
+        console.log(err)
+      }
+      this.createOrder()
+   }  
+
+   
 
 
   render() {
