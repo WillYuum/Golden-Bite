@@ -1,24 +1,28 @@
+<<<<<<< HEAD
 .CategoryListing-container{
     width:90vw;
     margin: 40px auto;
+=======
+.CategoryListing-container {
+  width: 50vw;
+  margin: 30px auto;
+>>>>>>> 33bcad0b0788e4e66840f22c342a13391376554a
 }
-.CategoryListing-lists{
-    display:flex;
-    justify-content: space-around;
+.CategoryListing-lists {
+  display: flex;
+  justify-content: space-around;
 }
-
-
 
 /*-------------------------CATEGORY ITEM----------------------*/
-.CategoryItem-mainList{
-    color: darkgoldenrod;
-    list-style: none;
-    font-size:20px;
-    text-align: center;
-    width:150%;
+.CategoryItem-mainList {
+  color: darkgoldenrod;
+  list-style: none;
+  font-size: 20px;
+  text-align: center;
+  width: 150%;
 }
 
-.CategoryItem-mainList:hover{
-    cursor: pointer;
-    text-shadow:2px 2px 10px black;
+.CategoryItem-mainList:hover {
+  cursor: pointer;
+  text-shadow: 2px 2px 10px black;
 }

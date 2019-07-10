@@ -1,17 +1,22 @@
-import React from "react";
-import "./Style/PopUpModel.css";
-
-
+import React from 'react';
+import './Style/PopUpModel.css';
 
 export default class ProductsItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+<<<<<<< HEAD
       name: "",
       email: "",
       phone: "",
       address: "",
       
+=======
+      name: '',
+      email: '',
+      phone: '',
+      address: ''
+>>>>>>> 33bcad0b0788e4e66840f22c342a13391376554a
     };
   }
   createOrder = async()=>{
@@ -38,6 +43,7 @@ export default class ProductsItem extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+<<<<<<< HEAD
 
    submitHandler = async(e)=>{
      e.preventDefault()
@@ -59,106 +65,124 @@ export default class ProductsItem extends React.Component {
 
    
 
+=======
+  submitHandler = () => {
+    console.log(this.state);
+    const order = fetch('http://localhost:3001/orders/create', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(response => console.log('Success:', JSON.stringify(response)))
+      .catch(error => console.error('Error:', error));
+  };
+>>>>>>> 33bcad0b0788e4e66840f22c342a13391376554a
 
   render() {
     const { name, email, phone_number, address } = this.state;
     return (
-      <div className="ProductsItem-container">
+      <div className='ProductsItem-container'>
         <div
-          className="ProductsItem-image"
+          className='ProductsItem-image'
           style={{
             backgroundImage: `url(\"http://localhost:3001/Golden_Bites_Images/${
               this.props.img
-            }.jpg\")`,
-            backgroundSize: "100% 100%"
+            }\")`,
+            backgroundSize: '100% 100%'
           }}
-        />
+        >
+          {' '}
+        </div>
 
-        <div className="ProductsItem-details">
-          <p className="ProductsItem-Text">{this.props.name}</p>
+        <div className='ProductsItem-details'>
+          <p className='ProductsItem-Text'>{this.props.name}</p>
 
-          <div className="ProductsItem-BellowTitle">
-            <p className="ProductsItem-info ">
+          <div className='ProductsItem-BellowTitle'>
+            <p className='ProductsItem-info '>
               <b>${this.props.price}</b>
             </p>
-            <div className="ProductsItem-info addToCart">
+            <div className='ProductsItem-info addToCart'>
               <a href={`#${this.props.name}`}>
-                <p className="ProductsItem-text">BUY NOW</p>
+                <p className='ProductsItem-text'>BUY NOW</p>
               </a>
             </div>
           </div>
         </div>
         {/*-----------------------------------------POPUP-----------------------------------------------------*/}
-        <div id={`${this.props.name}`} className="ProductsItem-overlay">
-          <div className="ProductsItem-content">
-            <a href="#" className="ProductsItem-close">
+        <div id={`${this.props.name}`} className='ProductsItem-overlay'>
+          <div className='ProductsItem-content'>
+            <a href='#' className='ProductsItem-close'>
               &times;
             </a>
-            <div className="ProductsItem-MainDetails">
-              <div className="ProductsItem-popupImage">
+            <div className='ProductsItem-MainDetails'>
+              <div className='ProductsItem-popupImage'>
                 <img
-                  width="300px"
-                  height="250px"
+                  width='300px'
+                  height='250px'
                   src={`http://localhost:3001/Golden_Bites_Images/${
                     this.props.img
                   }.jpg`}
-                  alt=""
+                  alt=''
                 />
               </div>
 
-              <p className="ProductsItem-productname">{this.props.name}</p>
-              <p className="ProductsItem-productprice">
+              <p className='ProductsItem-productname'>{this.props.name}</p>
+              <p className='ProductsItem-productprice'>
                 <b>${this.props.price}</b>
               </p>
-              <p className="Productsitem-productCategory">
+              <p className='Productsitem-productCategory'>
                 Categories: {this.props.category}
               </p>
-              <p className="ProductsItem-productdescription">
+              <p className='ProductsItem-productdescription'>
                 {this.props.discription}
               </p>
             </div>
-            <div className="ProductsItem-form">
+            <div className='ProductsItem-form'>
               <form onSubmit={this.submitHandler}>
                 <input
-                  className="ProductsItem-Name"
-                  type="text"
-                  placeholder="Name"
-                  name="name"
+                  className='ProductsItem-Name'
+                  type='text'
+                  placeholder='Name'
+                  name='name'
                   value={name}
                   onChange={this.changeHandler}
                   required
                 />
                 <input
-                  className="ProductsItem-email"
-                  type="text"
-                  placeholder="Email"
-                  name="email"
+                  className='ProductsItem-email'
+                  type='text'
+                  placeholder='Email'
+                  name='email'
                   value={email}
                   onChange={this.changeHandler}
                   required
                 />
                 <input
-                  className="ProductsItem-phone"
-                  type="text"
-                  placeholder="Phone-Number"
-                  name="phone"
+                  className='ProductsItem-phone'
+                  type='text'
+                  placeholder='Phone-Number'
+                  name='phone'
                   value={phone_number}
                   onChange={this.changeHandler}
                   required
                 />
                 <input
-                  className="ProductsItem-address"
-                  type="text"
-                  placeholder="Address"
-                  name="address"
+                  className='ProductsItem-address'
+                  type='text'
+                  placeholder='Address'
+                  name='address'
                   value={address}
                   onChange={this.changeHandler}
                   required
                 />
               </form>
             </div>
-            <div className="ProductsItem-btn-bg">
-              <button className="Productsitem-btn" onClick={this.submitHandler}>
+            <div className='ProductsItem-btn-bg'>
+              <button className='Productsitem-btn' onClick={this.submitHandler}>
                 BUY
               </button>
             </div>
