@@ -92,6 +92,11 @@
   transform: translateX(10px);
 }
 
+.navigation__link:focus .navigation__nav {
+  opacity: 0;
+  width: 0;
+}
+
 /*** TOGGLE FUNCTIONALITY STARTS HERE ******************************************/
 .navigation__checkbox:checked ~ .navigation__background {
   transform: scale(80);
