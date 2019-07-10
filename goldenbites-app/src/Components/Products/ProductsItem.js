@@ -1,7 +1,7 @@
 import React from 'react';
 import './Style/PopUpModel.css';
 
-import  OrderPopUp from "../Home/OrderPopup"
+import OrderPopUp from '../Home/OrderPopup';
 export default class ProductsItem extends React.Component {
   constructor(props) {
     super(props);
@@ -12,27 +12,29 @@ export default class ProductsItem extends React.Component {
       address: ''
     };
   }
-  createOrder = async()=>{
-    let order ={
-     orders_id:this.props.key,
-     products_id:this.props.name,
-     quantity:5
+  createOrder = async () => {
+    let order = {
+      orders_id: this.props.key,
+      products_id: this.props.name,
+      quantity: 5
+    };
+    console.log(order);
+
+    try {
+      const Order = await fetch(
+        'http://localhost:3001/orders_products/create',
+        {
+          method: 'POST',
+          body: JSON.stringify(order),
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
+      this.submitHandler();
+    } catch (err) {
+      console.log(err);
     }
-    console.log(order)
- 
-    try{
-    const Order = await fetch("http://localhost:3001/orders_products/create",{
-      method:"POST",
-      body:JSON.stringify(order),
-      headers:{"Content-Type":"application/json"}
-      
-    })
-    this.submitHandler()
-      }catch(err){
-        console.log(err)
-      }
-      this.submitHandler()
-   }  
+    this.submitHandler();
+  };
 
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -47,8 +49,6 @@ export default class ProductsItem extends React.Component {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       }
-      
-      
     })
       .then(res => res.json())
       .then(response => console.log('Success:', JSON.stringify(response)))
@@ -58,46 +58,42 @@ export default class ProductsItem extends React.Component {
   render() {
     const { name, email, phone_number, address } = this.state;
     return (
-      <div className='ProductsItem-container'>
+      <div className='product__container'>
         <div
-          className='ProductsItem-image'
+          className='product__picture'
           style={{
             backgroundImage: `url(\"http://localhost:3001/Golden_Bites_Images/${
               this.props.img
-            }\")`,
-            backgroundSize: '100% 100%'
+            }\")`
           }}
         >
           {' '}
         </div>
 
-        <div className='ProductsItem-details'>
-          <p className='ProductsItem-Text'>{this.props.name}</p>
+        <div className='product__details'>
+          <div className='product__details--name'>{this.props.name}</div>
 
-          <div className='ProductsItem-BellowTitle'>
-            <p className='ProductsItem-info '>
-              <b>${this.props.price}</b>
-            </p>
-            <div className='ProductsItem-info addToCart'>
-              <a href={`#${this.props.name}`}>
-                <p className='ProductsItem-text'>BUY NOW</p>
-              </a>
+          <div className='product__details--box'>
+            <div className='product__details--price'>${this.props.price}</div>
+            <div className='product__details--buy'>
+              <a href={`#${this.props.name}`}>BUY NOW</a>
             </div>
           </div>
         </div>
         {/*-----------------------------------------POPUP-----------------------------------------------------*/}
-          <OrderPopUp ali ={this.props.name}
-           productName = {this.props.name}
-           productPrice={this.props.price}
-           productCat ={this.props.category}
-           productDiscription ={this.props.discription}
-           UserName ={name}
-           UserEmail = {email}
-           UserPhone = {phone_number}
-           UserAddress = {address}
-           handleChange = {this.changeHandler}
-           handlingSubmit = {this.submitHandler}
-              />
+        <OrderPopUp
+          ali={this.props.name}
+          productName={this.props.name}
+          productPrice={this.props.price}
+          productCat={this.props.category}
+          productDiscription={this.props.discription}
+          UserName={name}
+          UserEmail={email}
+          UserPhone={phone_number}
+          UserAddress={address}
+          handleChange={this.changeHandler}
+          handlingSubmit={this.submitHandler}
+        />
 
         {/* <div id={`${this.props.name}`} className='ProductsItem-overlay'>
           <div className='ProductsItem-content'>

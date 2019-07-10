@@ -5,7 +5,7 @@ class OrderPopup extends Component {
   state = {};
   render() {
     return (
-      <div className='popUp' id={`${this.props.ali}`} >
+      <div className='popUp' id={`${this.props.ali}`}>
         <div className='popUp__content'>
           <a className='popUp__close' href='#bestSellers'>
             &times;
@@ -31,56 +31,40 @@ class OrderPopup extends Component {
             <input
               className='input--box'
               type='text'
-<<<<<<< HEAD
-              placeholder='Enter your Name'
-=======
-              name="name"
+              name='name'
               placeholder='Name'
-              value = {this.props.UserName}
-              onChange = {this.props.handleChange}
->>>>>>> a6a5c1b72e2e39472a945494a01bf7c315808b3c
+              value={this.props.UserName}
+              onChange={this.props.handleChange}
               autoFocus
               required
             />
             <input
               className='input--box'
               type='email'
-<<<<<<< HEAD
-              placeholder='Enter your Email'
-=======
-              name="email"
+              name='email'
               placeholder='Email'
-              value = {this.props.UserEmail}
-              onChange = {this.props.handleChange}
->>>>>>> a6a5c1b72e2e39472a945494a01bf7c315808b3c
+              value={this.props.UserEmail}
+              onChange={this.props.handleChange}
               autoFocus
               required
             />
             <input
               className='input--box'
               type='text'
-<<<<<<< HEAD
-              placeholder='Enter your Phone'
-=======
-              name="phone"
+              name='phone'
               placeholder='Phone'
-              value = {this.props.UserPhone}
-              onChange = {this.props.handleChange}
->>>>>>> a6a5c1b72e2e39472a945494a01bf7c315808b3c
+              value={this.props.UserPhone}
+              onChange={this.props.handleChange}
               autoFocus
               required
             />
             <input
               className='input--box'
               type='text'
-<<<<<<< HEAD
-              placeholder='Enter your Address'
-=======
-              name="address"
+              name='address'
               placeholder='Address'
-              value = {this.props.UserAddress}
-              onChange = {this.props.handleChange}
->>>>>>> a6a5c1b72e2e39472a945494a01bf7c315808b3c
+              value={this.props.UserAddress}
+              onChange={this.props.handleChange}
               autoFocus
               required
             />
@@ -95,7 +79,11 @@ class OrderPopup extends Component {
               inputMode='numeric'
               placeholder='Qty'
             />
-            <button className='order--button' type='submit' onClick = {this.props.handlingSubmit}>
+            <button
+              className='order--button'
+              type='submit'
+              onClick={this.props.handlingSubmit}
+            >
               BUY NOW
             </button>
           </div>
