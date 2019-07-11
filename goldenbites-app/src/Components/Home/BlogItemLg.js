@@ -5,33 +5,6 @@ import './blogItemLg.css';
 class BlogItemLg extends Component {
   // state = {};
 
-<<<<<<< HEAD
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      data: [],
-      datablogs: []
-    };
-  }
-
-  async componentDidMount() {
-    try {
-      // FETCH FROM BLOGS TABLE
-      const response_blogs_read = await fetch(
-        'http://localhost:3001/blogs/read'
-      );
-      const blogs_reading = await response_blogs_read.json();
-      await this.setState({ datablogs: blogs_reading.DATA[0] });
-      await console.log(
-        'my blogsnew are:',
-        this.state.datablogs[0].blogs_author
-      );
-    } catch (err) {
-      console.log(err);
-    }
-  }
-=======
 
 
 	constructor(props) {
@@ -56,7 +29,6 @@ class BlogItemLg extends Component {
 		}
 	}
 
->>>>>>> 3a1b2314f155e452f683fd6fdc2f12a163c801a0
 
   render() {
     return (
