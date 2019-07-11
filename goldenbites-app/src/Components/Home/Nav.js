@@ -2,18 +2,37 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './nav.css';
 
+const navButton = document.getElementById('navi-toggle');
+const navLinks = document.querySelectorAll('.navigation__link');
+
+Array.from(navLinks).forEach(link =>
+  link.addEventListener('click', () => {
+    navButton.checked = false;
+  })
+);
+
 class Nav extends Component {
-  state = {};
+  state = { checked: false };
+  updateNav = checked => {
+    this.setState({ checked });
+  };
   render() {
     return (
       <div className='navigation'>
         <input
           type='checkbox'
+          checked={this.state.checked}
           className='navigation__checkbox'
           id='navi-toggle'
         />
 
-        <label for='navi-toggle' className='navigation__button'>
+        <label
+          for='navi-toggle'
+          className='navigation__button'
+          onClick={() => {
+            this.updateNav(!this.state.checked);
+          }}
+        >
           <span className='navigation__icon' />
         </label>
 
@@ -23,20 +42,40 @@ class Nav extends Component {
           <ul className='navigation__list'>
             <li className='navigation__item'>
               {' '}
-              <Link className='navigation__link'  to="/">01 Home</Link>
+              <Link
+                className='navigation__link'
+                onClick={() => {
+                  this.updateNav(false);
+                }}
+                to='/'
+              >
+                01 Home
+              </Link>
               {/* <a href='#' className='navigation__link'>
                 <span>01</span>
               </a> */}
             </li>
             <li className='navigation__item'>
               {' '}
-              <Link to="/Products" className='navigation__link'>
+              <Link
+                to='/Products'
+                onClick={() => {
+                  this.updateNav(false);
+                }}
+                className='navigation__link'
+              >
                 <span>02</span> Products
               </Link>
             </li>
             <li className='navigation__item'>
               {' '}
-              <Link to="/Blogs" className='navigation__link'>
+              <Link
+                to='/Blogs'
+                onClick={() => {
+                  this.updateNav(false);
+                }}
+                className='navigation__link'
+              >
                 <span>03</span> Blogs
               </Link>
             </li>

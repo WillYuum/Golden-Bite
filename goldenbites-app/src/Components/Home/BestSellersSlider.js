@@ -87,7 +87,7 @@ class BestSellersSlider extends Component {
                 <div className='card_side--back--picture card_side--back--picture--1' />
               </div>
               <div className='card_side--back--button'>
-                <a href='#'>ORDER NOW</a>
+                <a href='#popUp'>ORDER NOW</a>
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@ class BestSellersSlider extends Component {
                 <div className='card_side--back--picture card_side--back--picture--2' />
               </div>
               <div className='card_side--back--button'>
-                <a href='#'>ORDER NOW</a>
+                <a href='#popUp'>ORDER NOW</a>
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@ class BestSellersSlider extends Component {
                 <div className='card_side--back--picture card_side--back--picture--3' />
               </div>
               <div className='card_side--back--button'>
-                <a href='#'>ORDER NOW</a>
+                <a href='#popUp'>ORDER NOW</a>
               </div>
             </div>
           </div>
@@ -181,7 +181,7 @@ class BestSellersSlider extends Component {
                 <div className='card_side--back--picture card_side--back--picture--4' />
               </div>
               <div className='card_side--back--button'>
-                <a href='#'>ORDER NOW</a>
+                <a href='#popUp'>ORDER NOW</a>
               </div>
             </div>
           </div>
@@ -212,7 +212,7 @@ class BestSellersSlider extends Component {
                 <div className='card_side--back--picture card_side--back--picture--5' />
               </div>
               <div className='card_side--back--button'>
-                <a href='#'>ORDER NOW</a>
+                <a href='#popUp'>ORDER NOW</a>
               </div>
             </div>
           </div>
@@ -243,7 +243,7 @@ class BestSellersSlider extends Component {
                 <div className='card_side--back--picture card_side--back--picture--6' />
               </div>
               <div className='card_side--back--button'>
-                <a href='#'>ORDER NOW</a>
+                <a href='#popUp'>ORDER NOW</a>
               </div>
             </div>
           </div>

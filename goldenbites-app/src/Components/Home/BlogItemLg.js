@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 import './blogItemLg.css';
 
 class BlogItemLg extends Component {
@@ -44,10 +44,7 @@ class BlogItemLg extends Component {
           {this.state.datablogs.blogs_content}
           </div>
           <div className='blog__button'>
-            <Link to ="/MainBlogClick">Read Article</Link>
-          </div>
-          <div className='blogs__button'>
-            <a href='#'>View All Articles</a>
+            <Link to='/MainBlogClick'>Read Article</Link>
           </div>
         </div>
       </div>

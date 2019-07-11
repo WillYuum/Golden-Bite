@@ -7,8 +7,10 @@ import BestSellersSection from './BestSellers-Section';
 import BestSellersSlider from './BestSellersSlider';
 import BlogsSection from './Blogs-Section';
 import BlogItemLg from './BlogItemLg';
+import BlogAllArticlesButton from './BlogAllArticlesButton';
 import TestimonialsSection from './Testimonials-Section';
 import TestimonialsSlider from './TestimonialsSlider';
+import OrderPopup from './OrderPopup';
 // import FooterSection from "./Components/Home/Footer-Section";
 
 class HomePage extends Component {
@@ -22,9 +24,12 @@ class HomePage extends Component {
 
         <BlogsSection />
         <BlogItemLg />
+        <BlogAllArticlesButton />
 
         <TestimonialsSection />
         <TestimonialsSlider />
+
+        <OrderPopup />
       </div>
     );
   }
