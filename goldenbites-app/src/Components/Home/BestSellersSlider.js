@@ -21,6 +21,21 @@ import Slider from 'react-slick';
 // ];
 
 class BestSellersSlider extends Component {
+  /* state = {
+    data_Products: []
+  };
+
+  async componentDidMount() {
+    try {
+      const response = await fetch("http://localhost:3001/products/read");
+      const products = await response.json();
+      await this.setState({ data_Products: products.DATA });
+    } catch (err) {
+      console.log(err);
+    }
+  } */
+
+  
   render() {
     console.log("it's working");
     var settings = {
@@ -61,7 +76,12 @@ class BestSellersSlider extends Component {
 
     return (
       <Slider className='bestSellers__list' {...settings}>
-        <div className='bestSellers__container'>
+
+        {
+          this.props.data_Products.map(BS =>{
+            if(BS.products_bestseller === 1){
+              return(
+              <div className='bestSellers__container'>
           <div className='bestSellers__card'>
             <div className='card__side card__side--front'>
               <div className='card__picture--container'>
@@ -72,13 +92,13 @@ class BestSellersSlider extends Component {
               </div>
               <div className='card__details'>
                 <ul>
-                  <li>Cherry Pie</li>
+                  <li>{BS.products_name}</li>
 
                   <li>
-                    Lorem Ipsum is simply dummy text of the printing industry.
+                    {BS.products_description}
                   </li>
-                  <li>Category: Pie</li>
-                  <li>$ 16.00</li>
+                  <li>Category: {BS.categories_name}</li>
+                  <li>$ {BS.products_price}</li>
                 </ul>
               </div>
             </div>
@@ -87,13 +107,20 @@ class BestSellersSlider extends Component {
                 <div className='card_side--back--picture card_side--back--picture--1' />
               </div>
               <div className='card_side--back--button'>
-                <a href='#popUp'>ORDER NOW</a>
+                <a href={`#${ BS.products_id}`} onClick={()=>{this.props.handleSlideSelect( BS.products_id, BS.products_name,BS.products_price,BS.categories_name,BS.products_description)}}>ORDER NOW</a>
               </div>
             </div>
           </div>
         </div>
+              )
+            }
+          })
+        }
 
-        <div className='bestSellers__container'>
+
+        
+
+        {/* <div className='bestSellers__container'>
           <div className='bestSellers__card'>
             <div className='card__side card__side--front'>
               <div className='card__picture--container'>
@@ -247,7 +274,7 @@ class BestSellersSlider extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </Slider>
     );
   }

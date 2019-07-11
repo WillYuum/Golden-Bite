@@ -5,7 +5,7 @@ class OrderPopup extends Component {
   state = {};
   render() {
     return (
-      <div className='popUp' id={`${this.props.ali}`}>
+      <div className='popUp' id={`${this.props.id}`}>
         <div className='popUp__content'>
           <a className='popUp__close' href='#bestSellers'>
             &times;
