@@ -82,17 +82,17 @@ export default class ProductsItem extends React.Component {
         </div>
         {/*-----------------------------------------POPUP-----------------------------------------------------*/}
         <OrderPopUp
-          ali={this.props.name}
+          id={this.props.name}
           productName={this.props.name}
           productPrice={this.props.price}
           productCat={this.props.category}
           productDiscription={this.props.discription}
-          UserName={name}
-          UserEmail={email}
-          UserPhone={phone_number}
-          UserAddress={address}
-          handleChange={this.changeHandler}
-          handlingSubmit={this.submitHandler}
+          // UserName={name}
+          // UserEmail={email}
+          // UserPhone={phone_number}
+          // UserAddress={address}
+          // handleChange={this.changeHandler}
+          // handlingSubmit={this.submitHandler}
         />
 
         {/* <div id={`${this.props.name}`} className='ProductsItem-overlay'>

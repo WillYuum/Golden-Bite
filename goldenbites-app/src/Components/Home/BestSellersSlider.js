@@ -85,7 +85,11 @@ class BestSellersSlider extends Component {
           <div className='bestSellers__card'>
             <div className='card__side card__side--front'>
               <div className='card__picture--container'>
-                <div className='card__picture card__picture--1' />
+                <div className='card__picture' style={{
+            backgroundImage: `url(\"http://localhost:3001/Golden_Bites_Images/${
+              BS.products_image
+            }\")`
+          }} />
               </div>
               <div className='card__heading'>
                 <span className='card__heading--span'>Best Seller</span>
@@ -107,7 +111,7 @@ class BestSellersSlider extends Component {
                 <div className='card_side--back--picture card_side--back--picture--1' />
               </div>
               <div className='card_side--back--button'>
-                <a href={`#${ BS.products_id}`} onClick={()=>{this.props.handleSlideSelect( BS.products_id, BS.products_name,BS.products_price,BS.categories_name,BS.products_description)}}>ORDER NOW</a>
+                <a href={`#${ BS.products_id}`} onClick={()=>{this.props.handleSlideSelect( BS.products_id, BS.products_image, BS.products_name,BS.products_price,BS.categories_name,BS.products_description)}}>ORDER NOW</a>
               </div>
             </div>
           </div>
