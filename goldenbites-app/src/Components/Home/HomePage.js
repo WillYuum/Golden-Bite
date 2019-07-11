@@ -19,6 +19,7 @@ class HomePage extends Component {
   state = {
     data_Products: [], 
     slide_id:null,
+    image:"",
     name:'',
     price:"",
     category:"",
@@ -35,8 +36,8 @@ class HomePage extends Component {
       console.log(err);
     }
   }
-  handleSlideSelect =(id, name, price ,category, description)=>{
-    this.setState({slide_id:id,name:name,price:price,category:category, description:description })
+  handleSlideSelect =(id,image, name, price ,category, description)=>{
+    this.setState({slide_id:id,image:image, name:name,price:price,category:category, description:description })
   }
   render() {
     return (
@@ -47,7 +48,7 @@ class HomePage extends Component {
 
         <BestSellersSlider handleSlideSelect={this.handleSlideSelect} data_Products={this.state.data_Products}/>
         
-        <OrderPopUp id = {this.state.slide_id} productName={this.state.name} productPrice={this.state.price} productCat={this.state.category} productDiscription = {this.state.description} />
+        <OrderPopUp id = {this.state.slide_id} img = {this.state.image} productName={this.state.name} productPrice={this.state.price} productCat={this.state.category} productDiscription = {this.state.description} />
 
         <BlogsSection />
         <BlogItemLg />
