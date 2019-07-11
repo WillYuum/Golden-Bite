@@ -3,57 +3,9 @@ import './Style/PopUpModel.css';
 
 import OrderPopUp from '../Home/OrderPopup';
 export default class ProductsItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      email: '',
-      phone: '',
-      address: ''
-    };
-  }
-  createOrder = async () => {
-    let order = {
-      orders_id: this.props.key,
-      products_id: this.props.name,
-      quantity: 5
-    };
-    console.log(order);
-
-    try {
-      const Order = await fetch(
-        'http://localhost:3001/orders_products/create',
-        {
-          method: 'POST',
-          body: JSON.stringify(order),
-          headers: { 'Content-Type': 'application/json' }
-        }
-      );
-      this.submitHandler();
-    } catch (err) {
-      console.log(err);
-    }
-    this.submitHandler();
-  };
-
-  changeHandler = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  submitHandler = () => {
-    console.log(this.state);
-    const order = fetch('http://localhost:3001/orders/create', {
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then(response => console.log('Success:', JSON.stringify(response)))
-      .catch(error => console.error('Error:', error));
-  };
+ state={
+   
+ }
 
   render() {
     const { name, email, phone_number, address } = this.state;
@@ -67,7 +19,6 @@ export default class ProductsItem extends React.Component {
             }\")`
           }}
         >
-          {' '}
         </div>
 
         <div className='product__details'>
@@ -87,12 +38,12 @@ export default class ProductsItem extends React.Component {
           productPrice={this.props.price}
           productCat={this.props.category}
           productDiscription={this.props.discription}
-          // UserName={name}
-          // UserEmail={email}
-          // UserPhone={phone_number}
-          // UserAddress={address}
-          // handleChange={this.changeHandler}
-          // handlingSubmit={this.submitHandler}
+          UserName={name}
+          UserEmail={email}
+          UserPhone={phone_number}
+          UserAddress={address}
+          handleChange={this.changeHandler}
+          handlingSubmit={this.submitHandler}
         />
 
         {/* <div id={`${this.props.name}`} className='ProductsItem-overlay'>
