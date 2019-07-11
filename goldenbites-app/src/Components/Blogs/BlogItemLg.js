@@ -51,15 +51,10 @@ class BlogItemLg extends Component {
     return (
       <div className='blogitemlg'>
         <div className='blogitemlgimage'>
-          {/* <div className="caka">
-{this.state.data.length>0? this.state.data[0].images_link: null}   
-</div> */}
-
-          {/* <img className="caka" src={this.state.data.length>0? this.state.data[0].images_link: null} />   */}
           <img
-            src={`http://localhost:3001/Golden_Bites_Images/${
+            src={`http://localhost:3001/Golden_Bites_Images/blogs/${
               this.state.data.images_link
-            }.jpg`}
+            }`}
             alt='no image'
           />
           <div className='rightimagetext'>

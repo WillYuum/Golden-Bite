@@ -58,7 +58,7 @@ class Nav extends Component {
             <li className='navigation__item'>
               {' '}
               <Link
-                to='/Products'
+                to='/products'
                 onClick={() => {
                   this.updateNav(false);
                 }}
@@ -70,7 +70,7 @@ class Nav extends Component {
             <li className='navigation__item'>
               {' '}
               <Link
-                to='/Blogs'
+                to='/blogs'
                 onClick={() => {
                   this.updateNav(false);
                 }}
@@ -81,7 +81,7 @@ class Nav extends Component {
             </li>
             <li className='navigation__item'>
               {' '}
-              <a href='#' className='navigation__link'>
+              <a href='/about' className='navigation__link'>
                 <span>04</span>About Me
               </a>
             </li>

@@ -33,26 +33,31 @@ class BlogItemSm extends Component {
 
   render() {
     return (
-      <div className='hereitis'>
-        {this.state.datab.reverse().map(item => (
-          <div className='item'>
-            <Link to={`/BlogItemSmdetails/${item.images_link_id}`}>
-              <img
-                src={`http://localhost:3001/Golden_Bites_Images/blogs/${
-                  item.images_link
-                }.jpg`}
-                alt='no image'
-              />
-            </Link>
+      <div className='article__container-SM'>
+        {this.state.datab.reverse().map((item, index) =>
+          index !== 0 ? (
+            <div className='article__card-SM'>
+              <Link to={`/BlogItemSmdetails/${item.images_link_id}`}>
+                <div className='article__picture-SM'>
+                  <img
+                    src={`http://localhost:3001/Golden_Bites_Images/blogs/${
+                      item.images_link
+                    }`}
+                    alt='Article Image'
+                  />
+                </div>
 
-            <div className='textunderimage'>
-              <p>{item.blogs_title} </p>
-              <p>by {item.blogs_author} </p>
-              <p>{item.blogs_date}</p>
-              {/* <p>ImageLinkId: {item.images_link_id}</p> */}
+                <div className='article__details-SM'>
+                  <div className='article__title'>{item.blogs_title} </div>
+                  <div className='article__author'>by {item.blogs_author} </div>
+                  <div className='article__date'>{item.blogs_date}</div>
+                </div>
+              </Link>
             </div>
-          </div>
-        ))}
+          ) : (
+            <></>
+          )
+        )}
       </div>
 
       /* <div className="textunderimage">
