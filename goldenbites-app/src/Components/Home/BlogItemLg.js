@@ -5,30 +5,31 @@ import './blogItemLg.css';
 class BlogItemLg extends Component {
   // state = {};
 
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      data: [],
+      datablogs: []
+    };
+  }
 
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			data: [],
-			datablogs: [],
-		};
-	}
-
-	async componentDidMount() {
-		try {
-	
-			// FETCH FROM BLOGS TABLE
-			const response_blogs_read = await fetch('http://localhost:3001/blogs/read');
-			const blogs_reading = await response_blogs_read.json();
-			await this.setState({ datablogs: blogs_reading.DATA[0] });
-			await console.log('my blogsnew are:', this.state.datablogs[0].blogs_author);
-		} catch (err) {
-			console.log(err);
-		}
-	}
-
+  async componentDidMount() {
+    try {
+      // FETCH FROM BLOGS TABLE
+      const response_blogs_read = await fetch(
+        'http://localhost:3001/blogs/read'
+      );
+      const blogs_reading = await response_blogs_read.json();
+      await this.setState({ datablogs: blogs_reading.DATA[0] });
+      await console.log(
+        'my blogsnew are:',
+        this.state.datablogs[0].blogs_author
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   render() {
     return (
@@ -39,17 +40,11 @@ class BlogItemLg extends Component {
         <div className='blog__container--right'>
           <div className='blog__title'>{this.state.datablogs.blogs_title}</div>
           <div className='blog__date'>{this.state.datablogs.blogs_date}</div>
-<<<<<<< HEAD
           <div className='blog__author'>
-            by {this.state.datablogs.blogs_author}
+            {this.state.datablogs.blogs_author}
           </div>
           <div className='blog__summary'>
             {this.state.datablogs.blogs_content}
-=======
-          <div className='blog__author'>{this.state.datablogs.blogs_author}</div>
-          <div className='blog__summary'>
-          {this.state.datablogs.blogs_content}
->>>>>>> 3a1b2314f155e452f683fd6fdc2f12a163c801a0
           </div>
           <div className='blog__button'>
             <Link to='/MainBlogClick'>Read More</Link>
