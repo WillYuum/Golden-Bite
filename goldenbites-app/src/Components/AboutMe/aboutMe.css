@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400|Lato&display=swap');
+
+/*** ABOUT ME BACKGROUND WRAPPER STARTS HERE ******************************/
+.aboutMe__Wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+      rgba(117, 29, 82, 0.3),
+      rgba(117, 29, 82, 0.3)
+    ),
+    url(../../Assets/img/original/about_me.jpg);
+  background-size: cover;
+  background-position: center;
+}
+/*** ABOUT ME BACKGROUND WRAPPER ENDS HERE ********************************/
+
+/*** ABOUT ME BOX STARTS HERE *********************************************/
+
+.aboutMe__container {
+  width: 350px;
+  height: 480px;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.aboutMe__container--logo {
+  height: 80px;
+  width: 100%;
+  background-image: url(../../Assets/img/logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 15px 0;
+}
+
+.aboutMe__container--title {
+  font-family: 'Selima', Arial, Helvetica, sans-serif;
+  font-size: 90px;
+  color: #c9a84f;
+  margin: 20px 0;
+}
+
+.aboutMe__container--slogan {
+  font-family: 'Alegreya Sans', Arial, Helvetica, sans-serif;
+  font-size: 27px;
+  margin: 3px 0 0px 0;
+}
+
+.aboutMe__container--story {
+  font-size: 17px;
+  text-align: justify;
+  line-height: 1.6;
+  padding: 18px 30px;
+  border-bottom: 1px solid #c9a84f;
+}
+
+.aboutMe__container--contact {
+  font-size: 21px;
+  padding-top: 15px;
+}
+/*** ABOUT ME BOX ENDS HERE ***********************************************/
+.aboutMe__fullStory {
+  display: block;
+  background-color: #fff;
+  font-size: 18px;
+  width: 50%;
+  text-align: center;
+  margin: 50px auto;
+  line-height: 2.5;
+}

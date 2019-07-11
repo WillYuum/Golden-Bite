@@ -2,6 +2,8 @@ import React from 'react';
 import CategoryListing from './CategoryListing';
 import ProductsListing from './ProductsListing';
 import ProductHeader from './ProductHeader';
+// import FooterSection from '../Home/Footer-Section';
+
 export default class ProductsPage extends React.Component {
   state = {
     category: ''
@@ -20,6 +22,7 @@ export default class ProductsPage extends React.Component {
         <ProductHeader />
         <CategoryListing all={this.emptyCat} a={this.updateCat} />
         <ProductsListing category={this.state.category} />
+        {/* <FooterSection /> */}
       </div>
     );
   }
