@@ -571,11 +571,11 @@ app.patch('/orders/edit/:id?', function(req, res) {
 //   );
 // });
 app.post('/orders/create', function(req, res) {
-  console.log("data=>",)
   const ORDERS_NAME = req.body.name;
   const ORDERS_ADDRESS = req.body.address;
   const ORDERS_PHONE_NUMBER = req.body.phone;
   const ORDERS_EMAIL = req.body.email;
+
 
   db.all(
     `INSERT INTO Orders
@@ -623,7 +623,7 @@ app.get('/orders_products/read', function(req, res) {
 });
 
 app.post('/orders_products/create?', function(req, res) {
-  const ORDERS_ID = req.body.orders_id;
+  const ORDERS_ID = req.body.id
   const PRODUCTS_ID = req.body.products_id;
   const quantity = req.body.quantity;
   console.log("ORDER ===>",req.body)
@@ -631,8 +631,9 @@ app.post('/orders_products/create?', function(req, res) {
   db.all(
     `INSERT INTO Orders_products
          (orders_id, orders_products_id, quantity)
-          VALUES (?,?,?)`,
-    [ORDERS_ID, PRODUCTS_ID, quantity],
+          VALUES (?,?,?)
+           `,
+     [ORDERS_ID, PRODUCTS_ID, quantity],
     function(err) {
       if (err) {
         console.log(err);
