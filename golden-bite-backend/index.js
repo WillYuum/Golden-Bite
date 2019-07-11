@@ -312,7 +312,7 @@ app.delete('/testimonials/delete/:id?', function(req, res) {
 //read blogs table
 app.get('/blogs/read', function(req, res) {
   let sqlreadblog =
-    'select Blogs.blogs_author, Blogs.blogs_content, Blogs.blogs_date, Blogs.blogs_id, Blogs.blogs_title, Images_blogs.images_link from Blogs join Images_blogs on Blogs.images_link_id = Images_blogs.images_link_id';
+    'select Blogs.blogs_author, Blogs.blogs_content, Blogs.blogs_date, Blogs.blogs_id, Blogs.blogs_title, Blogs.images_link_id, Images_blogs.images_link from Blogs join Images_blogs on Blogs.images_link_id = Images_blogs.images_link_id';
 
   db.all(sqlreadblog, [], (err, rows) => {
     data = [];
@@ -394,7 +394,7 @@ app.get('/blogs/add?', function(req, res) {
 
 //read from images_blogs table
 app.get('/images_blogs/read', function(req, res) {
-  let sqlreadiblog = 'Select * from Images_blogs';
+  let sqlreadiblog = 'Select images_link,blogs_author,blogs_date,blogs_content from Images_blogs JOIN Blogs on Images_blogs.images_link_id=Blogs.images_link_id';
 
   db.all(sqlreadiblog, [], (err, rows) => {
     data = [];
@@ -407,6 +407,42 @@ app.get('/images_blogs/read', function(req, res) {
     });
   });
 });
+
+//read from imagblogs_id
+app.get('/images_blogs/read/:id', function(req, res) {
+  let sqlreadiblog = `Select blogs_author,blogs_date,blogs_content,images_link from Blogs join Images_blogs on Blogs.images_link_id=Images_blogs.images_link_id where Blogs.images_link_id=${req.params.id}`;
+
+  db.all(sqlreadiblog, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ DATA: data });
+    });
+  });
+});
+
+
+
+//read from imagblogs_id_nameofimage
+app.get('/images_blogs_imagename/read/:idname', function(req, res) {
+  let sqlreadiblog = `Select images_link from Images_blogs where images_link_id=${req.params.idname}`;
+
+  db.all(sqlreadiblog, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ DATA: data });
+    });
+  });
+});
+
+
 
 //delete from images_blogs table
 app.get('/images_blogs/delete/:id?', function(req, res) {
