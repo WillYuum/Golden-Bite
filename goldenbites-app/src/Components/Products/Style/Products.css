@@ -37,9 +37,10 @@
 
 /*-------------------------CATEGORY ITEM----------------------*/
 .CategoryItem-mainList {
+  font-family: 'Alegreya Sans', Arial, Helvetica, sans-serif;
   color: #c9a74d;
   list-style: none;
-  font-size: 21px;
+  font-size: 20px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -97,6 +98,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .product__details--name {
   /* color: darkgoldenrod; */
   /* background-color: white; */
