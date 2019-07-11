@@ -34,19 +34,18 @@ class BlogItemSm extends Component {
 			<div className="hereitis">
 				{this.state.datab.map(item => (
 					<div className="item">
-					<Link to="/BlogItemSmdetails">
-						<img
-							src={`http://localhost:3001/Golden_Bites_Images/${item.images_link}.jpg`}
-							alt="no image"
-						/>
-	</Link>
+						<Link to={`/BlogItemSmdetails/${item.images_link_id}`}>
+							<img
+								src={`http://localhost:3001/Golden_Bites_Images/${item.images_link}.jpg`}
+								alt="no image"
+							/>
+						</Link>
+						
 						<div className="textunderimage">
-							
-								<p>Title: {item.blogs_title} </p>
-								<p>Author:{item.blogs_author} </p>
-								<p>Date: {item.blogs_date}</p>
-							
-							
+							<p>Title: {item.blogs_title} </p>
+							<p>Author:{item.blogs_author} </p>
+							<p>Date: {item.blogs_date}</p>
+							<p>ImageLinkId: {item.images_link_id}</p>
 						</div>
 					</div>
 				))}

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { withRouter, Switch, Route } from "react-router-dom";
 import "./css/App.css";
 import Hero from "./Components/Home/Hero";
@@ -31,9 +32,22 @@ class App extends Component {
           <Route path="/blogs" render={() => <BlogPage />} />
 
           {/* <Route path='/about' component={Aboutme} /> */}
-          <Route path='/BlogItemSmdetails' component={BlogItemSmdetails} />
+          <Route path='/BlogItemSmdetails/:id' component={BlogItemSmdetails} />
           <Route path='/MainBlogClick' component={MainBlogClick} /> */}
         </Switch>
+
+
+        
+{/* <BlogItemSmdetails {props.match.params.id} /> */}
+        {/* <Match path="/BlogItemSmdetails/:id">
+  {props => (
+    <div>
+      {props.match
+        ? "No match"
+        : props.match.params.id}
+    </div>
+  )}
+</Match> */}
 
         {/* <Hero />
 
