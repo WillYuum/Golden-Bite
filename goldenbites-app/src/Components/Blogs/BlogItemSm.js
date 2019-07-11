@@ -2,56 +2,65 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class BlogItemSm extends Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			data: [],
-			datab: [],
-		};
-	}
+    this.state = {
+      data: [],
+      datab: []
+    };
+  }
 
-	async componentDidMount() {
-		try {
-			// FETCH FROM IMAGES_BLOGS TABLE
-			const response_images = await fetch('http://localhost:3001/images_blogs/read');
-			const iiblogs = await response_images.json();
-			await this.setState({ data: iiblogs.DATA });
-			await console.log('my data is:', this.state.data);
+  async componentDidMount() {
+    try {
+      // FETCH FROM IMAGES_BLOGS TABLE
+      const response_images = await fetch(
+        'http://localhost:3001/images_blogs/read'
+      );
+      const iiblogs = await response_images.json();
+      await this.setState({ data: iiblogs.DATA });
+      await console.log('my data is:', this.state.data);
 
-			// FETCH FROM BLOGS TABLE
-			const response_blogza = await fetch('http://localhost:3001/blogs/read');
-			const zzblogs = await response_blogza.json();
-			await this.setState({ datab: zzblogs.DATA });
-			await console.log('my blogs are:', this.state.datab);
-		} catch (err) {
-			console.log(err);
-		}
-	}
+      // FETCH FROM BLOGS TABLE
+      const response_blogza = await fetch('http://localhost:3001/blogs/read');
+      const zzblogs = await response_blogza.json();
+      await this.setState({ datab: zzblogs.DATA });
+      await console.log('my blogs are:', this.state.datab);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-	render() {
-		return (
-			<div className="hereitis">
-				{this.state.datab.map(item => (
-					<div className="item">
-						<Link to={`/BlogItemSmdetails/${item.images_link_id}`}>
-							<img
-								src={`http://localhost:3001/Golden_Bites_Images/${item.images_link}.jpg`}
-								alt="no image"
-							/>
-						</Link>
-						
-						<div className="textunderimage">
-							<p>Title: {item.blogs_title} </p>
-							<p>Author:{item.blogs_author} </p>
-							<p>Date: {item.blogs_date}</p>
-							<p>ImageLinkId: {item.images_link_id}</p>
-						</div>
-					</div>
-				))}
-			</div>
+  render() {
+    return (
+      <div className='article__container-SM'>
+        {this.state.datab.reverse().map((item, index) =>
+          index !== 0 ? (
+            <div className='article__card-SM'>
+              <Link to={`/BlogItemSmdetails/${item.images_link_id}`}>
+                <div className='article__picture-SM'>
+                  <img
+                    src={`http://localhost:3001/Golden_Bites_Images/blogs/${
+                      item.images_link
+                    }`}
+                    alt='Article Image'
+                  />
+                </div>
 
-			/* <div className="textunderimage">
+                <div className='article__details-SM'>
+                  <div className='article__title'>{item.blogs_title} </div>
+                  <div className='article__author'>by {item.blogs_author} </div>
+                  <div className='article__date'>{item.blogs_date}</div>
+                </div>
+              </Link>
+            </div>
+          ) : (
+            <></>
+          )
+        )}
+      </div>
+
+      /* <div className="textunderimage">
 
 {this.state.data.map(data=>
 <div>
@@ -63,9 +72,9 @@ class BlogItemSm extends Component {
 
 </div> */
 
-			/* <img   src={this.state.data.length>0? this.state.data[1].images_link: null}/> */
+      /* <img   src={this.state.data.length>0? this.state.data[1].images_link: null}/> */
 
-			/* <div id={`${this.state.datab.blogs_title}`} className="overlay">
+      /* <div id={`${this.state.datab.blogs_title}`} className="overlay">
 	<div className="popup">
     <img src="frez.jpg"/>
 		<a className="close" href="#">&times;</a>
@@ -80,7 +89,7 @@ class BlogItemSm extends Component {
 		</div>
 	</div>
 </div> */
-			/* <div>
+      /* <div>
 {this.state.data.map(data=>
 	<div>
 	
@@ -88,8 +97,8 @@ class BlogItemSm extends Component {
 	</div>
 )}
 </div>  */
-		); //return
-	} //render
+    ); //return
+  } //render
 } //component
 
 export default BlogItemSm;

@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import BlogPage from "./BlogPage";
+import React, { Component } from 'react';
+import BlogPage from './BlogPage';
+import BlogHeader from './BlogHeader';
 
 class MainBlogClick extends Component {
   constructor(props) {
@@ -13,50 +14,51 @@ class MainBlogClick extends Component {
   async componentDidMount() {
     try {
       // FETCH FROM IMAGES_BLOGS TABLE
-      const responsa = await fetch("http://localhost:3001/images_blogs/read");
+      const responsa = await fetch('http://localhost:3001/images_blogs/read');
       const iiiblogs = await responsa.json();
       await this.setState({ data: iiiblogs.DATA });
-      await console.log("DATA:", this.state.data);
+      await console.log('DATA:', this.state.data);
       // FETCH FROM BLOGS TABLE author
-      const responseau = await fetch("http://localhost:3001/blogs/read");
+      const responseau = await fetch('http://localhost:3001/blogs/read');
       const blogsau = await responseau.json();
       await this.setState({ data: blogsau.DATA });
-      await console.log("DATA:", this.state.data);
+      await console.log('DATA:', this.state.data);
 
       // FETCH FROM BLOGS TABLE date
-      const responsedt = await fetch("http://localhost:3001/blogs/read");
+      const responsedt = await fetch('http://localhost:3001/blogs/read');
       const datedt = await responsedt.json();
       await this.setState({ data: datedt.DATA });
-      await console.log("DATA:", this.state.data);
+      await console.log('DATA:', this.state.data);
 
       // FETCH FROM BLOGS TABLE content
-      const responsect = await fetch("http://localhost:3001/blogs/read");
+      const responsect = await fetch('http://localhost:3001/blogs/read');
       const contentct = await responsect.json();
       await this.setState({ data: contentct.DATA });
-      await console.log("DATA:", this.state.data);
+      await console.log('DATA:', this.state.data);
     } catch (err) {
       console.log(err);
     }
   }
   render() {
     return (
-      <div className="mainblogclick">
-        <div className="mainimage">
+      <div className='mainblogclick'>
+        <BlogHeader />
+        <div className='mainimage'>
           <img
-            width="300px"
-            height="250px"
-            src={"http://localhost:3000/static/media/blogItemLg.8f802f73.jpg"}
-            alt=""
+            width='300px'
+            height='250px'
+            src={'http://localhost:3000/static/media/blogItemLg.8f802f73.jpg'}
+            alt=''
           />
           {/* <img  src="./cake.jpg"/> */}
-          <div className="overlayy">
-            <div className="text">Yummy!</div>
+          <div className='overlayy'>
+            <div className='text'>Yummy!</div>
           </div>
         </div>
-        <hr className="style-seven" />
-        <div className="headundermainimage">
+        <hr className='style-seven' />
+        <div className='headundermainimage'>
           <p>
-            By Chef{" "}
+            By Chef{' '}
             {this.state.data.length > 0
               ? this.state.data[0].blogs_author
               : null}
@@ -66,7 +68,7 @@ class MainBlogClick extends Component {
           </p>
         </div>
         <div />
-        <div className="maintextblog">
+        <div className='maintextblog'>
           <h1>How it all started!</h1>
 
           <p>

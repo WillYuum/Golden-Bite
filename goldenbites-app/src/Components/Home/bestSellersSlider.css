@@ -101,11 +101,11 @@
   margin-left: 10px;
 }
 
-.card__picture--1 {
+/* .card__picture--1 {
   background-image: url(../../Assets/img/products/p01.png);
-}
+} */
 
-.card__picture--2 {
+/* .card__picture--2 {
   background-image: url(../../Assets/img/products/p02.png);
 }
 
@@ -123,7 +123,7 @@
 
 .card__picture--6 {
   background-image: url(../../Assets/img/products/p06.png);
-}
+} */
 
 .card__heading {
   position: absolute;

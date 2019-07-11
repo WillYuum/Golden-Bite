@@ -1,35 +1,19 @@
-import React,{Component} from 'react'
+import React, { Component } from 'react';
 import Blogitemsm from './BlogItemSm';
 
-
-class BlogItemListing extends Component{
-
-render(){
-return(
-
-<div className="blogitemlisting">
-
-<Blogitemsm/>
-{/* <Blogitemsm/>
+class BlogItemListing extends Component {
+  render() {
+    return (
+      <div className='blogitemlisting'>
+        <Blogitemsm />
+        {/* <Blogitemsm/>
 <Blogitemsm/>
 <Blogitemsm/>
 <Blogitemsm/>
 <Blogitemsm/> */}
-
-</div>
-
-
-)
-
-
-
-
+      </div>
+    );
+  }
 }
 
-
-
-
-
-}
-
-export default BlogItemListing
+export default BlogItemListing;
