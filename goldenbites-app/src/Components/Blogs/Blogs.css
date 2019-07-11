@@ -21,17 +21,10 @@
 }
 /*** PRODUCT HEADER ENDS HERE **************************************************/
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .blogitemlg {
   margin: 1% auto;
   width: 80%;
   height: 55vh;
-  /* background-color: yellow; */
 }
 
 .caka {
@@ -120,22 +113,72 @@ hr.style-eight {
   text-decoration: none;
 }
 
-.hereitis {
+/*** ARTICLE ITEM LIST STARTS HERE ***************************************************/
+.article__container-SM {
+  width: 95%;
+  margin: 60px auto;
   display: flex;
   flex-wrap: wrap;
-  /* margin:1% auto; */
-  /* width: 80%; */
-  /* height: 130vh; */
-  margin-top: 5%;
 }
-/* .blogitemlisting{
-  display: flex;
-      flex-wrap: wrap;
-      margin:1% auto;
-    width: 80%;
-    height: 130vh;
-    background-color: #4CAF50;
-} */
+
+.article__card-SM {
+  position: relative;
+  width: 28%;
+  margin: 15px 2.66%;
+}
+
+.article__picture-SM {
+  width: 100%;
+}
+
+.article__picture-SM img {
+  width: 100%;
+}
+
+.article__details-SM {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    rgba(37, 38, 40, 0.7),
+    rgba(37, 38, 40, 0.7)
+  );
+
+  width: 100%;
+  height: 100%;
+  padding-top: 70px;
+  padding-left: 10px;
+}
+
+.article__title {
+  font-size: 30px;
+  font-family: 'Alegreya Sans', Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+.article__title:after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 1px;
+  margin: 15px 0;
+  background-color: #fff;
+}
+
+.article__date,
+.article__author {
+  color: #c9a74d;
+}
+
+.article__details-SM:hover {
+  background-image: linear-gradient(
+    rgba(117, 29, 82, 0.1),
+    rgba(117, 29, 82, 0.1)
+  );
+  transition: all 8s;
+}
+
+/*** ARTICLE ITEM LIST ENDS HERE *****************************************************/
 
 .blogitemsm {
   /* margin: 3% auto; */
@@ -161,19 +204,6 @@ hr.style-eight {
   height: 30vh;
   cursor: pointer;
   transition: all 0.3s ease-out;
-}
-
-.textunderimage {
-  margin-left: 15%;
-  margin-top: 2%;
-  line-height: 240%;
-  color: black;
-  text-decoration: none;
-  border: 1px;
-  border-width: 10%;
-  text-align: center;
-  border-radius: 5%;
-  background: #dedec6;
 }
 
 .mainimage img {
@@ -331,11 +361,6 @@ hr.style-seven:before {
   height: 100%;
 }
 
-.item {
-  width: 30%;
-  position: relative;
-  display: block;
-}
 .holahola {
   margin: 0;
   text-align: center;
