@@ -11,8 +11,8 @@ class BlogItemLg extends Component {
     this.state = {
       data: [],
       datablogs: [],
-      datablogslast:[],
-      dataiblogslast:[]
+      datablogslast: [],
+      dataiblogslast: []
     };
   }
 
@@ -24,41 +24,24 @@ class BlogItemLg extends Component {
       );
       const blogs_reading = await response_blogs_read.json();
       await this.setState({ datablogs: blogs_reading.DATA[0] });
-      await console.log(
-        'my blogsnew are:',
-        this.state.datablogs.blogs_author
+      await console.log('my blogsnew are:', this.state.datablogs.blogs_author);
+
+      // FETCH Last Blog FROM BLOGS TABLE
+      const response_blogs_read_last = await fetch(
+        'http://localhost:3001/blogs/readlast'
       );
+      const blogs_reading_lastblog = await response_blogs_read_last.json();
+      await this.setState({ datablogslast: blogs_reading_lastblog.DATA[0] });
+      await console.log('my lastblog is:', this.state.datablogslast.blogs_date);
 
- // FETCH Last Blog FROM BLOGS TABLE
- const response_blogs_read_last = await fetch(
-  'http://localhost:3001/blogs/readlast'
-);
-const blogs_reading_lastblog = await response_blogs_read_last.json();
-await this.setState({ datablogslast: blogs_reading_lastblog.DATA[0] });
-await console.log(
-  'my lastblog is:',
-  this.state.datablogslast.blogs_date
-);
-
-
-
- // FETCH images FROM IbLOGS TABLE
- const response_blogs_images = await fetch(
-  'http://localhost:3001/images_blogs/readlast'
-);
-const blogs_reading_images = await response_blogs_images.json();
-await this.setState({ dataiblogslast: blogs_reading_images.DATA[0] });
-await console.log(
-  'my iblog is:',
-  this.state.dataiblogslast.images_link
-);
-
-
-
-    } 
-    
-    
-    catch (err) {
+      // FETCH images FROM IbLOGS TABLE
+      const response_blogs_images = await fetch(
+        'http://localhost:3001/images_blogs/readlast'
+      );
+      const blogs_reading_images = await response_blogs_images.json();
+      await this.setState({ dataiblogslast: blogs_reading_images.DATA[0] });
+      await console.log('my iblog is:', this.state.dataiblogslast.images_link);
+    } catch (err) {
       console.log(err);
     }
   }
@@ -68,12 +51,20 @@ await console.log(
       <div className='blog__container'>
         <div className='blog__container--left'>
           <div className='blog__picture'>
-              <img src={`http://localhost:3001/Golden_Bites_Images/blogs/${this.state.dataiblogslast.images_link}.jpg`}/>
+            <img
+              src={`http://localhost:3001/Golden_Bites_Images/blogs/${
+                this.state.dataiblogslast.images_link
+              }`}
+            />
           </div>
         </div>
         <div className='blog__container--right'>
-          <div className='blog__title'>{this.state.datablogslast.blogs_title}</div>
-          <div className='blog__date'>{this.state.datablogslast.blogs_date}</div>
+          <div className='blog__title'>
+            {this.state.datablogslast.blogs_title}
+          </div>
+          <div className='blog__date'>
+            {this.state.datablogslast.blogs_date}
+          </div>
           <div className='blog__author'>
             {this.state.datablogslast.blogs_author}
           </div>
