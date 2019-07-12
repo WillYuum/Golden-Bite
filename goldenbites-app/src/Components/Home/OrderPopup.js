@@ -73,7 +73,11 @@ class OrderPopup extends Component {
                 Category: {this.props.productCat}
               </div>
             </div>
-            <div className='popUp__content--product-image' />
+            <div className='popUp__content--product-image' style={{
+            backgroundImage: `url(\"http://localhost:3001/Golden_Bites_Images/${
+              this.props.img
+            }\")`
+          }}/>
           </div>
           <div className='popUp__content--product-details-description'>
             {this.props.productDiscription}
