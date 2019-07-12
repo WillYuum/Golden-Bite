@@ -20,7 +20,7 @@ class AboutMePage extends Component {
             </div>
             <div className='aboutMe__container--contact'>+961 3 770421</div>
             <div className='aboutMe__container--contact'>
-              info@goldenbites.com
+              <a href='mailto:info@goldenbites.com'>info@goldenbites.com</a>
             </div>
           </div>
         </div>
