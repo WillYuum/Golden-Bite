@@ -10,12 +10,13 @@ class OrderPopup extends Component {
       phone: '',
       address: '', 
       orders_id: "",
+      
     };
   }
   createOrder = async () => {
     let order = {
       products_id: this.props.productName,
-      quantity: 5
+      quantity: 1
     };
     console.log(order);
     console.log(this.state.orders_id)
@@ -38,7 +39,8 @@ class OrderPopup extends Component {
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
+   
+ 
   submitHandler = async () => {
     console.log(this.state);
     const order = await fetch('http://localhost:3001/orders/create', {
