@@ -326,6 +326,27 @@ app.get('/blogs/read', function(req, res) {
   });
 });
 
+
+
+//read last blog in blogs table
+app.get('/blogs/readlast', function(req, res) {
+  let sqlreadbloglast =
+    'SELECT * FROM Blogs ORDER BY blogs_id DESC LIMIT 1';
+
+  db.all(sqlreadbloglast, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ DATA: data });
+    });
+  });
+});
+
+
+
 //delete from blogs table
 app.get('/blogs/delete/:id?', function(req, res) {
   var id = req.params.id;
@@ -407,6 +428,24 @@ app.get('/images_blogs/read', function(req, res) {
     });
   });
 });
+
+
+//read from images_blogs table
+app.get('/images_blogs/readlast', function(req, res) {
+  let sqlreadiblog = 'SELECT * FROM Images_blogs ORDER BY blogs_id DESC LIMIT 1';
+
+  db.all(sqlreadiblog, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ DATA: data });
+    });
+  });
+});
+
 
 //read from imagblogs_id
 app.get('/images_blogs/read/:id', function(req, res) {

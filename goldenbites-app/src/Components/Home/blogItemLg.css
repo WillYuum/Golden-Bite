@@ -21,9 +21,9 @@
 }
 
 .blog__picture {
-  background-image: url(../../Assets/img/blogItemLg.jpg);
+  /* background-image: url(../../Assets/img/blogItemLg.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   width: 500px;
   height: 322px;
   margin: 0 auto;

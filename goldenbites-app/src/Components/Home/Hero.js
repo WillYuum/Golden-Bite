@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './hero.css';
 import logo from '../../Assets/img/logo.png';
+import { Link } from 'react-router-dom';
 
 class Hero extends Component {
   state = {};
@@ -23,7 +24,8 @@ class Hero extends Component {
             ipsa, itaque qui molestias laborum dignissimos.
           </div>
           <div className='heroButton'>
-            <a href='#'>VIEW OUR PRODUCTS</a>
+            {/* <a href='#'>VIEW OUR PRODUCTS</a> */}
+            <Link to='/products'>VIEW OUR PRODUCTS</Link>
           </div>
         </div>
       </div>
