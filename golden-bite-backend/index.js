@@ -609,23 +609,23 @@ app.patch('/orders/edit/:id?', function(req, res) {
 //     }
 //   );
 // });
-app.post('/orders/create', function(req, res) {
+app.post('/orders/create', async function(req, res) {
   const ORDERS_NAME = req.body.name;
   const ORDERS_ADDRESS = req.body.address;
   const ORDERS_PHONE_NUMBER = req.body.phone;
   const ORDERS_EMAIL = req.body.email;
-
-
-  db.all(
+console.log(ORDERS_ADDRESS,ORDERS_NAME, ORDERS_EMAIL, ORDERS_PHONE_NUMBER)
+ console.log("hellooo")
+ await db.run(
     `INSERT INTO Orders
          (name,address,phone_numbe,email)
           VALUES (?,?,?,?)`,
     [ORDERS_NAME, ORDERS_ADDRESS, ORDERS_PHONE_NUMBER, ORDERS_EMAIL],
-    function(err) {
+    function(rows, err) {
       if (err) {
-        console.log(err);
+        console.log("err",err);
       } else {
-        res.send('DATA IS ADDED');
+        res.json({id:this.lastID});
       }
     }
   );
@@ -662,9 +662,13 @@ app.get('/orders_products/read', function(req, res) {
 });
 
 app.post('/orders_products/create?', function(req, res) {
-  const ORDERS_ID = req.body.id
+ //const row = db.all(`Select * FROM Orders_products INNER JOIN Orders ON Orders_products.orders_id = Orders.orders_id`)
+
+// const result2 = db.all(``)//insert into orders_product with orders id, quantity, .....
+ const {orders_id} = req.query
   const PRODUCTS_ID = req.body.products_id;
   const quantity = req.body.quantity;
+
   console.log("ORDER ===>",req.body)
 
   db.all(
@@ -672,7 +676,8 @@ app.post('/orders_products/create?', function(req, res) {
          (orders_id, orders_products_id, quantity)
           VALUES (?,?,?)
            `,
-     [ORDERS_ID, PRODUCTS_ID, quantity],
+
+     [orders_id, PRODUCTS_ID, quantity],
     function(err) {
       if (err) {
         console.log(err);
