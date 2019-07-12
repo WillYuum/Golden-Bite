@@ -83,7 +83,7 @@
   width: 120px;
   margin-right: 20px;
   background-size: cover;
-  background-image: url(../../Assets/img/products/p01.png);
+  /* background-image: url(../../Assets/img/products/p01.png); */
 }
 
 .popUp__content--product-details-description {
