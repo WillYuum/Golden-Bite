@@ -2,8 +2,59 @@ import React, { Component } from 'react';
 import './orderPopup.css';
 
 class OrderPopup extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      phone: '',
+      address: ''
+    };
+  }
+  createOrder = async () => {
+    let order = {
+      products_id: this.props.productName,
+      quantity: 5
+    };
+    console.log(order);
+
+    try {
+      const Order = await fetch(
+        'http://localhost:3001/orders_products/create',
+        {
+          method: 'POST',
+          body: JSON.stringify(order),
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
+      
+    } catch (err) {
+      console.log(err);
+    }
+    
+  };
+
+  changeHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  submitHandler = () => {
+    console.log(this.state);
+    const order = fetch('http://localhost:3001/orders/create', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    this.createOrder();
+  };
+
+
+
   render() {
+    
     return (
       <div className='popUp' id={`${this.props.id}`}>
         <div className='popUp__content'>
@@ -33,8 +84,8 @@ class OrderPopup extends Component {
               type='text'
               name='name'
               placeholder='Name'
-              value={this.props.UserName}
-              onChange={this.props.handleChange}
+              value={this.state.name}
+              onChange={this.changeHandler}
               autoFocus
               required
             />
@@ -43,8 +94,8 @@ class OrderPopup extends Component {
               type='email'
               name='email'
               placeholder='Email'
-              value={this.props.UserEmail}
-              onChange={this.props.handleChange}
+              value={this.state.email}
+              onChange={this.changeHandler}
               autoFocus
               required
             />
@@ -53,8 +104,8 @@ class OrderPopup extends Component {
               type='text'
               name='phone'
               placeholder='Phone'
-              value={this.props.UserPhone}
-              onChange={this.props.handleChange}
+              value={this.state.phone_number}
+              onChange={this.changeHandler}
               autoFocus
               required
             />
@@ -63,8 +114,8 @@ class OrderPopup extends Component {
               type='text'
               name='address'
               placeholder='Address'
-              value={this.props.UserAddress}
-              onChange={this.props.handleChange}
+              value={this.state.address}
+              onChange={this.changeHandler}
               autoFocus
               required
             />
@@ -82,7 +133,7 @@ class OrderPopup extends Component {
             <button
               className='order--button'
               type='submit'
-              onClick={this.props.handlingSubmit}
+              onClick={this.submitHandler}
             >
               BUY NOW
             </button>

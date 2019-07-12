@@ -17,6 +17,8 @@
     "sqlite3": "^4.0.9"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "webpack": "^4.35.3",
+    "webpack-dev-server": "^3.7.2"
   }
 }

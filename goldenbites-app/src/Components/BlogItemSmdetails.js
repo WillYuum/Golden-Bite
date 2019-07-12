@@ -33,8 +33,8 @@ class BlogItemSmdetails extends Component {
 			// FETCH FROM BLOGS TABLE
 			const response_blogna = await fetch('http://localhost:3001/blogs/read');
 			const ttblogs = await response_blogna.json();
-			await this.setState({ databo: ttblogs.DATA });
-			await console.log('databo is:', this.state.databo);
+			await this.setState({ databo: ttblogs.DATA[0] });
+			await console.log('databo blogs are:', this.state.databo.blogs_title);
 
 			//------------------------------------------------------------------------------------------------------------
 			//Fetch from images according to id

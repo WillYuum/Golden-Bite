@@ -65,7 +65,14 @@
 .aboutMe__container--contact {
   font-size: 21px;
   padding-top: 15px;
+  color: #751d52;
 }
+
+.aboutMe__container--contact a {
+  text-decoration: none;
+  color: #751d52;
+}
+
 /*** ABOUT ME BOX ENDS HERE ***********************************************/
 .aboutMe__fullStory {
   display: block;

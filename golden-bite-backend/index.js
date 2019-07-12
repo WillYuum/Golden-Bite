@@ -326,6 +326,27 @@ app.get('/blogs/read', function(req, res) {
   });
 });
 
+
+
+//read last blog in blogs table
+app.get('/blogs/readlast', function(req, res) {
+  let sqlreadbloglast =
+    'SELECT * FROM Blogs ORDER BY blogs_id DESC LIMIT 1';
+
+  db.all(sqlreadbloglast, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ DATA: data });
+    });
+  });
+});
+
+
+
 //delete from blogs table
 app.get('/blogs/delete/:id?', function(req, res) {
   var id = req.params.id;
@@ -407,6 +428,24 @@ app.get('/images_blogs/read', function(req, res) {
     });
   });
 });
+
+
+//read from images_blogs table
+app.get('/images_blogs/readlast', function(req, res) {
+  let sqlreadiblog = 'SELECT * FROM Images_blogs ORDER BY blogs_id DESC LIMIT 1';
+
+  db.all(sqlreadiblog, [], (err, rows) => {
+    data = [];
+    if (err) {
+      throw err;
+    }
+    rows.forEach(async row => {
+      await data.push(row);
+      res.send({ DATA: data });
+    });
+  });
+});
+
 
 //read from imagblogs_id
 app.get('/images_blogs/read/:id', function(req, res) {
@@ -571,11 +610,11 @@ app.patch('/orders/edit/:id?', function(req, res) {
 //   );
 // });
 app.post('/orders/create', function(req, res) {
-  console.log("data=>",)
   const ORDERS_NAME = req.body.name;
   const ORDERS_ADDRESS = req.body.address;
   const ORDERS_PHONE_NUMBER = req.body.phone;
   const ORDERS_EMAIL = req.body.email;
+
 
   db.all(
     `INSERT INTO Orders
@@ -623,7 +662,7 @@ app.get('/orders_products/read', function(req, res) {
 });
 
 app.post('/orders_products/create?', function(req, res) {
-  const ORDERS_ID = req.body.orders_id;
+  const ORDERS_ID = req.body.id
   const PRODUCTS_ID = req.body.products_id;
   const quantity = req.body.quantity;
   console.log("ORDER ===>",req.body)
@@ -631,8 +670,9 @@ app.post('/orders_products/create?', function(req, res) {
   db.all(
     `INSERT INTO Orders_products
          (orders_id, orders_products_id, quantity)
-          VALUES (?,?,?)`,
-    [ORDERS_ID, PRODUCTS_ID, quantity],
+          VALUES (?,?,?)
+           `,
+     [ORDERS_ID, PRODUCTS_ID, quantity],
     function(err) {
       if (err) {
         console.log(err);
