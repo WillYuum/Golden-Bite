@@ -36,8 +36,8 @@ class BlogItemSmdetails extends Component {
       // FETCH FROM BLOGS TABLE
       const response_blogna = await fetch('http://localhost:3001/blogs/read');
       const ttblogs = await response_blogna.json();
-      await this.setState({ databo: ttblogs.DATA });
-      await console.log('databo is:', this.state.databo);
+      await this.setState({ databo: ttblogs.DATA[0] });
+      await console.log('databo blogs are:', this.state.databo.blogs_title);
 
       //------------------------------------------------------------------------------------------------------------
       //Fetch from images according to id
@@ -62,10 +62,9 @@ class BlogItemSmdetails extends Component {
         <BlogHeader />
 
         <div className='article__wrapper'>
-          <div className='article__wrapper--left' />
-          <div className='article__wrapper--right'>
+          <div className='article__wrapper--left'>
             <div className='article__title'>
-              {this.state.dataimage.blogs_author}
+              {this.state.databo.blogs_title}
             </div>
             <div className='article__picture'>
               <img
@@ -87,6 +86,7 @@ class BlogItemSmdetails extends Component {
               <p>{this.state.dataimage.blogs_content}</p>
             </div>
           </div>
+          <div className='article__wrapper--right'>Latest Blogs</div>
         </div>
       </div>
     );

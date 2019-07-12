@@ -19,7 +19,7 @@ import ProductsPage from './Components/Products/ProductPage';
 
 import BlogPage from './Components/Blogs/BlogPage';
 import MainBlogClick from './Components/Blogs/MainBlogClick';
-import BlogItemSmdetails from './Components/Blogs/BlogItemSmdetails';
+import BlogItemSmdetails from './Components/BlogItemSmdetails';
 
 class App extends Component {
   render() {

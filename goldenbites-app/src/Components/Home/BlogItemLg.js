@@ -66,6 +66,8 @@ class BlogItemLg extends Component {
             {this.state.datablogslast.blogs_date}
           </div>
           <div className='blog__author'>
+            {' '}
+            by&nbsp;
             {this.state.datablogslast.blogs_author}
           </div>
           <div className='blog__summary'>
