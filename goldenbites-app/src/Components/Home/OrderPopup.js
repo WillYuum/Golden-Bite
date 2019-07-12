@@ -8,7 +8,8 @@ class OrderPopup extends Component {
       name: '',
       email: '',
       phone: '',
-      address: ''
+      address: '', 
+      orders_id: "",
     };
   }
   createOrder = async () => {
@@ -17,10 +18,10 @@ class OrderPopup extends Component {
       quantity: 5
     };
     console.log(order);
-
+    console.log(this.state.orders_id)
     try {
       const Order = await fetch(
-        'http://localhost:3001/orders_products/create',
+        `http://localhost:3001/orders_products/create?orders_id=${this.state.orders_id}`,
         {
           method: 'POST',
           body: JSON.stringify(order),
@@ -38,9 +39,9 @@ class OrderPopup extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  submitHandler = () => {
+  submitHandler = async () => {
     console.log(this.state);
-    const order = fetch('http://localhost:3001/orders/create', {
+    const order = await fetch('http://localhost:3001/orders/create', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {
@@ -48,7 +49,11 @@ class OrderPopup extends Component {
         'Content-Type': 'application/json'
       }
     })
-    this.createOrder();
+    const result = await order.json();
+    const orders_id = result.id;
+    console.log("ID:",result)
+    this.setState({orders_id})
+   this.createOrder();
   };
 
 
