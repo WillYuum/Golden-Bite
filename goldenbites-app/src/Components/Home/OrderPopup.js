@@ -75,15 +75,10 @@ class OrderPopup extends Component {
             </div>
             <div className='popUp__content--product-image' style={{
             backgroundImage: `url(\"http://localhost:3001/Golden_Bites_Images/${
-<<<<<<< HEAD
               this.props.popUpImg
             }\")`
           }} />
-=======
-              this.props.img
-            }\")`
-          }}/>
->>>>>>> 91113674f8f0e1a00cb86f21886e81e2bef1b1ea
+
           </div>
           <div className='popUp__content--product-details-description'>
             {this.props.productDiscription}
