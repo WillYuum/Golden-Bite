@@ -34,6 +34,7 @@ export default class ProductsItem extends React.Component {
         {/*-----------------------------------------POPUP-----------------------------------------------------*/}
         <OrderPopUp
           id={this.props.name}
+          popUpImg = {this.props.img}
           productName={this.props.name}
           productPrice={this.props.price}
           productCat={this.props.category}

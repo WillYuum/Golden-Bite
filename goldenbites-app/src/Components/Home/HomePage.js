@@ -48,7 +48,7 @@ class HomePage extends Component {
 
         <BestSellersSlider handleSlideSelect={this.handleSlideSelect} data_Products={this.state.data_Products}/>
         
-        <OrderPopUp id = {this.state.slide_id} img = {this.state.image} productName={this.state.name} productPrice={this.state.price} productCat={this.state.category} productDiscription = {this.state.description} />
+        <OrderPopUp id = {this.state.slide_id} img = {this.state.image} popUpImg={this.state.image} productName={this.state.name} productPrice={this.state.price} productCat={this.state.category} productDiscription = {this.state.description} />
 
         <BlogsSection />
         <BlogItemLg />
