@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const app = express();
 
@@ -7,7 +8,7 @@ const bodyParser = require('body-parser');
 
 const sqlite3 = require('sqlite3').verbose();
 let db = new sqlite3.Database('./goldenBites-db');
-console.log("here Willy", db)
+
 app.use(cors());
 app.use(express.static('public'));
 app.use(bodyParser.json())
@@ -726,4 +727,7 @@ app.delete('/orders_products/delete/:id?', function(req, res) {
   });
 });
 
-app.listen(3001);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, ()=>{
+  console.log("listening to port", PORT);
+});
