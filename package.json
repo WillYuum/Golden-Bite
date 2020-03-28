@@ -1,0 +1,25 @@
+{
+  "name": "golden-bite",
+  "version": "1.0.0",
+  "description": "A pastry Website for Lama Fatayri",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "back": "cd golden-bite-backend && npm run dev",
+    "front": "cd goldenbites-app && npm start",
+    "start": "concurrently --kill-others-on-fail --names \"back,front\" \"npm run back\" \"npm run front\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liams98/Golden-Bite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liams98/Golden-Bite/issues"
+  },
+  "homepage": "https://github.com/liams98/Golden-Bite#readme",
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  }
+}
