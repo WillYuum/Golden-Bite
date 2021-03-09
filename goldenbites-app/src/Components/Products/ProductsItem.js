@@ -7,6 +7,8 @@ export default class ProductsItem extends React.Component {
    
  }
 
+ Backend_Url = process.env.REACT_APP_PORT;
+
   render() {
     const { name, email, phone_number, address } = this.state;
     return (
@@ -14,7 +16,7 @@ export default class ProductsItem extends React.Component {
         <div
           className='product__picture'
           style={{
-            backgroundImage: `url(\"http://localhost:3001/Golden_Bites_Images/${
+            backgroundImage: `url(\"${this.Backend_Url}Golden_Bites_Images/${
               this.props.img
             }\")`
           }}

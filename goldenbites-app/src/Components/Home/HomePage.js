@@ -26,9 +26,11 @@ class HomePage extends Component {
     description:"",
   };
 
+  Backend_Url = process.env.REACT_APP_PORT;
+
   async componentDidMount() {
     try {
-      const response = await fetch("http://localhost:3001/products/read");
+      const response = await fetch(this.Backend_Url + "products/read");
       const products = await response.json();
       await this.setState({ data_Products: products.DATA });
       await console.log(this.state.data_Products);

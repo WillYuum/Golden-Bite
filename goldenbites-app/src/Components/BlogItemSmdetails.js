@@ -21,12 +21,14 @@ class BlogItemSmdetails extends Component {
     };
   }
 
+  Backend_Url = process.env.REACT_APP_PORT;
+
   async componentDidMount() {
     try {
       // FETCH FROM IMAGES_BLOGS TABLE
 
       const response_imago = await fetch(
-        'http://localhost:3001/images_blogs/read'
+        this.Backend_Url + 'images_blogs/read'
       );
       const iiblogs = await response_imago.json();
 
@@ -34,7 +36,7 @@ class BlogItemSmdetails extends Component {
       await console.log('my IMAGE is:', this.state.data);
 
       // FETCH FROM BLOGS TABLE
-      const response_blogna = await fetch('http://localhost:3001/blogs/read');
+      const response_blogna = await fetch(this.Backend_Url + 'blogs/read');
       const ttblogs = await response_blogna.json();
       await this.setState({ databo: ttblogs.DATA[0].blogs_title });
       await console.log('databo blogs are:', this.state.databo.blogs_title);
@@ -43,7 +45,7 @@ class BlogItemSmdetails extends Component {
       //Fetch from images according to id
       const id = this.props.match.params.id;
       const response_image_id = await fetch(
-        `http://localhost:3001/images_blogs/read/${id}`
+        this.Backend_Url + `images_blogs/read/${id}`
       );
       const iblogs_id = await response_image_id.json();
 
@@ -66,7 +68,7 @@ class BlogItemSmdetails extends Component {
             <div className='article__titleSingle'>{this.state.databo}</div>
             <div className='article__picture'>
               <img
-                src={`http://localhost:3001/Golden_Bites_Images/blogs/${
+                src={`${this.Backend_Url}Golden_Bites_Images/blogs/${
                   this.state.dataimage.images_link
                 }`}
                 alt='Article Image'

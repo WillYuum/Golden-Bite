@@ -11,18 +11,20 @@ class BlogItemSm extends Component {
     };
   }
 
+  Backend_Url = process.env.REACT_APP_PORT;
+
   async componentDidMount() {
     try {
       // FETCH FROM IMAGES_BLOGS TABLE
       const response_images = await fetch(
-        'http://localhost:3001/images_blogs/read'
+        this.Backend_Url + 'images_blogs/read'
       );
       const iiblogs = await response_images.json();
       await this.setState({ data: iiblogs.DATA });
       await console.log('my data is:', this.state.data);
 
       // FETCH FROM BLOGS TABLE
-      const response_blogza = await fetch('http://localhost:3001/blogs/read');
+      const response_blogza = await fetch(this.Backend_Url + 'blogs/read');
       const zzblogs = await response_blogza.json();
       await this.setState({ datab: zzblogs.DATA });
       await console.log('my blogs are:', this.state.datab);
@@ -40,7 +42,7 @@ class BlogItemSm extends Component {
               <Link to={`/BlogItemSmdetails/${item.images_link_id}`}>
                 <div className='article__picture-SM'>
                   <img
-                    src={`http://localhost:3001/Golden_Bites_Images/blogs/${
+                    src={`${this.Backend_Url}Golden_Bites_Images/blogs/${
                       item.images_link
                     }`}
                     alt='Article Image'

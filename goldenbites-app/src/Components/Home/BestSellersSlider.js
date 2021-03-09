@@ -35,6 +35,8 @@ class BestSellersSlider extends Component {
     }
   } */
 
+  Backend_Url = process.env.REACT_APP_PORT;
+
   
   render() {
     console.log("it's working");
@@ -86,7 +88,7 @@ class BestSellersSlider extends Component {
             <div className='card__side card__side--front'>
               <div className='card__picture--container'>
                 <div className='card__picture' style={{
-            backgroundImage: `url(\"http://localhost:3001/Golden_Bites_Images/${
+            backgroundImage: `url(\"${this.Backend_Url}Golden_Bites_Images/${
               BS.products_image
             }\")`
           }} />

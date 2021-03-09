@@ -13,6 +13,9 @@ class OrderPopup extends Component {
       
     };
   }
+
+  Backend_Url = process.env.REACT_APP_PORT;
+
   createOrder = async () => {
     let order = {
       products_id: this.props.productName,
@@ -22,7 +25,7 @@ class OrderPopup extends Component {
     console.log(this.state.orders_id)
     try {
       const Order = await fetch(
-        `http://localhost:3001/orders_products/create?orders_id=${this.state.orders_id}`,
+        `${this.Backend_Url}orders_products/create?orders_id=${this.state.orders_id}`,
         {
           method: 'POST',
           body: JSON.stringify(order),
@@ -43,7 +46,7 @@ class OrderPopup extends Component {
  
   submitHandler = async () => {
     console.log(this.state);
-    const order = await fetch('http://localhost:3001/orders/create', {
+    const order = await fetch(this.Backend_Url+'orders/create', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {
@@ -81,7 +84,7 @@ class OrderPopup extends Component {
               </div>
             </div>
             <div className='popUp__content--product-image' style={{
-            backgroundImage: `url(\"http://localhost:3001/Golden_Bites_Images/${
+            backgroundImage: `url(\"${this.Backend_Url}Golden_Bites_Images}Golden_Bites_Images/${
               this.props.popUpImg
             }\")`
           }} />

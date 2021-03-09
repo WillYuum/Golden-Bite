@@ -11,7 +11,7 @@ export default class CategoryListing extends React.Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch('http://localhost:3001/category/read');
+      const response = await fetch(this.Backend_Url + 'category/read');
       const categories = await response.json();
       await this.setState({ data_Categories: categories.DATA });
       await console.log('DATA =>', this.state.data_Categories);

@@ -16,11 +16,13 @@ class BlogItemLg extends Component {
     };
   }
 
+  Backend_Url = process.env.REACT_APP_PORT;
+
   async componentDidMount() {
     try {
       // FETCH FROM BLOGS TABLE
       const response_blogs_read = await fetch(
-        'http://localhost:3001/blogs/read'
+        this.Backend_Url + 'blogs/read'
       );
       const blogs_reading = await response_blogs_read.json();
       await this.setState({ datablogs: blogs_reading.DATA[0] });
@@ -28,7 +30,7 @@ class BlogItemLg extends Component {
 
       // FETCH Last Blog FROM BLOGS TABLE
       const response_blogs_read_last = await fetch(
-        'http://localhost:3001/blogs/readlast'
+        this.Backend_Url +'blogs/readlast'
       );
       const blogs_reading_lastblog = await response_blogs_read_last.json();
       await this.setState({ datablogslast: blogs_reading_lastblog.DATA[0] });
@@ -36,7 +38,7 @@ class BlogItemLg extends Component {
 
       // FETCH images FROM IbLOGS TABLE
       const response_blogs_images = await fetch(
-        'http://localhost:3001/images_blogs/readlast'
+        this.Backend_Url + 'images_blogs/readlast'
       );
       const blogs_reading_images = await response_blogs_images.json();
       await this.setState({ dataiblogslast: blogs_reading_images.DATA[0] });
@@ -52,7 +54,7 @@ class BlogItemLg extends Component {
         <div className='blog__container--left'>
           <div className='blog__picture'>
             <img
-              src={`http://localhost:3001/Golden_Bites_Images/blogs/${
+              src={`${this.Backend_Url}Golden_Bites_Images/blogs/${
                 this.state.dataiblogslast.images_link
               }`}
             />

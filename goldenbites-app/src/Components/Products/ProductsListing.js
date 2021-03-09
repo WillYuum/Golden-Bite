@@ -7,9 +7,11 @@ export default class ProductsListing extends React.Component {
     data_Products: []
   };
 
+  Backend_Url = process.env.REACT_APP_PORT;
+
   async componentDidMount() {
     try {
-      const response = await fetch("http://localhost:3001/products/read");
+      const response = await fetch(this.Backend_Url + "products/read");
       const products = await response.json();
       await this.setState({ data_Products: products.DATA });
     } catch (err) {

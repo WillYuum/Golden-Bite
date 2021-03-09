@@ -16,28 +16,30 @@ class BlogItemLg extends Component {
   //     await this.setState({blogData: blog_data})
   //   }
   // }
+  Backend_Url = process.env.REACT_APP_PORT;
+
   async componentDidMount() {
     try {
       // FETCH FROM IMAGES_BLOGS TABLE
-      const response = await fetch('http://localhost:3001/images_blogs/read');
+      const response = await fetch(this.Backend_Url + 'images_blogs/read');
       const iblogs = await response.json();
       await this.setState({ data: iblogs.DATA });
       await console.log('Image table is:', this.state.data);
 
       // FETCH FROM BLOGS TABLE author
-      const response_blogs = await fetch('http://localhost:3001/blogs/read');
+      const response_blogs = await fetch(this.Backend_Url + 'blogs/read');
       const blogs = await response_blogs.json();
       await this.setState({ data: blogs.DATA });
       await console.log('blog table is:', this.state.data);
 
       // FETCH FROM BLOGS TABLE date
-      const response_date = await fetch('http://localhost:3001/blogs/read');
+      const response_date = await fetch(this.Backend_Url + 'blogs/read');
       const date = await response_date.json();
       await this.setState({ data: date.DATA });
       await console.log('DATA:', this.state.data);
 
       // FETCH FROM BLOGS TABLE content
-      const response_content = await fetch('http://localhost:3001/blogs/read');
+      const response_content = await fetch(this.Backend_Url'blogs/read');
       const content = await response_content.json();
       await this.setState({ data: content.DATA });
       await console.log('DATA:', this.state.data);
@@ -52,7 +54,7 @@ class BlogItemLg extends Component {
       <div className='blogitemlg'>
         <div className='blogitemlgimage'>
           <img
-            src={`http://localhost:3001/Golden_Bites_Images/blogs/${
+            src={`${this.Backend_Url}Golden_Bites_Images/blogs/${
               this.state.data.images_link
             }`}
             alt='no image'
